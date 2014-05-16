@@ -7,6 +7,7 @@ gem 'rails', '3.2.18'
 
 gem 'pg'
 gem 'devise'
+gem 'feedjira'
 
 
 # Gems used only for assets and not required

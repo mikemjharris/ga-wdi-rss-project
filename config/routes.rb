@@ -3,6 +3,7 @@ Rss::Application.routes.draw do
 
   resources :users
   resources :feeds
+  resources :subscriptions
 
   root to: 'users#index'
   

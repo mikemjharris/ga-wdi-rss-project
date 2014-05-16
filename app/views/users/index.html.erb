@@ -1,3 +1,9 @@
 <h1>Hello!</h1>
 
-<% render 'feed_url' %>
+<%= render 'feed_url' %>
+
+<% @feeds.each do |feed| %>
+	<p><%= feed.title %></p>
+	<p><%= feed.description %></p>
+	<p><%= feed.url %></p>
+<% end %>
