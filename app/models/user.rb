@@ -17,6 +17,7 @@ devise :database_authenticatable, :registerable,
       registered_user = User.where(:email => auth.uid + "@twitter.com").first
       if registered_user
         return registered_user
+
       else
 
         user = User.create(
@@ -24,8 +25,10 @@ devise :database_authenticatable, :registerable,
                             uid:auth.uid,
                             email:auth.uid+"@twitter.com",
                             password:Devise.friendly_token[0,20],
+
                           )
       end
+
 
     end
   end
@@ -43,7 +46,9 @@ devise :database_authenticatable, :registerable,
         user.password = Devise.friendly_token[0,20]
       end
     end
+    
   end
+
 
   
 
