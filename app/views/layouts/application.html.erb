@@ -22,6 +22,10 @@
 
         <% end %>
       </div>  
+      <%= link_to "Add a feed", users_path %>
+      <% if user_signed_in? %>
+        <%= link_to "user page", user_path(current_user) %>
+      <% end %> 
 
        <p class="alert"><%= alert %></p>
 
