@@ -7,8 +7,7 @@ before_filter :authenticate_user!
 	end
 
 	def show
-		user = current_user.id
-		@subscriptions = Subscription.find(user)
+		@user = User.find(current_user.id)
 	end
 
 end

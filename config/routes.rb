@@ -6,6 +6,6 @@ Rss::Application.routes.draw do
   resources :subscriptions
   resources :articles
 
-  root to: 'users#index'
+  root to: 'users#show'
   
 end
