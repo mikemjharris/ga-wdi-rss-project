@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  attr_accessible :author, :category, :content, :guid, :image, :published, :summary, :title, :url
+  attr_accessible :author, :category, :content, :guid, :image, :published, :summary, :title, :url, :feed_id
 
   belongs_to :feed
 
@@ -13,10 +13,10 @@ class Article < ActiveRecord::Base
   	@article.content = article.content
   	@article.author = article.author
   	@article.image = article.image
-  	@article.category = article.category
+  	# @article.category = article.categories
   	@article.published = article.published
   	@article.url = article.url
-  	@article.guid = article.guid
+  	@article.guid = article.entry_id
   	@article.save
 
   	end
