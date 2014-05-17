@@ -22,6 +22,7 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
 
   config.omniauth :twitter, "dZmWTI1TC3d4xTbynOGJ10Iug", "3XHJTHDgznfwXCVXlb0CinfQfWfNVIFZZiqIuHBq5cTj4nI3Iq"
+  config.omniauth :google_oauth2,'798003971619-4gkc41ig4rp34vvlvg0t01n6tja8e99g.apps.googleusercontent.com', '4N8UJkhf-wV-iTVl2nR45PbB'
 
 
   # ==> Configuration for any authentication mechanism
