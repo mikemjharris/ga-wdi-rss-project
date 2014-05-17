@@ -13,5 +13,7 @@
 	<p><%= feed.description %></p>
 	<p><%= feed.url %></p>
   <%=  button_to 'Delete Feed', feed_path(feed), method: :delete %>
+  <%= link_to 'View Articles', articles_path %>
+
 <% end %>
 

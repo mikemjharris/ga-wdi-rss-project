@@ -1,0 +1,11 @@
+<h1> Test </h1>
+
+<% @articles.each do |article| %>
+<p><%= article.title %></p>
+   <%= article.summary %>
+  <%= link_to 'Show Article', article_path(article) %>
+
+
+
+
+<% end %>
