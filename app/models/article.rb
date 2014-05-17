@@ -9,8 +9,16 @@ class Article < ActiveRecord::Base
 
   	@article = Article.new()
   	@article.title = article.title
+  	@article.summary = article.summary
+  	@article.content = article.content
+  	@article.author = article.author
+  	@article.image = article.image
+  	@article.category = article.category
+  	@article.published = article.published
+  	@article.url = article.url
+  	@article.guid = article.guid
   	@article.save
-  	
+
   	end
 
   end
