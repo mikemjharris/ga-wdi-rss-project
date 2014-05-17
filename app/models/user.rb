@@ -35,5 +35,6 @@ devise :database_authenticatable, :registerable,
 
 
   has_many :feeds, through: :subscriptions
+  has_many :feeds, :through => :subscriptions
   has_many :subscriptions
 end
