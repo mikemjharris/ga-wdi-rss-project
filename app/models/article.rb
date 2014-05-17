@@ -3,7 +3,7 @@ class Article < ActiveRecord::Base
 
   belongs_to :feed
 
-  def self.create_from_feed_data(feed_data)
+  def self.create_from_feed_data(feed_data, feed_id)
 
   	feed_data.entries.each do |article|
 
@@ -17,6 +17,7 @@ class Article < ActiveRecord::Base
   	@article.published = article.published
   	@article.url = article.url
   	@article.guid = article.entry_id
+  	@article.feed_id = feed_id
   	@article.save
 
   	end

@@ -17,8 +17,8 @@ class SubscriptionsController < ApplicationController
 		@subscription.user_id = current_user.id
 		@subscription.save
 
-		Article.create_from_feed_data(feed_data)
-		
+		Article.create_from_feed_data(feed_data, @feed.id)
+
 		redirect_to :root
 	end
 
