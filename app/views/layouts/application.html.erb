@@ -8,21 +8,83 @@
 </head>
 <body>
 
+  
+  <div class="login">
+      <% if user_signed_in? %>
+    Signed in as <%= current_user.email %>. Not you?
+    <%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
+    <% else %>
+    <%= link_to "Sign up", new_user_registration_path %> or
+    <%= link_to "Sign in", new_user_session_path %>
+         
+      <p><a class="button" href="#popup1">Sign Up</a> Or
+      <a class="button" href="#popup2">Sign In</a></p>
 
-      <div class="login">
-          <% if user_signed_in? %>
-        Signed in as <%= current_user.email %>. Not you?
-        <%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
-        <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> or
-        <%= link_to "Sign in", new_user_session_path %>
-        <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %>
-        <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
+          <div id="popup1" class="overlay">
+          <div class="popup">
+            <h2>Sign Up</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+            </div>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
 
+          <div><%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true %></div>
 
+          <div><%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "off" %></div>
 
+          <div><%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+          <div><%= f.submit "Sign up" %></div>
         <% end %>
-      </div>  
+
+          </div>
+        </div>
+
+        <div id="popup2" class="overlay light">
+          <a class="cancel" href="#"></a>
+          <div class="popup">
+          <hr style="width:0.5px; height:180px; position: absolute; left: 250px;"/>
+
+            <h2>Sign in</h2>
+
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div><%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true %></div>
+
+          <div><%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "off" %></div>
+
+          <% if devise_mapping.rememberable? -%>
+            <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+          <% end -%>
+
+          <div><%= f.submit "Sign in" %></div>
+          <% end %>
+
+              <%= link_to user_omniauth_authorize_path(:twitter) do %>
+                <div id="twitter-logo"> </div>
+              <% end %>
+
+              <%= link_to user_omniauth_authorize_path(:google_oauth2) do %>
+                <div id="google-logo"> </div>
+              <% end %>
+
+          
+             <% end %>
+
+              </div>  
+
+            <div class="content">
+              
+            </div>
+          </div>
+        </div>
+
+
       <%= link_to "Add a feed", users_path %>
       <% if user_signed_in? %>
         <%= link_to "user page", user_path(current_user) %>
@@ -33,7 +95,7 @@
 
 
 
-<%= yield %>
+  <%= yield %>
 
-</body>
+  </body>
 </html>

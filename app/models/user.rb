@@ -25,7 +25,6 @@ devise :database_authenticatable, :registerable,
                             uid:auth.uid,
                             email:auth.uid+"@twitter.com",
                             password:Devise.friendly_token[0,20],
-
                           )
       end
 
