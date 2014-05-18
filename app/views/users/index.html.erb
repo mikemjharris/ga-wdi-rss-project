@@ -5,9 +5,6 @@
 
 <%= render 'feed_url' %>
 
-
-
-
 <% @feeds.each do |feed| %>
 	<p><%= feed.title %></p>
 	<p><%= feed.description %></p>
@@ -16,4 +13,7 @@
   <%= link_to 'View Articles', articles_path %>
 
 <% end %>
+
+<h1>Users</h1>
+<%= render 'users' %>
 

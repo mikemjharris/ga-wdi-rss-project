@@ -3,10 +3,16 @@ Rss::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
 
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
   resources :feeds
   resources :subscriptions
   resources :articles
+  resources :relationships, only: [:create, :destroy]
 
   root to: 'users#show'
   

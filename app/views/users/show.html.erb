@@ -1,4 +1,8 @@
-<h1>User Homepage</h1>
+<h1><%= @user.first_name %>'s Profile</h1>
+     
+<%= render 'shared/stats' %>
+    
+<%= render 'follow_form' %>
 
 <h2>Subscriptions</h2>
 <% @user.feeds.each do | feed | %>

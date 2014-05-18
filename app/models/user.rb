@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, omniauth_providers: [:twitter, :google_oauth2]
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :first_name, :last_name
   # attr_accessible :title, :body
 
     def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
@@ -45,11 +45,27 @@ devise :database_authenticatable, :registerable,
     end
   end
 
-  
+  def following?(other_user)
+    relationships.find_by_followed_id(other_user.id)
+  end
 
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
 
+  def unfollow!(other_user)
+    relationships.find_by_followed_id(other_user.id).destroy
+  end
 
   has_many :feeds, through: :subscriptions
   has_many :feeds, :through => :subscriptions
   has_many :subscriptions
+
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+  has_many :followed_users, through: :relationships, source: :followed
+  has_many :reverse_relationships, foreign_key: "followed_id",
+                                   class_name:  "Relationship",
+                                   dependent:   :destroy
+  has_many :followers, through: :reverse_relationships, source: :follower
+
 end
