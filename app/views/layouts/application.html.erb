@@ -47,7 +47,7 @@
         <div id="popup2" class="overlay light">
           <a class="cancel" href="#"></a>
           <div class="popup">
-          <hr style="width:0.5px; height:180px; position: absolute; left: 250px;"/>
+          <hr style="width:0.5px; height:160px; position: absolute; left: 250px;"/>
 
             <h2>Sign in</h2>
 
@@ -73,7 +73,10 @@
                 <div id="google-logo"> </div>
               <% end %>
 
-          
+              <%= link_to user_omniauth_authorize_path(:facebook) do %>
+                <div id="facebook-logo"> </div>
+              <% end %>
+
              <% end %>
 
               </div>  
