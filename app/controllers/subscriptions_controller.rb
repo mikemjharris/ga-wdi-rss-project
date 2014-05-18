@@ -9,8 +9,6 @@ class SubscriptionsController < ApplicationController
 		else
 			feed_data = Feedjira::Feed.fetch_and_parse("#{params[:feed_url]}")
 			if feed_data != 0	
-
-				
 				@feed = Feed.new(url: params[:feed_url])
 				@feed.title = feed_data.title
 				@feed.description = feed_data.description

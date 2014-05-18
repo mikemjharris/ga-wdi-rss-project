@@ -9,6 +9,8 @@
 	<p><%= feed.title %></p>
 <% end %>
 
+<%= link_to "Sign up", new_user_registration_path %>
+<%= link_to "update articles", feeds_update_articles_path %>
 <h2>Articles</h2>
 <% @user.feeds.each do | feed | %>
 	<% feed.articles.each do | article | %>
