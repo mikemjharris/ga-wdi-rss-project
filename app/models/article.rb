@@ -3,6 +3,8 @@ class Article < ActiveRecord::Base
 
   belongs_to :feed
 
+   markable_as :favorite
+
   def self.create_from_feed_data(feed_data, feed_id)
   	feed_data.entries.each do |article|
   	 create_article(article, feed_id)
