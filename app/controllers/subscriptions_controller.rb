@@ -22,8 +22,6 @@ class SubscriptionsController < ApplicationController
 			end
 		end
 
-		
-
 		redirect_to :root
 	end
 

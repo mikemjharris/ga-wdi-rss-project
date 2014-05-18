@@ -11,11 +11,8 @@
 
 <%= link_to "Sign up", new_user_registration_path %>
 <%= link_to "update articles", feeds_update_articles_path %>
-<h2>Articles</h2>
-<% @user.feeds.each do | feed | %>
-	<% feed.articles.each do | article | %>
-	<h3><%= article.title %></h3>
-	<p><%= article.summary %></p>
-	<a href="<%= article.url %>">Read More...</a>
-	<% end %>
-<% end %>
+<%= link_to "update articles ajax", feeds_update_articles_path, remote: true %>
+
+<div id="articles">
+  <%= render partial: 'articles' %>
+<div>

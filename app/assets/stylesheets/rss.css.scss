@@ -5,8 +5,12 @@ $background-color: #f2f3f4;
   background: $warning-color;
 }
 
-
-
+.article_flash{
+  background: $warning-color;
+}
+.article {
+  transition: all 1s;
+}
 
 
 

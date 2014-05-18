@@ -17,7 +17,12 @@ class FeedsController < ApplicationController
       Article.update_from_feed_data(feed_data, feed_urls)
     end
      
-    redirect_to :root
+    respond_to do |format|
+      format.js  { render 'update_articles.js.erb' }#{ render '/tts/ttts.js.erb' }
+      format.html {redirect_to :root }
+      
+    end 
+    
 
   end
 
