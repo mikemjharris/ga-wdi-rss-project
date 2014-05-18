@@ -1,4 +1,5 @@
 $warning-color: red;
+$background-color: #f2f3f4;
 
 .alert {
   background: $warning-color;
@@ -7,6 +8,50 @@ $warning-color: red;
 
 
 
+
+
+
+
+
+
+body {
+  background-color: $background-color;
+}
+
+.fb-share-button
+{
+transform: scale(1.4);
+-ms-transform: scale(1.4);
+-webkit-transform: scale(1.4);
+-o-transform: scale(1.4);
+-moz-transform: scale(1.4);
+transform-origin: top left;
+-ms-transform-origin: top left;
+-webkit-transform-origin: top left;
+-moz-transform-origin: top left;
+-webkit-transform-origin: top left;
+}
+
+.logo {
+  content:url(/mega-phone.png);
+  width: 10%;
+  height: auto;
+  border-radius: 50px;
+  display: inline-block;
+  clear: both;
+}
+
+.buttonSignUp {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.buttonSignIn {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+}
 
 
 
