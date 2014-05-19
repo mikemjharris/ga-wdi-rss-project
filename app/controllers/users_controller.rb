@@ -8,8 +8,11 @@ before_filter :authenticate_user!
 	end
 
 	def show
-		@user = User.find(params[:id])
-		# @user = current_user
+    if (params[:id])
+      @user = User.find(params[:id])
+    else
+		  @user = current_user
+    end
 	end
 
 	def following
