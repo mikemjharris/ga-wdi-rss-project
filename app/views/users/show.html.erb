@@ -8,10 +8,10 @@
   Your Feeds
 
 	 <ul>
-      <li>Manage feeds</li>
-	   <% @user.feeds.each do | feed | %>
+      <li><%= link_to 'Manage Feeds', users_path %></li>
+      <% @user.feeds.each do | feed | %>
 		    <li><%= link_to feed.title, feed_path(feed), remote: true %></li> 
-	   <% end %>
+      <% end %>
   </ul>
 
 	<%= link_to "update articles", feeds_update_articles_path %>
