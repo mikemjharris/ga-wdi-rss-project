@@ -1,22 +1,21 @@
-<h1><%= @user.first_name %>'s Profile</h1>
-     
-<%= render 'shared/stats' %>
-    
-<%= render 'follow_form' %>
+<div id='left-menu'>
+	<p><%= link_to "Timeline", timeline_user_path(@user) %></p>
+	<p><%= link_to "Favourites", favorites_user_path(@user) %></p>
+	<p>Unread</p>
 
-<h2>Subscriptions</h2>
-<% @user.feeds.each do | feed | %>
-	<p><%= feed.title %></p>
-<% end %>
+	<p>Your Feeds</p>
+	<% @user.feeds.each do | feed | %>
+		<p><%= feed.title %></p>
+	<% end %>
 
-<h1><%= link_to "Favorites", favorites_user_path(@user) %></h1>
+	<%= link_to "update articles", feeds_update_articles_path %>
+	<%= link_to "update articles ajax", feeds_update_articles_path, remote: true %>
+</div>
 
-<h1><%= link_to "Timeline", timeline_user_path(@user) %></h1>
+<div id='middle-menu'>
+	<%= render 'articles' %>
+</div>
 
-
-<%= link_to "update articles", feeds_update_articles_path %>
-<%= link_to "update articles ajax", feeds_update_articles_path, remote: true %>
-
-<div id="articles">
-  <%= render partial: 'articles' %>
-<div>
+<div id='right-menu'>
+	
+</div>

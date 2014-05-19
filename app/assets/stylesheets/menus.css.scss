@@ -1,0 +1,24 @@
+
+*{
+	box-sizing: border-box;
+
+}
+
+#left-menu{
+	height: 100vh;
+	border: 1px solid black;
+	width: 20%;
+	display: inline-block;
+	overflow: scroll;
+
+}
+
+#middle-menu{
+	@extend #left-menu;
+	width: 39%;
+}
+
+#right-menu{
+	@extend #left-menu;
+	width: 39%;
+}

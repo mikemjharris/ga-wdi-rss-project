@@ -2,10 +2,13 @@
 <% @user.feeds.each do | feed | %>
   <h2 class="feed_title" data-last_updated="<%= feed.articles.most_recent.first.created_at.to_i %>" data-feed_id="<%= feed.id %>"><%= feed.title %></h2>
   <% feed.articles.most_recent.each do | article | %>
-    <div class="article" data-last_updated="<%= article.created_at.to_i %>">
-      <h3><%= article.title %></h3>
-      <p><%= article.summary %></p>
-      <a href="<%= article.url %>">Read More...</a>
-    </div>
+
+	<%= link_to article_path(article), remote: true do %>
+	    <div class="article" data-last_updated="<%= article.created_at.to_i %>">
+	      <h3><%= article.title %></h3>
+	      <p><%= article.summary %></p>
+	      <!-- <a href="<%= article.url %>">Read More...</a> -->
+	    </div>
+	<% end %>
   <% end %>
 <% end %>
