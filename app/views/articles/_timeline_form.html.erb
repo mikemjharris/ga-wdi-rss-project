@@ -1,0 +1,5 @@
+<% if current_user.timeline_articles.include?(Article.find(params[:id])) %>
+	<%= render 'removetimeline' %>
+<% else %>
+	<%= render 'addtimeline' %>	
+<% end %>

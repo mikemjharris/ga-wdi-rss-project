@@ -35,4 +35,10 @@ before_filter :authenticate_user!
   		render 'favorites'
   	end
 
+  	def timeline
+  		user = current_user
+  		@articles = user.timeline_articles
+  		render 'timeline'
+  	end
+
 end

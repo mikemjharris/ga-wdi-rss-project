@@ -6,7 +6,7 @@ class Article < ActiveRecord::Base
 
   scope :most_recent, order("created_at desc")
 
-   markable_as :favorite
+   markable_as :favorite, :timeline
 
 
   def self.create_from_feed_data(feed_data, feed_id)
