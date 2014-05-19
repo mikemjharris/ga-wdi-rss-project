@@ -45,7 +45,7 @@ class FeedsController < ApplicationController
 
   def index
     @feeds = Feed.all
-
+    @subscriptions = current_user.feeds
     respond_to do |format|
       format.js  { render 'index.js.erb'}
       format.html

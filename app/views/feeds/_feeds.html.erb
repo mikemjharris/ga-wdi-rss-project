@@ -1,7 +1,19 @@
+
+
 <% @feeds.each do |feed| %>
-  <p><%= feed.title %></p>
-  <p><%= feed.description %></p>
-  <p><%= feed.url %></p>
-  <%=  button_to 'Delete Feed', feed_path(feed), method: :delete %>
-  <%= link_to 'View Articles', articles_path %>
+ 
+  <% unless @subscriptions.include?(feed) %>
+    <p><%= feed.title %></p>
+    <p><%= feed.description %></p>
+    <p><%= feed.url %></p>
+  
+    <%= link_to feed.title, feed_path(feed), remote: true %>
+    <%= link_to "Subscribe", subscriptions_path(:feed_url => feed.url), method: "post" %>
+    
+    
+
+
+    <%=  button_to 'Delete Feed', feed_path(feed), method: :delete %>
+  <% end %>
 <% end %>
+
