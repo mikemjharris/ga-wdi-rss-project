@@ -1,14 +1,12 @@
 
 var list_of_feeds = $('.feed_title')
 var last_updated = $('.feed_title').data('last_updated')
-console.log(last_updated)
 
 var articleHtml =  "<%= escape_javascript(render partial: '/users/articles' ) %>"
 
 $('#articles').html(articleHtml)
 
 $('.article').each(function(i,el){
-    console.log($(el).data('last_updated'))
 
   if($(el).data('last_updated') > last_updated){
     
