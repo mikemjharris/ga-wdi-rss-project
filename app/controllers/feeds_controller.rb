@@ -30,9 +30,19 @@ class FeedsController < ApplicationController
       format.js  { render 'update_articles.js.erb'}
       format.html {redirect_to :root }
       
-    end 
-    
+    end
 
+  end
+
+  def show
+    @feed = Feed.find(params[:id])
+
+    respond_to do |format|
+      
+      format.js  { render 'show.js.erb'}
+      format.html
+      
+    end
   end
 
 

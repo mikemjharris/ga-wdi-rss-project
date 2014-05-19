@@ -4,18 +4,20 @@
 	<p>Unread</p>
 
 	<p>Your Feeds</p>
+	<ul>
 	<% @user.feeds.each do | feed | %>
-		<p><%= feed.title %></p>
+		<li><%= link_to feed.title, feed_path(feed), remote: true %></li> 
 	<% end %>
+</ul>
 
 	<%= link_to "update articles", feeds_update_articles_path %>
 	<%= link_to "update articles ajax", feeds_update_articles_path, remote: true %>
 </div>
 
 <div id='middle-menu'>
-	<%= render 'articles' %>
+
 </div>
 
 <div id='right-menu'>
-	
+
 </div>
