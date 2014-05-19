@@ -1,0 +1,5 @@
+<% if current_user.favorite_articles.include?(Article.find(params[:id])) %>
+	<%= render 'unfavorite' %>
+<% else %>
+	<%= render 'favorite' %>	
+<% end %>

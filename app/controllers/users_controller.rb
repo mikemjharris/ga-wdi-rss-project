@@ -26,4 +26,10 @@ before_filter :authenticate_user!
 	    render 'show_follow'
   	end
 
+  	def favorites
+  		user = current_user
+  		@articles = user.favorite_articles
+  		render 'favorites'
+  	end
+
 end

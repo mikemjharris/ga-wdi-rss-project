@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+    acts_as_marker
+
     devise :omniauthable
 
   # Include default devise modules. Others available are:

@@ -5,7 +5,7 @@ Rss::Application.routes.draw do
 
   resources :users do
     member do
-      get :following, :followers
+      get :following, :followers, :favorites
     end
   end
 
@@ -13,6 +13,7 @@ Rss::Application.routes.draw do
   resources :subscriptions
   resources :articles
   resources :relationships, only: [:create, :destroy]
+  resources :favorites, only: [:create, :destroy]
 
   get 'feeds/update/articles', to:  'feeds#update_articles', as: 'feeds_update_articles'
   root to: 'users#show'
