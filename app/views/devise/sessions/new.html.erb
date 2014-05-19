@@ -1,18 +1,22 @@
+<div class="logo"> </div> 
+<div class="title_homepage">Yakety Feed </div>
 
-<h2>Sign in</h2>
+<div id="slogon"> Your very own RSS reader. It's free and always will be. </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+<div class="slides">
+    <ul> <!-- slides -->
+        <li><img src="/test_img2.png" alt="image01" />
+        </li>
+        <li><img src="/mega-phone.png" alt="image02" />
+        </li>
+        <li><img src="/test_img3.png" alt="image03" />
+        </li>
+        <li><img src="/test_img4.png" alt="image04" />
+        </li>
+    </ul>
+</div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+
