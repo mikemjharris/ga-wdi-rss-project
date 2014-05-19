@@ -1,1 +1,69 @@
-test
+<a class="buttonSignUp" href="#popup1">Sign Up</a> 
+<a class="buttonSignIn" href="#popup2">Sign In</a>
+      
+      <div id="popup1" class="overlay">
+        <div class="popup">
+          <h2>Sign Up</h2>
+          <a class="close" href="#">&times;</a>
+          <div class="content">
+          </div>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+            <div>
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true %>
+            </div>
+            <div>
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "off" %>
+            </div>
+            <div>
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            </div>
+            <div>
+              <%= f.submit "Sign up" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    <div id="popup2" class="overlay light">
+      <a class="cancel" href="#"></a>
+      <div class="popup">
+      <hr style="width:0.5px; height:160px; position: absolute; left: 250px;"/>
+      <h2>Sign in</h2>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div>
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+        <div>
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+        <% if devise_mapping.rememberable? -%>
+          <div>
+            <%= f.check_box :remember_me %> 
+            <%= f.label :remember_me %>
+          </div>
+        <% end -%>
+        <div>
+          <%= f.submit "Sign in" %>
+        </div>
+      <% end %>
+
+      <%= link_to user_omniauth_authorize_path(:twitter) do %>
+        <div id="twitter-logo"></div>
+      <% end %>
+      
+      <%= link_to user_omniauth_authorize_path(:google_oauth2) do %>
+        <div id="google-logo"> </div>
+      <% end %>             
+      
+      <%= link_to user_omniauth_authorize_path(:facebook) do %>
+        <div id="facebook-logo"> </div>
+      <% end %>
+
+    </div>  
+
