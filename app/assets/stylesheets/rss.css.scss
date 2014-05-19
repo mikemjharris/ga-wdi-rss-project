@@ -156,6 +156,7 @@ a.button:active {
   color: #999;
 }
 
+
 .popup .close {
   position: absolute;
   width: 20px;
@@ -173,6 +174,9 @@ a.button:active {
   text-decoration: none;
   color: #666;
 }
+
+
+
 .popup .close:hover {
   opacity: 1;
 }
@@ -229,4 +233,43 @@ div.light:target .popup {
   -o-transform: matrix(1,0,0,1,0,0);
   transform: matrix(1,0,0,1,0,0);
 }
+
+#socialboxbtn-container {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+.socialboxbtn {
+    width:150px;
+    display:inline-block;
+    font-family: 'Open Sans', sans-serif;
+    font-size:12px;
+    text-decoration:none;
+    color:#fff;
+    position:relative;
+    margin-top:60px;
+    padding-bottom:10px;
+    padding-top:10px;
+    background-image: linear-gradient(bottom, rgb(168,48,232) 100%, rgb(141,32,196) 0%);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align:center;
+}
+
+.socialboxfb {
+  background-color:#3b5997;
+  box-shadow: inset 0px 1px 0px #5581d9, 0px 5px 0px 0px #273b63, 0px 10px 5px #999;
+}
+
+.socialboxtw {
+  background-color:#00aced;
+  box-shadow: inset 0px 1px 0px #00bbff, 0px 5px 0px 0px #007ba8, 0px 10px 5px #999;
+}
+
+.socialboxgp {
+  background-color:#e36044;
+  box-shadow: inset 0px 1px 0px #ff886e, 0px 5px 0px 0px #a84832, 0px 10px 5px #999;
+}
+ 
+
 

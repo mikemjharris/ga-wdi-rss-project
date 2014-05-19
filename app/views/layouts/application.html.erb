@@ -18,7 +18,7 @@
     }(document, 'script', 'facebook-jssdk'));
     </script>
 
- 
+
 
   <div class="login">
       <% if user_signed_in? %>
@@ -110,6 +110,18 @@
 
 
   <%= yield %>
+
+    <div id="socialboxbtn-container">
+      <a href="https://www.facebook.com/profile.php?id=100008346759587" class="socialboxbtn socialboxfb" target="_blank">
+        Like on Facebook
+      </a>
+      <a href="https://twitter.com/YaketyFeed" class="socialboxbtn socialboxtw" target="_blank">
+        Follow on Twitter
+      </a>
+      <a href="https://plus.google.com/u/0/105022915175785201051/posts" class="socialboxbtn socialboxgp" target="_blank">
+        Plus on Google+
+      </a>
+  </div>
 
   </body>
 </html>

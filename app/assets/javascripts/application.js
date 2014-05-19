@@ -14,3 +14,21 @@
 //= require jquery_ujs
 //= require_tree .
 
+$(document).ready(function(){
+   var update_articles = function () {
+        var ajaxOptions = {
+          url: "/feeds/update/articles",
+          type: 'GET',
+          success: function(data) {
+            console.log(data);
+          } ,
+          error: function(data) {
+            console.error("ajax error");
+            console.log(data);
+          }
+        }
+
+        $.ajax(ajaxOptions);
+    };
+
+}());
