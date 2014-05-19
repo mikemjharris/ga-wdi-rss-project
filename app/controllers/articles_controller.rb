@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
     	format.js {render 'show.js.erb'}
     	format.html {render 'show.html.erb'}
-   	end
+   	end	
 
   end
 
