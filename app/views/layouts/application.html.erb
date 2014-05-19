@@ -27,16 +27,20 @@
     <% else %>
     <%= link_to "Sign up", new_user_registration_path %> or
     <%= link_to "Sign in", new_user_session_path %>
-         
-      <p><a class="buttonSignUp" href="#popup1">Sign Up</a> 
-      <a class="buttonSignIn" href="#popup2">Sign In</a></p>
 
-          <div id="popup1" class="overlay">
-          <div class="popup">
+     <%= render partial: 'layouts/signin' %>
+         
+      <p>
+        <a class="buttonSignUp" href="#popup1">Sign Up</a> 
+        <a class="buttonSignIn" href="#popup2">Sign In</a>
+      </p>
+
+      <div id="popup1" class="overlay">
+        <div class="popup">
             <h2>Sign Up</h2>
-            <a class="close" href="#">&times;</a>
-            <div class="content">
-            </div>
+              <a class="close" href="#">&times;</a>
+              <div class="content">
+              </div>
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
 
