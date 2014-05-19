@@ -38,13 +38,20 @@ class FeedsController < ApplicationController
     @feed = Feed.find(params[:id])
 
     respond_to do |format|
-      
       format.js  { render 'show.js.erb'}
       format.html
-      
     end
   end
 
+  def index
+    @feeds = Feed.all
+
+    respond_to do |format|
+      format.js  { render 'index.js.erb'}
+      format.html
+    end
+
+  end
 
 
 end
