@@ -15,7 +15,7 @@ class FeedsController < ApplicationController
     else
       @user = current_user
     end
-    
+
     feed_urls = Feed.all.map{|feed| feed.url}
     feed_data = Feedjira::Feed.fetch_and_parse(feed_urls)
     
@@ -23,8 +23,10 @@ class FeedsController < ApplicationController
       Article.update_from_feed_data(feed_data, feed_urls)
     end
      
+     
     respond_to do |format|
-      format.js  { render 'update_articles.js.erb' }#{ render '/tts/ttts.js.erb' }
+      # format.js  { render 'update_articles.js.erb'}
+      format.json {render json: feed_data}
       format.html {redirect_to :root }
       
     end 

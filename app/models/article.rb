@@ -8,6 +8,7 @@ class Article < ActiveRecord::Base
 
    markable_as :favorite
 
+  private
 
   def self.create_from_feed_data(feed_data, feed_id)
   	feed_data.entries.each do |article|
