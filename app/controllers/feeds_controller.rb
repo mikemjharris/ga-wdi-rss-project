@@ -10,6 +10,12 @@ class FeedsController < ApplicationController
   end
 
   def update_articles
+    if (params[:id])
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
+    
     feed_urls = Feed.all.map{|feed| feed.url}
     feed_data = Feedjira::Feed.fetch_and_parse(feed_urls)
     

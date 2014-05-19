@@ -1,7 +1,8 @@
 
-
 var list_of_feeds = $('.feed_title')
 var last_updated = $('.feed_title').data('last_updated')
+console.log(last_updated)
+
 var articleHtml =  "<%= escape_javascript(render partial: '/users/articles' ) %>"
 
 $('#articles').html(articleHtml)
