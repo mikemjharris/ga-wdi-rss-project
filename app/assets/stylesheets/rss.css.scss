@@ -106,7 +106,7 @@ transform-origin: top left;
    z-index: 2;
    float: right;
    margin-top: -50px;
-   margin-right: 100px;
+   margin-right: 102px;
    width: 26%;
    height: auto;
 } 
@@ -246,7 +246,9 @@ a.button:active {
 }
 
 #popup2 .popup {
-  width: 600px;
+  width: 900px;
+  height: 390px;
+  margin-top: 235px;
 }
 
 /** display popup **/
@@ -311,6 +313,7 @@ div.light:target .popup {
     width:900px;
     margin-left: auto; 
     margin-right: auto;
+    z-index: -1;
 }
 .slides ul {
     list-style:none;
