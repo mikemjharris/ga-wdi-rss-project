@@ -32,17 +32,13 @@ class Article < ActiveRecord::Base
 
 
   def self.create_article(article, feed_id)
-    @article = Article.new()
-    @article.title = article.title
-    @article.summary = article.summary
-    @article.content = article.content
-    @article.author = article.author
-    @article.image = article.image
-    @article.published = article.published
-    @article.url = article.url
-    @article.guid = article.entry_id
-    @article.feed_id = feed_id     
+    
+    @article = Article.create(title: article.title,
+      summary: article.summary, content: article.content,
+      author: article.author, image: article.image, published: article.published,
+      url: article.url, guid: article.entry_id, feed_id: feed_id)
     @article.save
+
   end
 
 
