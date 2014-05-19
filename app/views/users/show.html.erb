@@ -1,14 +1,18 @@
 <div id='left-menu'>
-	<p><%= link_to "Timeline", timeline_user_path(@user) %></p>
-	<p><%= link_to "Favourites", favorites_user_path(@user) %></p>
-	<p>Unread</p>
+  <ul>
+	 <li><%= link_to "Timeline", timeline_user_path(@user) %></li>
+	 <li><%= link_to "Favourites", favorites_user_path(@user) %></li>
+	 <li>Unread</li>
+  </ul>
+	
+  Your Feeds
 
-	<p>Your Feeds</p>
-	<ul>
-	<% @user.feeds.each do | feed | %>
-		<li><%= link_to feed.title, feed_path(feed), remote: true %></li> 
-	<% end %>
-</ul>
+	 <ul>
+      <li>Manage feeds</li>
+	   <% @user.feeds.each do | feed | %>
+		    <li><%= link_to feed.title, feed_path(feed), remote: true %></li> 
+	   <% end %>
+  </ul>
 
 	<%= link_to "update articles", feeds_update_articles_path %>
 	<%= link_to "update articles ajax", feeds_update_articles_path, remote: true %>
