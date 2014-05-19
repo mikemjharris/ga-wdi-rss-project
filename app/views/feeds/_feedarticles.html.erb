@@ -1,10 +1,12 @@
 <ul>
 <% @feed.articles.most_recent.each do | article | %>
 
+  <li>
 	<%= link_to article_path(article), remote: true do %>
 	    <div class="article" data-last_updated="<%= article.created_at.to_i %>">
-	      <li><%= article.title %></li>
+	      <%= article.title %>
 	    </div>
 	<% end %>
+  </li>
   <% end %>
 </ul>  

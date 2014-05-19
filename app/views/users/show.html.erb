@@ -1,4 +1,4 @@
-<div id='left-menu'>
+<div id='left-menu' >
   <ul>
 	 <li><%= link_to "Timeline", timeline_user_path(@user) %></li>
 	 <li><%= link_to "Favourites", favorites_user_path(@user) %></li>
@@ -14,8 +14,7 @@
       <% end %>
   </ul>
 
-	<%= link_to "update articles", feeds_update_articles_path %>
-	<%= link_to "update articles ajax", feeds_update_articles_path, remote: true %>
+	
 </div>
 
 <div id='middle-menu'>

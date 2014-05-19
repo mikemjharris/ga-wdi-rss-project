@@ -27,6 +27,9 @@
     <% end %>
   </div>
     
+    <%= link_to "update articles", feeds_update_articles_path %>
+    <%= link_to "update articles ajax", feeds_update_articles_path, remote: true %>
+
   <% if user_signed_in? %>
     <%= link_to "Add a feed", users_path %>
     <%= link_to "user page", user_path(current_user) %>
