@@ -3,7 +3,11 @@ class Article < ActiveRecord::Base
 
   belongs_to :feed
 
+
   scope :most_recent, order("created_at desc")
+
+   markable_as :favorite
+
 
   def self.create_from_feed_data(feed_data, feed_id)
   	feed_data.entries.each do |article|
