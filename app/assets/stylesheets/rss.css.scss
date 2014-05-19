@@ -83,33 +83,40 @@ transform-origin: top left;
 
 
 #twitter-logo {
-   content:url(/sign-in-with-twitter-gray.png);
+   content:url(/sign_on_with_twitter.png);
    z-index: 2;
    float: right;
    margin-top: -140px;
-   margin-right: 100px;
+   margin-right: 364px;
+    width: 27%;
+   height: auto;
 }
 
 #google-logo {
-   content:url(/Red-signin-Long-base-44dp.png);
+   content:url(/sign_on_with_google.png);
    z-index: 2;
    float: right;
-   margin-top: -100px;
-   margin-right: 98px;
+   margin-top: -70px;
+   margin-right: 364px;
    width: 27%;
    height: auto;
    border-radius: 10px;
 }
 
 #facebook-logo {
-   content:url(/facebook.png);
+   content:url(/sign_on_with_facebook.png);
    z-index: 2;
    float: right;
-   margin-top: -50px;
-   margin-right: 102px;
-   width: 26%;
+   margin-top: 0px;
+   margin-right: 364px;
+    width: 27%;
    height: auto;
 } 
+
+.new_user_login {
+  margin-left: 620px;
+  margin-top: -120px;
+}
 
 input[type=button]:active,
 input[type=submit]:active,
