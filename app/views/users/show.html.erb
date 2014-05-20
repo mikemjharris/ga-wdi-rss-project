@@ -9,29 +9,22 @@
   <ul>
     
   <li>
-   <%= link_to 'Manage Feeds', feeds_path, remote: true %>
+   <%= link_to 'Manage Feeds', feeds_path, remote: true, id: "manage_feeds" %>
  </li>
  <li>
   Your Feeds</li>
 	 
    <ul id="feeds-menu">
-      
-      <% i = 0 %>
       <% @user.feeds.includes(:subscriptions).order("subscriptions.sort_order").each do | feed | %>
 
 		    <li id="feed_<%= feed.id %>"><%= link_to feed.title, feed_path(feed), remote: true %>
-
-<%= link_to user_omniauth_authorize_path(:facebook) do %>
-        <div id="facebook-logo"> </div>
-      <% end %>
-
-
                  
             <%= link_to subscription_path(find_subscription(feed,current_user)), method: :delete do %>
-              <div id="delete_icon"> </div>
+
+              <div id="delete_icon"></div>
               <% end %>
         </li> 
-        <% i +=1 %>
+        
       <% end %>
   </ul>
 

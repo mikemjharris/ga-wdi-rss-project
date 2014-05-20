@@ -44,11 +44,19 @@ header {
   background-color: #ca2024;
 }
 
+#feeds-menu #delete_icon {
+  height: 0px;
+  transition: height 0.3s;
+}
+
+#feeds-menu.show #delete_icon {
+  height: 15px;
+  }
+
 #delete_icon {
   content:url(/assets/delete.png);
   width: 15px; 
   height: auto;
-
 }
 
 .title_homepage {
