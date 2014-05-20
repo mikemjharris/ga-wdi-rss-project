@@ -22,4 +22,13 @@ class FavoritesController < ApplicationController
    		end	
 	end
 
+	def show
+		user = current_user
+		@articles = user.favorite_articles
+		respond_to do |format|
+	      format.js  { render '/users/favorites.js.erb'}
+	      format.html { render '/users/favorites.js.erb'}
+	    end
+	end
+
 end
