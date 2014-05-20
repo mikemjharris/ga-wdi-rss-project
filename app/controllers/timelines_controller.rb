@@ -25,4 +25,14 @@ class TimelinesController < ApplicationController
    		end	
 	end
 
+	def show
+		user = current_user
+		@timeline_articles = user.timeline_articles
+
+		respond_to do |format|
+	      format.js  { render '/users/timeline.js.erb'}
+	      format.html { render '/users/timeline.js.erb'}
+	    end
+	end
+
 end
