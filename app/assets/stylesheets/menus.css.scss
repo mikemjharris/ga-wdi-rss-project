@@ -33,7 +33,7 @@ a {
 
 #middle-menu{
 	@extend #left-menu;
-	width: 39%;
+	width: 40%;
 	a {
 		padding: 3px 3px;
 		display: block;
@@ -55,5 +55,5 @@ a {
 
 #right-menu{
 	@extend #left-menu;
-	width: 39%;
+	width: 40%;
 }

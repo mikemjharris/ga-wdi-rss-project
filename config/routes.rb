@@ -17,6 +17,7 @@ Rss::Application.routes.draw do
   resources :timelines, only: [:create, :destroy]
 
   get 'feeds/update/articles', to:  'feeds#update_articles', as: 'feeds_update_articles'
+  post 'feeds/update/sortable', to:  'feeds#sortable', as: 'feeds_sortable'
   root to: 'users#show'
   
 end
