@@ -1,5 +1,6 @@
 $warning-color: red;
 $background-color: #f2f3f4;
+$active: red;
 
 .alert {
   background: $warning-color;
@@ -12,6 +13,9 @@ $background-color: #f2f3f4;
   transition: background 1s;
 }
 
+.active {
+  background:$active;
+}
 .signinbutton {
   float: right;
   margin-top: 25px;

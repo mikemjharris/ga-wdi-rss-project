@@ -17,18 +17,17 @@ devise :database_authenticatable, :registerable,
     if user
       return user
     else
-      registered_user = User.where(:email => auth.uid + "@twitter.com").first
+      registered_user = User.where(:email => auth.info.nickname.downcase + "@twitter.com").first
       if registered_user
         return registered_user
 
       else
-
+        
         user = User.create(
                             provider:auth.provider,
                             uid:auth.uid,
                             email:auth.info.nickname.downcase + "@twitter.com",
                             profile_image: auth.info.image,
-                            password:Devise.friendly_token[0,20],
                           )
       end
 

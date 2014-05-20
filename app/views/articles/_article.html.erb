@@ -1,5 +1,5 @@
 
-<a href=" <%=  @article.url %> " >
+<a href=" <%=  @article.url %> " target="_blank" >
 
    <%= @article.title %> </a>
 <p><%= @article.summary %></p>
@@ -42,3 +42,9 @@
 <div id='timeline-button'>
 	<%= render 'timeline_form' %>
 </div>
+
+<a href="https://www.facebook.com/sharer/sharer.php?app_id=235129946681549&sdk=joey&u=<%= @article.url %>%26ns_source%3DPublicRSS20-sa&display=popup" target="_blank">test fb</a>
+
+<a href="https://twitter.com/intent/tweet?hashtags=YaketyFeed&amp;original_referer=http%3A%2F%2Flocalhost%3A3000%2Farticles%2F<%= @article.id %>&amp;text=Rss&amp;tw_p=tweetbutton&amp;url=http%3A%2F%2Flocalhost%3A3000%2Farticles%<%= @article.id %>&amp;via=YaketyFeed" class="btn" id="b">  Tweet</a>
+
+
