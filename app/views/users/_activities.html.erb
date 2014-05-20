@@ -1,0 +1,9 @@
+<h1>Activity Feed</h1>
+<% @users.each do | user | %>
+	<% user.timeline_articles.each do | article | %>
+		<p><%= user.first_name %> <%= user.last_name %> just shared a link:</p>
+			<%= link_to article_path(article), remote: true do %>
+				<p><%= article.title %></p>
+			<% end %>
+	<% end %>
+<% end %>
