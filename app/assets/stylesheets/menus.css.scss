@@ -1,11 +1,11 @@
 
 *{
 	box-sizing: border-box;
- 	font-family: 'Arimo', sans-serif;
+ 	
 }
 
 .active {
-  background:darken($menu-item-color,20%);
+  background:#D170A9;
 }
 
 a {
@@ -17,19 +17,22 @@ a {
 }
 
 #left-menu{
+	font-family: 'Arimo', sans-serif;
 	background: white;
 	border: 4px solid $site-color;
 	border-radius: 3px;
 	margin: 0 0.5%;
 
 	padding: 3px 10px;
-	height: 100vh;
+	height: 85vh;
 	width: 20%;
 	display: inline-block;
 	overflow: scroll;
 	ul {
 		display: inline;
 		list-style: none;
+		margin: 0px;
+		padding: 0px;
 		}
 	a {
 		display: block;
@@ -67,4 +70,20 @@ a {
 #right-menu{
 	@extend #middle-menu;
 	
+}
+
+.menu-section{
+	margin: 7px 0;
+	border: 1px solid $site-color;
+	border-radius: $border-r-small;
+	max-height: 30vh;
+	overflow: scroll;
+}
+
+.menu-title{
+	text-align: center;
+	background: $site-color;
+	padding: 2px;
+	color: white;
+
 }
