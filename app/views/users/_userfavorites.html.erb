@@ -1,5 +1,5 @@
 <h1>Favorites</h1>
-<% @articles.each do |article| %>
+<% @articles.reverse.each do |article| %>
 	<%= link_to article_path(article), remote: true do %>
 	      <%= article.title %>
 	<% end %>
