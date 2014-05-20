@@ -27,7 +27,28 @@ $active: red;
  margin-left: auto;
  margin-right: auto;
  clear: both;
- 
+}
+
+.small_logo {
+   content:url(/banner.png);
+   width: 15%;
+   height: auto;
+   position: absolute;
+   margin-left: auto;
+   margin-right: auto;
+   left: 42.5%;
+}
+
+header {
+  width: 100%;
+  border: 1px solid black;
+  width: 98.6%;
+  background-color: #ca2024;
+}
+
+#delete_icon {
+  content:url(/assets/delete.png);
+
 }
 
 .title_homepage {
