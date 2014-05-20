@@ -32,6 +32,17 @@
 
 	<%= render 'users' %>
 
+    <%= form_tag("/categories", method: "post") do %>
+      <%= label_tag(:category_name, "New category:") %>
+      <%= text_field_tag(:category_name) %>
+      <%= submit_tag("Add") %>
+    <% end %>
+  <ul>
+  <% @user.categories.each do |category| %>
+    <li><%= category.category_name %></li>
+  <% end %>
+
+
 </div><div id='middle-menu'>
   <%= render 'activities' %>
 </div><div id='right-menu'>

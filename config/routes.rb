@@ -12,6 +12,7 @@ Rss::Application.routes.draw do
   resources :feeds
   resources :subscriptions
   resources :articles
+  resources :categories
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
   resources :timelines, only: [:create, :destroy]

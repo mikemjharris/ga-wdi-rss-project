@@ -1,4 +1,4 @@
-$hover-color: red;
+$hover-color: black;
 $menu-item-color: lighten(#ff7373,20%);
 *{
 	box-sizing: border-box;
@@ -28,6 +28,14 @@ a {
 		display: inline;
 		list-style: none;
 		}
+	a {
+		display: block;
+		width: 100%;
+		padding: 3px;
+		&:hover {
+			background: darken($menu-item-color,20%);
+		}
+	}
 	}
 
 
