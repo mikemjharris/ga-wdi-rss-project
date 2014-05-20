@@ -3,14 +3,21 @@ class RelationshipsController < ApplicationController
   before_filter :authenticate_user!
 
   def create
-    @user = User.find(params[:relationship][:followed_id])
+    @user = User.find(params[:id])
     current_user.follow!(@user)
-    redirect_to @user
+    
+    respond_to do |format|
+      format.html { render '/users/index.html.erb' }
+      format.js   { render '/users/index.js.erb'   }
+    end
   end
 
   def destroy
-    @user = Relationship.find(params[:id]).followed
+    @user = User.find(params[:id])
     current_user.unfollow!(@user)
-    redirect_to @user
+    respond_to do |format|
+      format.html { render '/users/index.html.erb' }
+      format.js   { render '/users/index.js.erb'   }
+    end
   end
 end

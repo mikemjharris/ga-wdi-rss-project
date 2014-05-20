@@ -1,6 +1,6 @@
 <div id='left-menu' >
   <ul>
-   <li><%= link_to "Home", user_path(@user) %></li>	
+   <li><h3><%= link_to "Home", user_path(@user) %></h3></li>	
 	 <li><%= link_to "Your Timeline", timeline_user_path(@user), remote: true %></li>
 	 <li><%= link_to "Your Favourites", favorites_user_path(@user), remote: true %></li>
 	 <li>Unread</li>
@@ -11,8 +11,8 @@
   <li>
    <%= link_to 'Manage Feeds', feeds_path, remote: true, id: "manage_feeds" %>
  </li>
- <li>
-  Your Feeds</li>
+ 
+  <h3>Your Feeds</h3>
 	 
    <ul id="feeds-menu">
       <% @user.feeds.includes(:subscriptions).where("subscriptions.category_id is Null").order("subscriptions.sort_order").each do | feed | %>
@@ -41,13 +41,15 @@
       
   </ul>
 
-	<%= render 'users' %>
-
     <%= form_tag("/categories", method: "post") do %>
       <%= label_tag(:category_name, "New category:") %>
       <%= text_field_tag(:category_name) %>
       <%= submit_tag("Add") %>
     <% end %>
+
+    <%= render 'users' %>
+
+    <%= link_to 'Find People', users_path, remote: true %>
   
  
 

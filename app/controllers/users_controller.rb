@@ -3,8 +3,13 @@ class UsersController < ApplicationController
 before_filter :authenticate_user!
 
 	def index
- 		@feeds = Feed.all
+    @user = current_user
  		@users = User.all
+
+    respond_to do |format|
+        format.js  { render '/users/index.js.erb'}
+        format.html { render '/users/index.js.erb'}
+      end
 	end
 
 	def show
@@ -13,7 +18,7 @@ before_filter :authenticate_user!
     else
 		  @user = current_user
     end
-      @users = @user.followed_users
+      @following = @user.followed_users
       @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.followed_users, owner_type: "User")
 	end
 

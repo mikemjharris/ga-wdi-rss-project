@@ -1,22 +1,2 @@
-<h1>Hello!</h1>
-<p>example feeds</p>
-<p>http://feeds.bbci.co.uk/news/rss.xml</p>
-<p>http://feeds.bbci.co.uk/news/politics/rss.xml</p>
-<p>http://lorem-rss.herokuapp.com/feed?unit=second&interval=30</p>
-
-<%= render 'feed_url' %>
-
-<% @feeds.each do |feed| %>
-	<p><%= feed.title %></p>
-	<p><%= feed.description %></p>
-	<p><%= feed.url %></p>
-  <%=  button_to 'Delete Feed', feed_path(feed), method: :delete %>
-  <%= link_to 'View Articles', articles_path %>
-
-<% end %>
-
-<h1>Users</h1>
-<%= render 'users' %>
-
-
+<%= render '/users/allusers' %>
 

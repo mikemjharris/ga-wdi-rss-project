@@ -553,8 +553,20 @@ div.light:target .popup {
 }
 
 .article-title {
- font-family: 'Poiret One', cursive;
- font-size: 200%;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.article-content {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 120%;
+}
+
+.follow-button {
+  content:url(/assets/user-4-add.png);
+}
+
+.unfollow-button {
+  content:url(/assets/user-4-remove.png);
 }
 
 
