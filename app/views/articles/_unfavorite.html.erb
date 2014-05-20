@@ -1,1 +1,3 @@
-<%= button_to "Unfavorite", favorite_path(:id => @article.id), method: :delete, remote: true %>
+<%= link_to favorite_path(:id => @article.id), method: :delete, remote: true do %>
+	<div class='unfavorite-button'></div>
+<% end %>

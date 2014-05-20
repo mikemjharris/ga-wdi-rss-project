@@ -531,6 +531,13 @@ div.light:target .popup {
     -moz-animation-fill-mode: forwards;
 }
 
+.favorite-button {
+  content:url(/assets/heart-empty.png);
+}
+
+.unfavorite-button {
+  content:url(/assets/heart-full.png);
+}
 
 
 

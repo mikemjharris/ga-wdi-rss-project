@@ -1,1 +1,3 @@
-<%= button_to "Favorite", favorites_path(:id => @article.id), remote: true %>
+<%= link_to favorites_path(:id => @article.id), method: :post, remote: true do %>
+	<div class='favorite-button'></div>
+<% end %>
