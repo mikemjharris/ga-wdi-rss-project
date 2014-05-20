@@ -1,5 +1,15 @@
 <h2>Availiable Feeds</h2>
 
+
+ <p><div class="search">
+    <%= search_form_for @q do |f| %>
+    <%= f.label :title_cont %>
+    <%= f.text_field :title_cont %>
+    
+    <%= f.submit %>
+    <% end %> 
+  </div></p>
+
 <% @feeds.each do |feed| %>
  
   <% unless @subscriptions.include?(feed) %>
@@ -8,4 +18,5 @@
     <%= link_to "Subscribe", subscriptions_path(:feed_url => feed.url), method: "post", remote: true %>
   <% end %>
 <% end %>
+
 

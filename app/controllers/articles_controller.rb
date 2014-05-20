@@ -1,9 +1,8 @@
 class ArticlesController < ApplicationController
 
   def index
-    @q = Article.search(params[:q])
-    @articles = @q.result(:distinct => true)
-    # @articles = Article.all
+    
+     @articles = Article.all
 
   end
 

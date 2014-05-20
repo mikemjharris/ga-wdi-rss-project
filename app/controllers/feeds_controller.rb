@@ -44,7 +44,10 @@ class FeedsController < ApplicationController
   end
 
   def index
-    @feeds = Feed.all
+    @q = Feed.search(params[:q])
+    @feeds = @q.result(:distinct => true)
+    
+    # @feeds = Feed.all
     @subscriptions = current_user.feeds
     respond_to do |format|
       format.js  { render 'index.js.erb'}

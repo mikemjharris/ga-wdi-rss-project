@@ -23,12 +23,11 @@ $active: red;
 }
 
 .logo {
- content:url(/mega-phone.png);
- width: 10%;
- height: auto;
- margin-left: 28%;
- display: inline-block;
+ content:url(/banner.png);
+ margin-left: auto;
+ margin-right: auto;
  clear: both;
+ 
 }
 
 .title_homepage {
@@ -281,6 +280,8 @@ div.light:target .popup {
   width: 100%;
   display: inline-block;
   text-align: center;
+  position: fixed;
+  bottom: 4px;
 }
 .socialboxbtn {
     width:150px;
