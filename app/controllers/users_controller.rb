@@ -37,7 +37,7 @@ before_filter :authenticate_user!
   	end
 
   	def timeline
-  		user = current_user
+  		user = User.find(params[:id])
   		@articles = user.timeline_articles
   		render 'timeline'
   	end
