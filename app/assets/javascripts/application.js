@@ -28,10 +28,18 @@ $( window ).load(function() {
 
     $("#feeds-menu").disableSelection();
 
+    $('#manage_feeds').on("click", function() {
+        setTimeout(function(){
+        $("#feeds-menu").addClass("show")
+      }, 200)
+    });
+
+
+
     $("#left-menu li a").on("click", function(){
         $("#left-menu .active").removeClass("active")
         $(this).addClass("active")
-        
+        $("#feeds-menu").removeClass("show")
         setTimeout(function() {
           $("#middle-menu li a").on("click", function(){
             $("#middle-menu .active").removeClass("active")
