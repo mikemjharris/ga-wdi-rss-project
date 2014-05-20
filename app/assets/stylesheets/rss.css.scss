@@ -2,6 +2,7 @@
 
 .alert {
   background: $warning-color;
+  display: none;
 }
 
 .article_flash{
@@ -27,21 +28,38 @@
 
 .small_logo {
    content:url(/banner_new.png);
-   width: 15%;
-   height: auto;
-   display: inline-block;
+   width: 300px;
+   /*display: inline-block;*/
    position: relative;
-   margin: 5px;
-   /*margin-left: auto;*/
-   /*margin-right: auto;*/
-   left: 42.5%;
+   /*margin: 10px;*/
+
+   margin-left: auto;
+   margin-right: auto;
+   /*left: 40% - 150px;*/
 }
 
 header {
   margin: 0.5%;
   width: 98%;
-  
+  border-radius: $border-r-small;
   background-color: $site-color;
+  position: relative;
+  padding: 10px;
+}
+
+.login {
+  color: white;
+  position: absolute;
+  top: 15px;
+  a {
+    padding: 5px 10px;
+    margin: 0 2px;
+    border: 2px solid white;
+    border-radius: $border-r-small;
+    color: white;
+    display: inline-block;
+
+  }
 }
 
 #feeds-menu #delete_icon {

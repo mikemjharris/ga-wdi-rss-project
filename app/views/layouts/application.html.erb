@@ -13,14 +13,11 @@
 <header>
   <div class="login">
     <% if user_signed_in? %>
-      Signed in as <%= current_user.email %>. Not you?
+      Hello <%= current_user.first_name %>. 
       <%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
        <%= link_to "update articles", feeds_update_articles_path %>
       <%= link_to "update articles ajax", feeds_update_articles_path, remote: true %>
-
-     
-
-    <a href="<%= $bookmarklet %>">Bookmark</a>
+      <a href="<%= $bookmarklet %>">Find Feeds</a>
 
     <% else %>
       <%= render partial: 'layouts/signin' %>
@@ -29,10 +26,7 @@
     
    <div class="small_logo"> </div>
 
-  <% if user_signed_in? %>
-    <%= link_to "Add a feed", users_path %>
-    <%= link_to "user page", user_path(current_user) %>
-  <% end %> 
+  
 
   <p class="alert"><%= alert %></p>
 
