@@ -48,7 +48,13 @@ header {
   content:url(/assets/delete.png);
   width: 15px; 
   height: auto;
+  float: right;
+  margin-top: -35px;
+}
 
+
+#border{
+border: 1px solid black;
 }
 
 .title_homepage {

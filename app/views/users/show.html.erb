@@ -19,7 +19,10 @@
       <% i = 0 %>
       <% @user.feeds.includes(:subscriptions).order("subscriptions.sort_order").each do | feed | %>
 
+<div id="border"> <!-- Just using for reference  -->
+
 		    <li id="feed_<%= feed.id %>"><%= link_to feed.title, feed_path(feed), remote: true %>
+</div> <!-- div for border -->
 
 <%= link_to user_omniauth_authorize_path(:facebook) do %>
         <div id="facebook-logo"> </div>
