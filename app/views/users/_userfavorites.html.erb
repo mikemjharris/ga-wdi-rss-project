@@ -1,4 +1,6 @@
 <h1>Favorites</h1>
 <% @articles.each do |article| %>
-	<p><a href="/articles/<%= article.id %>"><%= article.title %></a></p>
+	<%= link_to article_path(article), remote: true do %>
+	      <%= article.title %>
+	<% end %>
 <% end %>
