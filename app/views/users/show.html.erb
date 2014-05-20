@@ -65,6 +65,7 @@
 
   <div class="menu-section">
 	   <%= render 'users' %>
+     <%= link_to 'Find People', users_path, remote: true %>
   </div>
 
     <%= form_tag("/categories", method: "post") do %>
@@ -73,9 +74,9 @@
       <%= submit_tag("Add") %>
     <% end %>
 
-    <%= render 'users' %>
+   
 
-    <%= link_to 'Find People', users_path, remote: true %>
+   
   
  
 
