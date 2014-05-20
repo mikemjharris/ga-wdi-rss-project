@@ -19,8 +19,8 @@
       <% @user.feeds.includes(:subscriptions).where("subscriptions.category_id is Null").order("subscriptions.sort_order").each do | feed | %>
 
 		    <li id="feed_<%= feed.id %>"><%= link_to feed.title, feed_path(feed), remote: true %>                 
-            <%= link_to subscription_path(find_subscription(feed,current_user)), method: :delete do %>
-                <img id="delete_icon" src="delete.png" >
+            <%= link_to subscription_path(find_subscription(feed,current_user)), method: :delete, id: "delete_icon" do %>
+                <img src="/assets/delete.png" >
             <% end %>
         </li> 
       <% end %>
