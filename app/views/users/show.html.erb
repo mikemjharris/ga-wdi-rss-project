@@ -20,7 +20,7 @@
 
 		    <li id="feed_<%= feed.id %>"><%= link_to feed.title, feed_path(feed), remote: true %>                 
             <%= link_to subscription_path(find_subscription(feed,current_user)), method: :delete do %>
-                <div id="delete_icon"></div>
+                <img id="delete_icon" src="delete.png" >
             <% end %>
         </li> 
       <% end %>
@@ -30,8 +30,8 @@
           <a href="#"><%= category.category_name %></a> </li>
           <% @user.feeds.where("subscriptions.category_id = #{category.id}").each do |feed|%>
               <li id="feed_<%= feed.id %>"><%= link_to feed.title, feed_path(feed), remote: true %>  
-              <%= link_to subscription_path(find_subscription(feed,current_user)), method: :delete do %>
-                <div id="delete_icon"></div>
+              <%= link_to subscription_path(find_subscription(feed,current_user)), method: :delete, id: "delete_icon" do %>
+                <img src="/assets/delete.png" >
               <% end %>
           </li> 
           <% end %>

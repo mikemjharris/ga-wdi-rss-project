@@ -71,21 +71,30 @@ header {
 }
 
 #feeds-menu #delete_icon {
-  height: 0px;
-  transition: height 0.3s;
+  opacity: 0;
+  z-index: -1000;
+  transition: opacity 0.3s;
 }
 
 #feeds-menu.show #delete_icon {
-  height: 15px;
+  opacity: 1;
+  z-index: +1000;
   }
 
-#delete_icon {
-  content:url(/assets/delete.png);
-  width: 15px; 
-  height: auto;
-
-/*  float: right;
-  margin-top: -35px;*/
+a#delete_icon { 
+  width: 30px;
+  height: 20px;
+  display: inline-block;
+  right: 5px;
+  top: 0px;
+  text-align: center;
+  z-index: 1000;
+  display:inline-block;
+  position: absolute;
+  img {
+    width: 15px;
+    margin: 0 auto;
+  }
 }
 
 
