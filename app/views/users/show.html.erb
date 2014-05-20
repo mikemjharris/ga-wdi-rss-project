@@ -8,13 +8,16 @@
 	
   
   Your Feeds<br />
-   
+   <%= link_to 'Manage Feeds', feeds_path, remote: true %>
 	 <ul id="feeds-menu">
-      <li><%= link_to 'Manage Feeds', feeds_path, remote: true %></li>
-      <% @user.feeds.each do | feed | %>
-		    <li><%= link_to feed.title, feed_path(feed), remote: true %>
+      
+      <% i = 0 %>
+      <% @user.feeds.includes(:subscriptions).order("subscriptions.sort_order").each do | feed | %>
+
+		    <li id="feed_<%= feed.id %>"><%= link_to feed.title, feed_path(feed), remote: true %>
             <%= link_to 'X', subscription_path(find_subscription(feed,current_user)), method: :delete %>
         </li> 
+        <% i +=1 %>
       <% end %>
   </ul>
 

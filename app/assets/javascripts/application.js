@@ -16,13 +16,29 @@
 //= require_tree .
 
 $( window ).load(function() {
-    $("#feeds-menu").sortable();
+    $("#feeds-menu").sortable({
+      update: function (){ 
+      $.ajax({
+        type: "POST",
+        url: "/page_parts/sort/",
+        data: $("#feeds-menu").sortable('serialize')
+          })
+        }
+      });
+
     $("#feeds-menu").disableSelection();
+
+  
+
+
 
     $("#left-menu li a").on("click", function(){
         $(".active").removeClass("active")
         $(this).addClass("active")
   })
+
+
+
 });
 
 
