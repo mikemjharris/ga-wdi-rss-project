@@ -1,6 +1,6 @@
 <div id='left-menu' >
   <ul>
-  	 <li>Home</li>	
+   <li><%= link_to "Home", user_path(@user) %></li>	
 	 <li><%= link_to "Your Timeline", timeline_user_path(@user), remote: true %></li>
 	 <li><%= link_to "Your Favourites", favorites_user_path(@user), remote: true %></li>
 	 <li>Unread</li>
