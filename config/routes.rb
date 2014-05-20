@@ -15,6 +15,7 @@ Rss::Application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
   resources :timelines, only: [:create, :destroy]
+  resources :activities
 
   get 'feeds/update/articles', to:  'feeds#update_articles', as: 'feeds_update_articles'
   root to: 'users#show'

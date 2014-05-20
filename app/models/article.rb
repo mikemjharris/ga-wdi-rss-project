@@ -1,4 +1,6 @@
 class Article < ActiveRecord::Base
+  include PublicActivity::Common
+  
   attr_accessible :author, :category, :content, :guid, :image, :published, :summary, :title, :url, :feed_id
 
   belongs_to :feed
