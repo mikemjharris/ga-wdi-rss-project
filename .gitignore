@@ -13,3 +13,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+.DS_Store
+log/*.log
+tmp/**/*
+db/*.sqlite3
+public/system/**/*
