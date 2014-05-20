@@ -63,16 +63,24 @@ class FeedsController < ApplicationController
   def sortable
     @user = current_user
     @new_order = params["feed"]
-    b = []
+    a = []
     c = ""
+    category_id = nil
     @new_order.each.with_index do |feed_id, i|
-        c = @user.subscriptions.where(:feed_id => feed_id.to_i).first
-        c.sort_order = i
-        c.save
+      
+        # unless feed_id[0,13] = "[category_id]"
+            c = @user.subscriptions.where(:feed_id => feed_id.to_i).first
+          unless c.nil?   
+            c.sort_order = i
+            c.category_id = category_id
+            c.save
+        else
+            category_id = feed_id[10..-1].to_i
+        end
     end  
 
     respond_to do |format|
-      format.json  { render json: c}
+      format.json  { render json: a}
     end
   end
 

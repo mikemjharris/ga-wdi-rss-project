@@ -15,19 +15,30 @@
   Your Feeds</li>
 	 
    <ul id="feeds-menu">
-      <% @user.feeds.includes(:subscriptions).order("subscriptions.sort_order").each do | feed | %>
+      <% @user.feeds.includes(:subscriptions).where("subscriptions.category_id is Null").order("subscriptions.sort_order").each do | feed | %>
 
-
-		    <li id="feed_<%= feed.id %>"><%= link_to feed.title, feed_path(feed), remote: true %>
-
-                 
+		    <li id="feed_<%= feed.id %>"><%= link_to feed.title, feed_path(feed), remote: true %>                 
             <%= link_to subscription_path(find_subscription(feed,current_user)), method: :delete do %>
-
               <div id="delete_icon"></div>
               <% end %>
         </li> 
+
+        <% end %>
+
+        <% @user.categories.each do |category| %>
+          <li id="feed_[category]<%= category.id %>">
+          <a href="#"><%= category.category_name %></a> </li>
         
-      <% end %>
+          <% @user.feeds.where("subscriptions.category_id = #{category.id}").each do |feed|%>
+              <li id="feed_<%= feed.id %>"><%= link_to feed.title, feed_path(feed), remote: true %>                 
+            <%= link_to subscription_path(find_subscription(feed,current_user)), method: :delete do %>
+                <div id="delete_icon"></div>
+              <% end %>
+            </li> 
+          <% end %>
+        
+        <% end %>
+      
   </ul>
 
 	<%= render 'users' %>
@@ -37,10 +48,8 @@
       <%= text_field_tag(:category_name) %>
       <%= submit_tag("Add") %>
     <% end %>
-  <ul>
-  <% @user.categories.each do |category| %>
-    <li><%= category.category_name %></li>
-  <% end %>
+  
+ 
 
 
 </div><div id='middle-menu'>
