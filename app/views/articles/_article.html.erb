@@ -1,8 +1,9 @@
 
 <a href=" <%=  @article.url %> " target="_blank" >
 
-   <%= @article.title %> </a>
+ <p class="bold_text">  <%= @article.title %> </a> </p>
 <p><%= @article.summary %></p>
+<p><%= raw @article.content %></p>
 <p><%= @article.image %> </p>
 
 <a href="https://twitter.com/share" class="twitter-share-button" data-via="YaketyFeed" data-size="large" data-count="none" data-hashtags="YaketyFeed">Tweet</a>

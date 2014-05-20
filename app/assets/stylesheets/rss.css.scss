@@ -58,12 +58,19 @@ header {
   width: 15px; 
   height: auto;
 
-  float: right;
-  margin-top: -35px;
+/*  float: right;
+  margin-top: -35px;*/
 }
 
 
+p.bold_text {
+  text-align: center;
+  font-weight: bold;
+}
 
+#right-menu img {
+  width: 100% !important;
+}
 
 .title_homepage {
   font-size: 80px;
