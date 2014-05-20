@@ -1,8 +1,12 @@
 $hover-color: red;
-$menu-item-color: #ff7373;
+$menu-item-color: lighten(#ff7373,20%);
 *{
 	box-sizing: border-box;
 
+}
+
+.active {
+  background:darken($menu-item-color,20%);
 }
 
 a {
@@ -33,6 +37,11 @@ a {
 	a {
 		padding: 3px 3px;
 		display: block;
+		transition: background 0.2s;
+		&:hover {
+		background: darken($menu-item-color,20%);
+		color: black;
+		};
 	}
 	ul {
 			li {

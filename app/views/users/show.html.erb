@@ -5,11 +5,16 @@
 	 <li><%= link_to "Your Favourites", favorites_user_path(@user), remote: true %></li>
 	 <li>Unread</li>
   </ul>
-	
-  
-  Your Feeds<br />
+	 
+  <ul>
+    
+  <li>
    <%= link_to 'Manage Feeds', feeds_path, remote: true %>
-	 <ul id="feeds-menu">
+ </li>
+ <li>
+  Your Feeds</li>
+	 
+   <ul id="feeds-menu">
       
       <% i = 0 %>
       <% @user.feeds.includes(:subscriptions).order("subscriptions.sort_order").each do | feed | %>
