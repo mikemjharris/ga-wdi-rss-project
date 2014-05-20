@@ -13,6 +13,7 @@ before_filter :authenticate_user!
     else
 		  @user = current_user
     end
+      @users = @user.followed_users
 	end
 
 	def following

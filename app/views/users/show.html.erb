@@ -8,6 +8,8 @@
 	
   Your Feeds
 
+  
+
 	 <ul id="feeds-menu">
       <li><%= link_to 'Manage Feeds', feeds_path, remote: true %></li>
       <% @user.feeds.each do | feed | %>
@@ -17,7 +19,8 @@
       <% end %>
   </ul>
 
-	
+	<%= render 'users' %>
+
 </div>
 
 <div id='middle-menu'>

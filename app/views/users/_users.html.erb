@@ -1,3 +1,4 @@
 <% @users.each do |user| %>
-	<p><a href="/users/<%= user.id %>"><%= user.first_name %> <%= user.last_name %></a></p>
+ <li><%= link_to user.first_name + user.last_name, timeline_user_path(user), remote: true %></li>
+
 <% end %>
