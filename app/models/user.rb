@@ -97,4 +97,27 @@ devise :database_authenticatable, :registerable,
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
 
+
+  $bookmarklet = "
+  javascript: (
+  function () { 
+      var myElements = document.getElementsByTagName('a');
+      var node=document.createElement('ul');
+      var title = document.createTextNode('Rss feeds on this page');
+      node.appendChild(title);
+
+      for (var i = 0; i < myElements.length; i++) {
+        if (myElements[i].href.indexOf('.xml') > -1) {
+            var listitem = document.createElement('li'); 
+            var itemtext = document.createTextNode(myElements[i].text + myElements[i].href );
+            listitem.appendChild(itemtext);
+            node.appendChild(listitem);
+          };
+
+        }; 
+        node.setAttribute('style','position: fixed; top: 10px; background-color: yellow; z-index: 100000000000000');
+        document.getElementsByTagName('body')[0].appendChild(node);
+        
+
+  }()); "
 end

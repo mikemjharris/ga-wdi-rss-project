@@ -5,9 +5,14 @@ class SubscriptionsController < ApplicationController
 		@subscription = Subscription.new()
 		
 		if Feed.find_by_url(params[:feed_url])
-			@subscription.feed_id = Feed.find_by_url(params[:feed_url]).id
-			@subscription.user_id = current_user.id
-			@subscription.save
+			@feed = Feed.find_by_url(params[:feed_url])
+			unless @user.feeds.include?(@feed)
+				@subscription.feed_id = @feed.id
+				@subscription.user_id = current_user.id
+				@subscription.save
+			else 
+				flash[:alert] = "Already subscribed to that feed"
+			end
 		else
 			feed_data = Feedjira::Feed.fetch_and_parse("#{params[:feed_url]}")
 			if feed_data != 0	
@@ -23,10 +28,21 @@ class SubscriptionsController < ApplicationController
 				flash[:alert] = "Not a valid rss feed"
 			end
 		end
+
+		@feeds = Feed.all
+		@subscriptions = @user.feeds
+
 		respond_to do |format|
-      format.js  { render 'create.js.erb'}
+      format.js  {render 'create.js.erb'}
       format.html {redirect_to :root}
     end
+	end
+
+	def destroy
+			Subscription.find(params[:id]).destroy
+
+			redirect_to :root
+
 	end
 
 
