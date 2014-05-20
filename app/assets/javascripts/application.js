@@ -12,9 +12,25 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require_tree .
 
+$( window ).load(function() {
+    $("#feeds-menu").sortable();
+    $("#feeds-menu").disableSelection();
+
+    $("#left-menu li a").on("click", function(){
+        $(".active").removeClass("active")
+        $(this).addClass("active")
+  })
+});
+
+
+
 $(document).ready(function(){
+            
+  
+
    var update_articles = function () {
         var ajaxOptions = {
           url: "/feeds/update/articles",

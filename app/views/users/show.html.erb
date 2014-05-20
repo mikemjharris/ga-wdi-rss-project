@@ -6,10 +6,9 @@
 	 <li>Unread</li>
   </ul>
 	
-  Your Feeds
-
   
-
+  Your Feeds<br />
+   
 	 <ul id="feeds-menu">
       <li><%= link_to 'Manage Feeds', feeds_path, remote: true %></li>
       <% @user.feeds.each do | feed | %>
