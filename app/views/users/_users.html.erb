@@ -1,7 +1,7 @@
 
 <ul>
   <li class="menu-title">Users</li>
-<% @users.each do |user| %>
+<% @following.each do |user| %>
  <li><%= link_to user.first_name + user.last_name, timeline_user_path(user), remote: true %></li>
 
 <% end %>
