@@ -1,21 +1,24 @@
 <h2>Availiable Feeds</h2>
 
-
- <p><div class="search">
+<div class="search">
     <%= search_form_for @q do |f| %>
     <%= f.label :title_cont %>
     <%= f.text_field :title_cont %>
     
     <%= f.submit %>
     <% end %> 
-  </div></p>
+  </div>
+ 
 
+<ul>
 <% @feeds.each do |feed| %>
  
   <% unless @subscriptions.include?(feed) %>
+    <li id="feeds_feed_<%= feed.id %>">
     <%= link_to feed.title, feed_path(feed), remote: true %>
     <%= feed.description %>
     <%= link_to "Subscribe", subscriptions_path(:feed_url => feed.url), method: "post", remote: true %>
+    </li>
   <% end %>
 <% end %>
 

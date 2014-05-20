@@ -28,16 +28,19 @@ $( window ).load(function() {
 
     $("#feeds-menu").disableSelection();
 
-  
-
-
-
     $("#left-menu li a").on("click", function(){
-        $(".active").removeClass("active")
+        $("#left-menu .active").removeClass("active")
         $(this).addClass("active")
-  })
+        
+        setTimeout(function() {
+          $("#middle-menu li a").on("click", function(){
+            $("#middle-menu .active").removeClass("active")
+            $(this).addClass("active")
+        });
+        }  ,200)
+    });
 
-
+    
 
 });
 

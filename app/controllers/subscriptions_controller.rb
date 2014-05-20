@@ -3,6 +3,8 @@ class SubscriptionsController < ApplicationController
 	def create
 		@user = current_user
 		@subscription = Subscription.new()
+		@q = Feed.search(params[:q])
+    
 		
 		if Feed.find_by_url(params[:feed_url])
 			@feed = Feed.find_by_url(params[:feed_url])
@@ -37,6 +39,7 @@ class SubscriptionsController < ApplicationController
       format.html {redirect_to :root}
     end
 	end
+
 
 	def destroy
 			Subscription.find(params[:id]).destroy

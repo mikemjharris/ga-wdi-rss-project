@@ -5,4 +5,6 @@ $('#feeds-menu').append(articleHtml)
 var articleHtml =  "<%= escape_javascript(render partial: '/feeds/feed_url' ) %>"
 var articleHtml = articleHtml + "<%= escape_javascript(render partial: '/feeds/feeds' ) %>"
 
+
+
 $('#middle-menu').html(articleHtml)
