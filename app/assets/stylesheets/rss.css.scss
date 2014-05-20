@@ -58,8 +58,15 @@ header {
     border-radius: $border-r-small;
     color: white;
     display: inline-block;
-
+    &:hover {
+      color: $site-color;
+      background: white;
+    }
   }
+}
+
+#login-right{
+  right: 15px;
 }
 
 #feeds-menu #delete_icon {
