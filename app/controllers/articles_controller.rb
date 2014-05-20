@@ -1,7 +1,10 @@
 class ArticlesController < ApplicationController
 
   def index
-    @articles = Article.all
+    @q = Article.search(params[:q])
+    @articles = @q.result(:distinct => true)
+    # @articles = Article.all
+
   end
 
 	def create
@@ -9,9 +12,8 @@ class ArticlesController < ApplicationController
 	end
 
   def show
-    @article = Article.find(params[:id])
-
-    respond_to do |format|
+      @article = Article.find(params[:id])
+      respond_to do |format|
     	format.js {render 'show.js.erb'}
     	format.html {render 'show.html.erb'}
    	end	

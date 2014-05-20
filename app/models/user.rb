@@ -26,9 +26,8 @@ devise :database_authenticatable, :registerable,
         user = User.create(
                             provider:auth.provider,
                             uid:auth.uid,
-                            email: auth.info.nickname.downcase + "@twitter.com",
-                            profile_image: auth.image,
-                            password:Devise.friendly_token[0,20],
+                            email:auth.info.nickname.downcase + "@twitter.com",
+                            profile_image: auth.info.image,
                           )
       end
 
