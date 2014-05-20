@@ -1,1 +1,3 @@
-<%= button_to "Add To Timeline", timelines_path(:id => @article.id), remote: true %>
+<%= link_to timelines_path(:id => @article.id), method: :post, remote: true do %>
+	<div class='addtimeline-button'></div>
+<% end %>

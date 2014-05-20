@@ -1,7 +1,26 @@
+<div class='article-header'>
 
-<a href=" <%=  @article.url %> " target="_blank" >
+  <div id='fav-button'>
+    <%= render 'favorite_form' %>
+  </div>
 
- <p class="bold_text">  <%= @article.title %> </a> </p>
+  <div id='timeline-button'>
+    <%= render 'timeline_form' %>
+  </div>
+
+</div> 
+
+<div class='article-title'>
+  <a href=" <%=  @article.url %> " target="_blank" ><p class="bold_text"><%= @article.title %> </a></p>
+</div>
+
+
+
+
+
+
+
+
 <p><%= raw @article.summary %></p>
 <p><%= raw @article.content %></p>
 <p><%= raw @article.image %> </p>
@@ -35,14 +54,6 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
 </script>
-
-<div id='fav-button'>
-	<%= render 'favorite_form' %>
-</div>
-
-<div id='timeline-button'>
-	<%= render 'timeline_form' %>
-</div>
 
 <a href="https://www.facebook.com/sharer/sharer.php?app_id=235129946681549&sdk=joey&u=<%= @article.url %>%26ns_source%3DPublicRSS20-sa&display=popup" target="_blank">test fb</a>
 
