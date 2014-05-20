@@ -1,5 +1,6 @@
 $warning-color: red;
 $background-color: #f2f3f4;
+$site-color: #ca2024;
 
 
 .alert {
@@ -40,8 +41,7 @@ $background-color: #f2f3f4;
 header {
   width: 100%;
   border: 1px solid black;
-  width: 98.6%;
-  background-color: #ca2024;
+  background-color: $site-color;
 }
 
 #feeds-menu #delete_icon {

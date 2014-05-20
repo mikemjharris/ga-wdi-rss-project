@@ -20,7 +20,7 @@ $( window ).load(function() {
       update: function (){ 
       $.ajax({
         type: "POST",
-        url: "/page_parts/sort/",
+        url: "/feeds/update/sortable/",
         data: $("#feeds-menu").sortable('serialize')
           })
         }
