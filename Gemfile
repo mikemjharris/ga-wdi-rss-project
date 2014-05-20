@@ -10,6 +10,7 @@ gem 'devise'
 gem 'feedjira'
 gem 'markable'
 gem 'ransack'
+gem 'public_activity'
 
 gem 'omniauth'
 gem 'omniauth-twitter' 

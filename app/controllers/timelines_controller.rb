@@ -4,6 +4,7 @@ class TimelinesController < ApplicationController
 		user = current_user
 		@article = Article.find(params[:id])
 		user.mark_as_timeline [ @article ]
+		@article.create_activity :create, owner: current_user
 
 		respond_to do |format|
     		format.js {render '/articles/timeline.js.erb'}
