@@ -1,5 +1,5 @@
 
-<a href=" <%=  @article.url %> " >
+<a href=" <%=  @article.url %> " target="_blank" >
 
    <%= @article.title %> </a>
 <p><%= @article.summary %></p>
@@ -42,3 +42,5 @@
 <div id='timeline-button'>
 	<%= render 'timeline_form' %>
 </div>
+
+<a href="https://www.facebook.com/sharer/sharer.php?app_id=235129946681549&sdk=joey&u=<%= @article.url %>%26ns_source%3DPublicRSS20-sa&display=popup" target="_blank">test</a>
