@@ -531,6 +531,10 @@ div.light:target .popup {
     -moz-animation-fill-mode: forwards;
 }
 
+.article-header {
+  background-color: #333333;
+}
+
 .favorite-button {
   content:url(/assets/heart-empty.png);
 }
@@ -539,6 +543,18 @@ div.light:target .popup {
   content:url(/assets/heart-full.png);
 }
 
+.addtimeline-button {
+  content:url(/assets/browser-new-window-2.png);
+}
+
+.removetimeline-button {
+  content:url(/assets/browser-minimise-2.png);
+}
+
+.article-title {
+ font-family: 'Poiret One', cursive;
+ font-size: 200%;
+}
 
 
 

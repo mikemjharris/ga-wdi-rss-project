@@ -1,1 +1,3 @@
-<%= button_to "Remove From Timeline", timeline_path(:id => @article.id), method: :delete, remote: true %>
+<%= link_to timeline_path(:id => @article.id), method: :delete, remote: true do %>
+	<div class='removetimeline-button'></div>
+<% end %>
