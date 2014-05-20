@@ -1,11 +1,18 @@
 <h1> Test </h1>
 
+  <div class="search">
+    <%= search_form_for @q do |f| %>
+    <%= f.label :title_cont %>
+    <%= f.text_field :title_cont %>
+    
+    <%= f.submit %>
+    <% end %> 
+  </div>
+
 <% @articles.each do |article| %>
 <p><%= article.title %></p>
    <%= article.summary %>
   <%= link_to 'Show Article', article_path(article) %>
 
-
-
-
 <% end %>
+
