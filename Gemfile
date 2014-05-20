@@ -9,6 +9,7 @@ gem 'pg'
 gem 'devise'
 gem 'feedjira'
 gem 'markable'
+gem 'ransack'
 
 gem 'omniauth'
 gem 'omniauth-twitter' 
