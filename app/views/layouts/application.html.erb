@@ -14,15 +14,17 @@
     <% if user_signed_in? %>
       Signed in as <%= current_user.email %>. Not you?
       <%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
+       <%= link_to "update articles", feeds_update_articles_path %>
+      <%= link_to "update articles ajax", feeds_update_articles_path, remote: true %>
+
+    <a href="<%= $bookmarklet %>">Bookmark</a>
+
     <% else %>
       <%= render partial: 'layouts/signin' %>
     <% end %>
   </div>
     
-    <%= link_to "update articles", feeds_update_articles_path %>
-    <%= link_to "update articles ajax", feeds_update_articles_path, remote: true %>
-
-    <a href="<%= $bookmarklet %>">Bookmark</a>
+   
 
   <% if user_signed_in? %>
     <%= link_to "Add a feed", users_path %>
