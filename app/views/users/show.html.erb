@@ -1,4 +1,5 @@
 <div id='left-menu' >
+
   <ul>
    <li><h3><%= link_to "Home", user_path(@user) %></h3></li>	
 	 <li><%= link_to "Your Timeline", timeline_user_path(@user), remote: true %></li>
@@ -15,31 +16,56 @@
   <h3>Your Feeds</h3>
 	 
    <ul id="feeds-menu">
+
+  <div class="menu-section">
+    <ul>
+    <li><%= link_to "Home", user_path(@user) %></li>	
+	 <li><%= link_to "Your Timeline", timeline_user_path(@user ), remote: true %></li>
+	 <li><%= link_to "Your Favourites", favorites_user_path(@user), remote: true %></li>
+	   <li><a href="#">Unread</a></li>
+    </ul>
+  </div>
+  
+  <div class="menu-section">
+    <ul>
+      <li class="menu-title">Your Feeds</li>
+      <li>
+      <%= link_to 'Manage Feeds', feeds_path, remote: true,   id: "manage_feeds" %>
+      </li>  
+    </ul>
+	  <ul id="feeds-menu">
+
       <% @user.feeds.includes(:subscriptions).where("subscriptions.category_id is Null").order("subscriptions.sort_order").each do | feed | %>
 
 		    <li id="feed_<%= feed.id %>"><%= link_to feed.title, feed_path(feed), remote: true %>                 
-            <%= link_to subscription_path(find_subscription(feed,current_user)), method: :delete do %>
-              <div id="delete_icon"></div>
-              <% end %>
+            <%= link_to subscription_path(find_subscription(feed,current_user)), method: :delete, id: "delete_icon" do %>
+                <img src="/assets/delete.png" >
+            <% end %>
         </li> 
+      <% end %>
 
-        <% end %>
-
-        <% @user.categories.each do |category| %>
-          <li id="feed_[category]<%= category.id %>">
+      <% @user.categories.each do |category| %>
+        <li class="menu-title" id="feed_[category]<%= category.id %>">
           <a href="#"><%= category.category_name %></a> </li>
-        
           <% @user.feeds.where("subscriptions.category_id = #{category.id}").each do |feed|%>
-              <li id="feed_<%= feed.id %>"><%= link_to feed.title, feed_path(feed), remote: true %>                 
-            <%= link_to subscription_path(find_subscription(feed,current_user)), method: :delete do %>
-                <div id="delete_icon"></div>
+              <li id="feed_<%= feed.id %>"><%= link_to feed.title, feed_path(feed), remote: true %>  
+              <%= link_to subscription_path(find_subscription(feed,current_user)), method: :delete, id: "delete_icon" do %>
+                <img src="/assets/delete.png" >
               <% end %>
-            </li> 
+          </li> 
           <% end %>
         
         <% end %>
       
   </ul>
+
+
+      </ul>
+  </div>
+
+  <div class="menu-section">
+	   <%= render 'users' %>
+  </div>
 
     <%= form_tag("/categories", method: "post") do %>
       <%= label_tag(:category_name, "New category:") %>

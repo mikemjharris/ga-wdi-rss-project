@@ -5,6 +5,9 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+
+  <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Arimo:400,700' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -13,26 +16,24 @@
 <header>
   <div class="login">
     <% if user_signed_in? %>
-      Signed in as <%= current_user.email %>. Not you?
+      Hello <%= current_user.first_name %>. 
       <%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
-       <%= link_to "update articles", feeds_update_articles_path %>
-      <%= link_to "update articles ajax", feeds_update_articles_path, remote: true %>
-
-     
-
-    <a href="<%= $bookmarklet %>">Bookmark</a>
+       
 
     <% else %>
       <%= render partial: 'layouts/signin' %>
     <% end %>
   </div>
+
+  <div class="login" id="login-right">
+      <%= link_to "Update articles", feeds_update_articles_path %>
+      <!-- link_to "update articles ajax", feeds_update_articles_path, remote: true  -->
+      <a href="<%= $bookmarklet %>">Find Feeds</a>
+  </div>
     
    <div class="small_logo"> </div>
 
-  <% if user_signed_in? %>
-    <%= link_to "Add a feed", users_path %>
-    <%= link_to "user page", user_path(current_user) %>
-  <% end %> 
+  
 
   <p class="alert"><%= alert %></p>
 
