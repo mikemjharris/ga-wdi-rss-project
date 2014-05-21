@@ -1,8 +1,13 @@
 <ul>
-  <%= link_to 'Following', users_path, class: "menu-title", remote: true %>
-    <% @following.each do |user| %>
-      <li><%= link_to user.first_name + user.last_name, timeline_user_path(user), remote: true %></li>
-    <% end %>
+  <li class="menu-title">Following</li>
+</ul>
+
+<input type='text' id='filter' placeholder='Search (start typing)'>
+
+<% @following.each do |user| %>
+ <ul id='following-list'>
+ 	<li><%= link_to "#{user.first_name} #{user.last_name}", timeline_user_path(user), remote: true %></li>
+<% end %>
 </ul>
 
    <%= search_form_for @q do |f| %>
