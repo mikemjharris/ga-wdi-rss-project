@@ -51,7 +51,7 @@ $( window ).load(function() {
 
     $("#following-list-search").hide();
     $(".follower-search-button").click(function(){
-        $("#following-list-search").slideDown();
+        $("#following-list-search, #following li").toggle();
     });
 
     var $following = $('#following li').hide();

@@ -137,17 +137,22 @@ a {
 	height: 40px;
 }
 
-.follower-search-button {
-	content: url(/assets/search.png);
+.follower-add-button {
+	content: url(/assets/add.png);
 	width: 20px;
 	position: absolute;
 	right: 4px;
 	top: 7px;
 }
 
-.follower-add-button {
-	content: url(/assets/add.png);
+.follower-search-button {
+	content: url(/assets/search.png);
 	width: 20px;
-	float: right;
-	margin-right: 3px;
+	position: absolute;
+	right: 32px;
+	top: 7px;
+}
+
+.menu-title {
+	position: relative;
 }
