@@ -18,7 +18,18 @@
   <p><%= raw @article.summary %></p>
   <p><%= raw @article.content %></p>
   <p><%= raw @article.image %></p>
+
+  <audio controls>
+  <source src="<%= raw @article.image %>" type="audio/mpeg">
+  <source src="<%= raw @article.image %>" type="audio/ogg">
+  Your browser does not support the audio element.
+  </audio>
+
+
+
 </div>
+
+
 
 <a href="https://twitter.com/share" class="twitter-share-button" data-via="YaketyFeed" data-size="large" data-count="none" data-hashtags="YaketyFeed">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
