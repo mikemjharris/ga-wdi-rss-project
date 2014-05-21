@@ -3,9 +3,13 @@
 <% @users.each do |user| %>
 	<p><%= user.first_name %> <%= user.last_name %></p>
 	<% if current_user.following?(user) %>
-		<%= link_to "unfollow", relationship_path(:id => user.id), method: :delete, remote: true %>	
+		<%= link_to relationship_path(:id => user.id), method: :delete, remote: true do %>	
+			<div class='unfollow-button'></div>
+		<% end %>
 	<% else %>	
-		<%= link_to "follow", relationships_path(:id => user.id), :action => 'create', method: :post, remote: true %>
+		<%= link_to relationships_path(:id => user.id), :action => 'create', method: :post, remote: true do %>
+			<div class='follow-button'></div>
+		<% end %>
 	<% end %>
 <% end %>
 
