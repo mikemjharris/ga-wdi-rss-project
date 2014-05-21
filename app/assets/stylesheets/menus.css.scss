@@ -73,14 +73,14 @@ a {
 }
 
 .menu-section{
-	margin: 7px 0;
+	margin: 15px 0;
 	border: 1px solid $site-color;
 	border-radius: $border-r-small;
 	max-height: 30vh;
 	overflow: scroll;
 }
 
-.menu-title, .menu-title > a{
+#left-menu .menu-title, .menu-title, .menu-title > a{
 	text-align: center;
 	background: $site-color;
 	padding: 5px 2px;
