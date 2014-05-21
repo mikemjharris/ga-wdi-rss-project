@@ -22,7 +22,7 @@ a {
 	border: 4px solid $site-color;
 	border-radius: 3px;
 	margin: 0 0.5%;
-
+	position: relative;
 	padding: 3px 10px;
 	height: 85vh;
 	width: 20%;
@@ -62,8 +62,25 @@ a {
 			&:nth-child(even){
 				background: $menu-item-color;
 			}
+			}
+		}
+	input[type="text"] {
+		padding: 5px;
+		width: 40%;
+	}	
+	input[type="submit"]{
+		padding: 5px;
+		width: 10%;
+		-webkit-appearance: none;
+		border: 1px solid $site-color;
+		color: $site-color;
+		background: white;
+		&:hover {
+			background: $site-color;
+			color: white;
+			cursor: pointer;	
+		}
 	}
-}
 }
 
 
@@ -73,21 +90,44 @@ a {
 }
 
 .menu-section{
-	margin: 7px 0;
+	margin: 15px 0;
 	border: 1px solid $site-color;
 	border-radius: $border-r-small;
 	max-height: 30vh;
 	overflow: scroll;
 }
 
-.menu-title{
+#left-menu .menu-title, .menu-title, .menu-title > a{
 	text-align: center;
 	background: $site-color;
-	padding: 2px;
+	padding: 5px 2px;
 	color: white;
+	font-size: 1.2em;
+}
 
+.menu-small-title, .menu-small-title > a{
+	text-align: center;
+	background: lighten($site-color,20%);
+	padding:  2px;
+	color: white;
 }
 
 #feeds-menu li {
 	position: relative;
+}
+
+.middle-title{
+	text-align: center;
+	background: $site-color;
+	padding: 10px 2px;
+	margin: 5px 0;
+	color: white;
+	font-size: 1.5em;
+}
+.middle-small-title{
+	@extend .middle-title;
+	background: lighten($site-color,20%);
+	padding: 2px;
+	font-size: 1.2em;
+	margin: 15px 0;
 }
