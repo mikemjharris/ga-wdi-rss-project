@@ -22,12 +22,7 @@
         
    
 
-  
-    
-      
-          <!-- = link_to 'Manage Feeds', feeds_path, remote: true,   id: "manage_feeds" %> -->
-        
-  
+
 
       <% @user.feeds.includes(:subscriptions).where("subscriptions.category_id is Null").order("subscriptions.sort_order").each do | feed | %>
 
@@ -61,11 +56,7 @@
      <%= link_to 'Find People', users_path, remote: true %>
   </div>
 
-    <%= form_tag("/categories", method: "post") do %>
-      <%= label_tag(:category_name, "New category:") %>
-      <%= text_field_tag(:category_name) %>
-      <%= submit_tag("Add") %>
-    <% end %>
+   
 
    
 

@@ -1,9 +1,9 @@
-<h2>Availiable Feeds</h2>
+<div class="middle-small-title">Availiable Feeds</div>
 
 <div class="search">
     <%= search_form_for @q do |f| %>
-    <%= f.label :title_cont %>
-    <%= f.text_field :title_cont %>
+     <!-- f.label :title_cont  -->
+    <%= f.text_field :title_cont, :placeholder => "Title contains" %>
     
     <%= f.submit %>
     <% end %> 
