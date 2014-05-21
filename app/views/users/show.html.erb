@@ -53,23 +53,11 @@
 
   <div class="menu-section">
 	   <%= render 'users' %>
-     <%= link_to 'Find People', users_path, remote: true %>
   </div>
 
 
 </div><div id='middle-menu'>
   <%= render 'activities' %>
 </div><div id='right-menu'>
-
-<!-- </script>
-// $(function() {
-//     $( "#right-menu" ).resizable({
-//       maxHeight: 850,
-//       maxWidth: 400,
-//       minHeight: 682,
-//       minWidth: 200
-//     });
-//   });
-//   </script> -->
-    
+  <%= render 'userprofile' %>
 </div>
