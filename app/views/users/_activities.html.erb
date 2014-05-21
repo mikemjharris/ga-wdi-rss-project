@@ -2,11 +2,12 @@
 <div class='middle-title'>Recent Activity</div>
 
 <% @activities.each do |activity| %>
-  <b><%= activity.owner.first_name %> <%= activity.owner.last_name %></b> has <b>added</b> an article to their <b>timeline</b>
-  
-  	<%= link_to article_path(activity.trackable), remote: true do %>
-  		<%= activity.trackable.title %>
-  	<% end %>
-
+<div class='activity-feed'>
+	  <b><%= activity.owner.first_name %> <%= activity.owner.last_name %></b> has <b>added</b> an article to their <b>timeline</b>
+	  
+	  	<%= link_to article_path(activity.trackable), remote: true do %>
+	  		<%= activity.trackable.title %>
+	  	<% end %>
+</div>
 <% end %>
 
