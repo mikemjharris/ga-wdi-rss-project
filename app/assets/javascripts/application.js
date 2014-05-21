@@ -76,7 +76,11 @@ $( window ).load(function() {
             }).hide();
       });
 
-      $("")
+      $(".delete_icon").on("click", function(e) {
+        console.log("hi");
+        console.log($(e.target).closest("li").remove());
+        $("#feeds-menu").addClass("show");
+      });
 
 });
 
