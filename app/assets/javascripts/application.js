@@ -48,9 +48,16 @@ $( window ).load(function() {
         }  ,200)
     });
 
-    
+    var $following = $('#following-list li');
+      $('#filter').keyup(function() {
+      var re = new RegExp($(this).val(), "i"); // "i" means it's case-insensitive
+      $following.show().filter(function() {
+      return !re.test($(this).text());
+          }).hide();
+      });
 
 });
+
 
 
 
