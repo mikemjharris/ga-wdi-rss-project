@@ -103,18 +103,18 @@ header {
   right: 15px;
 }
 
-#feeds-menu #delete_icon {
+#feeds-menu .delete_icon {
   opacity: 0;
   z-index: -1000;
   transition: opacity 0.3s;
 }
 
-#feeds-menu.show #delete_icon {
+#feeds-menu.show .delete_icon {
   opacity: 1;
   z-index: +1000;
   }
 
-a#delete_icon { 
+#left-menu a.delete_icon { 
   width: 30px;
   height: 20px;
   display: inline-block;

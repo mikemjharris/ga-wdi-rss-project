@@ -2,4 +2,4 @@ var feedHtml =  "<%= escape_javascript(render partial: '/feeds/feed_url' ) %>"
 var feedHtml = feedHtml  +  "<%= escape_javascript(render partial: '/feeds/feeds' ) %>"
 $('#middle-menu').html(feedHtml);
 
-// $('#middle-menu').data("partial","/feeds/feed_url");
+$('#middle-menu').data("partial","/feeds/feed_url");
