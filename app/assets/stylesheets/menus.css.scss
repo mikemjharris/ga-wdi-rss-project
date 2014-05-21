@@ -136,3 +136,28 @@ a {
 	font-size: 1.2em;
 	margin: 15px 0;
 }
+
+#filter {
+	width: 100%;
+	height: 40px;
+}
+
+.follower-add-button {
+	content: url(/assets/add.png);
+	width: 20px;
+	position: absolute;
+	right: 4px;
+	top: 7px;
+}
+
+.follower-search-button {
+	content: url(/assets/search.png);
+	width: 20px;
+	position: absolute;
+	right: 32px;
+	top: 7px;
+}
+
+.menu-title {
+	position: relative;
+}

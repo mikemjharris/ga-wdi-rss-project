@@ -1,11 +1,19 @@
 
-
-  <%= link_to 'Following', users_path, remote: true, class: "menu-title" %>
-  
-<input type='text' id='filter' placeholder='Search (start typing)'>
-
-<% @following.each do |user| %>
- <ul id='following-list'>
- 	  <li><%= link_to "#{user.first_name} #{user.last_name}", timeline_user_path(user), remote: true %></li>
-  <% end %>
+<ul>
+  <li class="menu-title">Following<div class='follower-search-button'></div>
+  		<%= link_to users_path, remote: true do %>
+  		<div class='follower-add-button'></div>
+  		<% end %>
+  	</li>
 </ul>
+
+<div id='following-list-search'>
+	<input type='text' id='filter' placeholder='Search Followers'>
+</div>
+
+<ul id='following'>
+	<% @following.each do |user| %>
+	 	<li><%= link_to "#{user.first_name} #{user.last_name}", timeline_user_path(user), remote: true %></li>
+	<% end %>
+</ul>
+

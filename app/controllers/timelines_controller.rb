@@ -27,8 +27,8 @@ class TimelinesController < ApplicationController
 	end
 
 	def show
-		user = User.find(params[:id])
-		@articles = user.timeline_articles
+		@user = User.find(params[:id])
+		@articles = @user.timeline_articles
 
 		respond_to do |format|
 	      format.js  { render '/users/timeline.js.erb'}

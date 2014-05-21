@@ -12,6 +12,10 @@
   transition: background 1s;
 }
 
+.twitter_share {
+   content:url(/twitter_share.png);
+}
+
 
 .signinbutton {
   float: right;
@@ -104,7 +108,7 @@ p.bold_text {
 }
 
 #right-menu img {
-  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .title_homepage {
@@ -595,6 +599,7 @@ div.light:target .popup {
 .article-content {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 120%;
+
 }
 
 .follow-button {
@@ -603,6 +608,20 @@ div.light:target .popup {
 
 .unfollow-button {
   content:url(/assets/user-4-remove.png);
+}
+
+audio {
+  width: 100%;
+}
+
+video {
+  width: 100%;
+  height: auto;
+}
+
+.audio_title {
+  font-weight: bold;
+  text-align: center;
 }
 
 
