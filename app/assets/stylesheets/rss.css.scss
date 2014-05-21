@@ -391,6 +391,13 @@ div.light:target .popup {
   text-align: center;
   position: fixed;
   bottom: 4px;
+  .social-media & {
+    bottom: -24px;
+    transition: all 1s;
+    &:hover {
+      bottom: 4px;
+    }
+  }
 }
 .socialboxbtn {
     width:150px;
