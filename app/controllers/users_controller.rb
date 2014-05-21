@@ -21,6 +21,26 @@ before_filter :authenticate_user!
       @following = @user.followed_users
 
       @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.followed_users, owner_type: "User")
+
+      b = []
+      @activities.each do |activity|
+
+          if activity.created_at.to_i > params[:since].to_i
+              a = {}
+              a["first_name"] = activity.owner.first_name 
+              a["last_name"] = activity.owner.last_name
+              a["id"] = activity.trackable.id 
+              a["title"] = activity.trackable.title
+              a["created"] = activity.created_at.to_i
+              a["since"] = params[:since].to_i
+              b << a 
+          end
+      end 
+      
+      respond_to do |format| 
+        format.json {render json: b}
+        format.html
+      end
 	end
 
 	def following

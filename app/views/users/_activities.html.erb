@@ -1,5 +1,5 @@
 
-<div class='middle-title'>Recent Activity</div>
+<div class='middle-title' id='activity-stream' data-since="@activities.first.created_at.to_i">Recent Activity</div>
 
 <% @activities.each do |activity| %>
 <div class='wide-display'>

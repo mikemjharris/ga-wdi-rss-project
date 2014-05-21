@@ -76,6 +76,32 @@ $( window ).load(function() {
             }).hide();
       });
 
+      var updateArticles = function() {
+        $.ajax({
+          type: "get",
+          url: "/users/1",
+          data: $('#activity-stream').data()       
+        }).done(upDateArticlePage)
+      }
+
+      var upDateArticlePage = function(articles) {
+        // console.log("hi");
+        // console.log(articles.length);
+        for(var i = 0; i < articles.length; i++) {
+            // console.log(articles[i]);  
+            var htmlText = "<div class='wide-display'><b>" + articles[i]["first_name"] + " " + articles[i]["last_name"] + "</b> has <b>added</b> an article to their <b>timeline</b>"
+             + "<a href='/articles/"+articles[i]["id"]+"'>"+articles[i]["title"]+"</a></div>"
+      
+            $(htmlText).insertAfter("#activity-stream");
+            
+            $('#activity-stream').setAttribute('data-since', Date.now());
+        }
+        
+      }
+setInterval(function() {
+
+        updateArticles();
+      }, 5000); 
 });
 
 
