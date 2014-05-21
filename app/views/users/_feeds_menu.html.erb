@@ -10,6 +10,11 @@
       <% @user.categories.each do |category| %>
         <li class="menu-small-title" id="feed_[category]<%= category.id %>">
           <%= link_to category.category_name.capitalize, category_path(category), remote: true %>
+            <%= link_to category_path(category), method: :delete, class: "delete_icon", remote: :true do %>
+                <img src="/assets/delete.png" >
+              <% end %>
+
+
           </li>
           <% @user.feeds.where("subscriptions.category_id = #{category.id}").each do |feed|%>
               <li id="feed_<%= feed.id %>"><%= link_to feed.title, feed_path(feed), remote: true %>  
