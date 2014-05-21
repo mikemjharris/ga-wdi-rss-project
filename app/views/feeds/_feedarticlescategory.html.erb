@@ -1,8 +1,7 @@
 
-
-<div class="middle-title"><%= @feed.title %></div>
+<div class="middle-title"><%= @category.category_name.capitalize %></div>
 <ul>
-  <% @feed.articles.most_recent.each do | article | %>
+  <% @articles.each do | article | %>
 
   <li>
 	<%= link_to article_path(article), remote: true do %>

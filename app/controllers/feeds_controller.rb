@@ -63,12 +63,10 @@ class FeedsController < ApplicationController
   def sortable
     @user = current_user
     @new_order = params["feed"]
-    a = []
+    a = current_user
     c = ""
     category_id = nil
     @new_order.each.with_index do |feed_id, i|
-      
-        # unless feed_id[0,13] = "[category_id]"
             c = @user.subscriptions.where(:feed_id => feed_id.to_i).first
           unless c.nil?   
             c.sort_order = i
@@ -80,8 +78,16 @@ class FeedsController < ApplicationController
     end  
 
     respond_to do |format|
-      format.json  { render json: a}
+      format.json  { render json: current_user}
     end
+  end
+
+  def middle
+    @partial = params["partial"]
+    respond_to do |format|
+      format.js  { render "categories/categorysort.js.erb"}
+    end
+
   end
 
 end

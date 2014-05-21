@@ -1,0 +1,5 @@
+var articleHtml =  "<%= escape_javascript(render partial: '/feeds/feedarticlescategory' ) %>"
+
+$('#middle-menu').html(articleHtml)
+
+$('#middle-menu').data("partial", "<%= @category.id %>");
