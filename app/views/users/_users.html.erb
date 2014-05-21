@@ -5,3 +5,13 @@
 
 <% end %>
 </ul>
+
+   <%= search_form_for @q do |f| %>
+      <p>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
