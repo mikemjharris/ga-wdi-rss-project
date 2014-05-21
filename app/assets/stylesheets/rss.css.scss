@@ -42,6 +42,20 @@
    /*left: 40% - 150px;*/
 }
 
+.settings {
+   content:url(/assets/settings-3.png);
+   position: relative;
+   margin-left: 78.9%;
+   top: 0;
+   border: 2px solid white;
+   border-radius: 10%;
+   padding: 3px;
+   margin-top: -42px;
+   width: 2.4%;
+   height: auto;
+}
+
+
 header {
   margin: 0.5%;
   width: 98%;
@@ -623,8 +637,6 @@ video {
   font-weight: bold;
   text-align: center;
 }
-
-
 
 
 
