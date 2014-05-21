@@ -1,5 +1,17 @@
-<%= form_tag("/subscriptions", method: "post", remote: true) do %>
-  <%= label_tag(:feed_url, "URL:") %>
+<div class="middle-title">Manage Your Feeds</div>
+Either subscribe to a feed that another user has added to
+Yakety or add your own. Add catgories to help keepy your feeds organised.
+<div class="middle-small-title">Add a new feed to Yakety</div>
+  <%= form_tag("/subscriptions", method: "post", remote: true) do %>
+  <%= label_tag(:feed_url, "") %>
   <%= text_field_tag(:feed_url) %>
   <%= submit_tag("Add") %>
-<% end %>
+  <% end %>
+<div>
+<div class="middle-small-title">Add a Category</div>
+ <%= form_tag("/categories", method: "post") do %>
+      <%= label_tag(:category_name, "") %>
+      <%= text_field_tag(:category_name) %>
+      <%= submit_tag("Add") %>
+    <% end %>
+
