@@ -45,7 +45,7 @@ header {
   background-color: $site-color;
   position: relative;
   padding: 10px;
-  font-family: 'Arimo', sans-serif;
+  font-family: $main-font;
 }
 
 .login {
@@ -266,7 +266,7 @@ a.button:active {
 .popup h3 {
   margin-top: 0;
   color: #666;
-  font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+  font-family: $headline-font;
 }
 
 .popup h3 {
