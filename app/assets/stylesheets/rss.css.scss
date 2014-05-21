@@ -12,24 +12,9 @@
   transition: background 1s;
 }
 
-.twitter_share {
-   content:url(/twitter_share.png);
-   width: 73px !important;
-   margin-top: -78px;
-   margin-left: 70px;
-}
 
-.facebook_share {
-  content:url(/facebook_share.png);
-  width: 73px !important;
-  height:  28px;
-  margin-left: 140px;
-  margin-top: -34px;
-}
 
-.g-plus {
-  width: 100px;
-}
+
 
 
 .signinbutton {
@@ -107,7 +92,7 @@ header {
   top:  23px;
 }
 
-#feeds-menu .delete_icon {
+#feeds-menu a.delete_icon {
   opacity: 0;
   z-index: -1000;
   transition: opacity 0.3s;
@@ -128,9 +113,13 @@ header {
   z-index: 1000;
   display:inline-block;
   position: absolute;
+    background: none;
   img {
     width: 15px;
     margin: 0 auto;
+  }
+  &:hover{
+    background: none;
   }
 }
 

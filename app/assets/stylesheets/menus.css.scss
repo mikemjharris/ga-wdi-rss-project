@@ -161,3 +161,20 @@ a {
 .menu-title {
 	position: relative;
 }
+
+a#twitter_share {
+   content:url(/twitter_share.png);
+   width: 73px !important;
+   display: inline-block;
+}
+
+a#facebook_share {
+  content:url(/facebook_share.png);
+  width: 73px !important;
+  display: inline-block;
+
+}
+
+.g-plus {
+  width: 100px;
+}
