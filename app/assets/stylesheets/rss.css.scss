@@ -90,11 +90,21 @@ header {
       color: $site-color;
       background: white;
     }
+    &:first-child{
+      margin-left: 40px;
+    }
+  }
+  img {
+    border: 2px solid white;
+    position: relative;
+    top: -7px;
+    vertical-align: middle;
   }
 }
 
 #login-right{
   right: 15px;
+  top:  23px;
 }
 
 #feeds-menu .delete_icon {
