@@ -67,8 +67,6 @@ class FeedsController < ApplicationController
     c = ""
     category_id = nil
     @new_order.each.with_index do |feed_id, i|
-      
-        # unless feed_id[0,13] = "[category_id]"
             c = @user.subscriptions.where(:feed_id => feed_id.to_i).first
           unless c.nil?   
             c.sort_order = i
@@ -82,6 +80,14 @@ class FeedsController < ApplicationController
     respond_to do |format|
       format.json  { render json: a}
     end
+  end
+
+  def middle
+    @partial = params["partial"]
+    respond_to do |format|
+      format.js  { render "categories/categorysort.js.erb"}
+    end
+
   end
 
 end

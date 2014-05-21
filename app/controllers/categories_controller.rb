@@ -22,6 +22,16 @@ class CategoriesController < ApplicationController
 
 	end
 
+	def show
+		@user = current_user
+		@category = Category.find(params[:id])
+		@articles = @user.articles.where("subscriptions.category_id = #{params[:id]}").most_recent
+		
+		respond_to do |format|
+      format.js  {render 'show.js.erb'}
+      format.html 
+    end
+	end
 
 
 end

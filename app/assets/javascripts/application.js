@@ -22,10 +22,21 @@ $( window ).load(function() {
       $.ajax({
         type: "POST",
         url: "/feeds/update/sortable/",
-        data: $("#feeds-menu").sortable('serialize')
+        data: $("#feeds-menu").sortable('serialize'),
+        success: updatepage
           })
         }
       });
+
+    var updatepage = function() {
+      console.log("hiho")
+      $.ajax({
+        type: "get",
+        url: "/categories/" + $('#middle-menu').data('partial')
+      
+  
+        })
+    }
 
     $("#feeds-menu").disableSelection();
 

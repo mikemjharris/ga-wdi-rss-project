@@ -1,3 +1,4 @@
+
 <ul>
   <li class="menu-title">Following<div class='follower-search-button'></div>
   		<%= link_to users_path, remote: true do %>
@@ -15,3 +16,4 @@
 	 	<li><%= link_to "#{user.first_name} #{user.last_name}", timeline_user_path(user), remote: true %></li>
 	<% end %>
 </ul>
+
