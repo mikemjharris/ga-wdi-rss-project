@@ -20,9 +20,6 @@ before_filter :authenticate_user!
     end
       @following = @user.followed_users
 
-      @q = @user.followed_users.search(params[:q])
-      @following = @q.result(:distinct => true)
-
       @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.followed_users, owner_type: "User")
 	end
 

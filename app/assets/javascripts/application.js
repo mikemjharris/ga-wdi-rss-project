@@ -22,6 +22,9 @@ $( window ).load(function() {
       $.ajax({
         type: "POST",
         url: "/feeds/update/sortable/",
+        beforeSend: function(jqXHR, settings) {
+        jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+          },
         data: $("#feeds-menu").sortable('serialize'),
         success: updatepage
           })

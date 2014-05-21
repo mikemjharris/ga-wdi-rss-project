@@ -1,7 +1,10 @@
-<h1>User Profile</h1>
-
-<p>Name: <%= @user.first_name %>
-<%= @user.last_name %></p>
+<div class='middle-title' id='profile'>
+<%= @user.first_name %> <%= @user.last_name %></div>
 <p>Email: <%= @user.email %></p>
 <p>Bio: <%= @user.bio %></p>
-<p>Image: <%= raw @user.profile_image %></p>
+
+<p>Image: <%= @user.profile_image %></p>
+
+
+</div>
+
