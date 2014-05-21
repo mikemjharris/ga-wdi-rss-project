@@ -1,0 +1,36 @@
+<h1> TEST </h1>
+
+<p><div class="manage_account"><%= link_to "Manage your account", edit_user_registration_path %></div></p>
+
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<%= form_for(@user) do |f| %>
+  
+    <%= f.label :first_name %>   
+    <p><%= f.text_field :first_name, :placeholder => "First Name" %></p>
+
+    <%= f.label :last_name %>   
+   <p> <%= f.text_field :first_name, :placeholder => "Last Name" %></p>
+   
+    <p><%= f.text_area :bio, :rows => "10", :cols => "22", :placeholder => "Bio"%> </p>
+
+    <%= f.label :profile_picture %><br />
+    <%= f.file_field :profile_picture %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
+
+<% end %>
