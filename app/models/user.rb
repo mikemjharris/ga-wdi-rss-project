@@ -14,6 +14,7 @@ devise :database_authenticatable, :registerable,
 
     def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
+
     if user
       return user
     else
@@ -28,6 +29,7 @@ devise :database_authenticatable, :registerable,
                             uid:auth.uid,
                             email:auth.info.nickname.downcase + "@twitter.com",
                             profile_image: auth.info.image,
+                            first_name: auth.info.name.split[0],
                           )
       end
 
