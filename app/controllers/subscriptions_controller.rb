@@ -42,9 +42,13 @@ class SubscriptionsController < ApplicationController
 
 
 	def destroy
-			Subscription.find(params[:id]).destroy
+		Subscription.find(params[:id]).destroy
 
-			redirect_to :root
+		respond_to do |format|
+      format.js  {render json: "destroyed"}
+      format.html {redirect_to :root}
+    end
+		
 
 	end
 

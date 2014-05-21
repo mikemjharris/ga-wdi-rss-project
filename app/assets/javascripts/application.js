@@ -76,6 +76,7 @@ $( window ).load(function() {
             }).hide();
       });
 
+
       var updateArticles = function() {
         $.ajax({
           type: "get",
@@ -102,6 +103,13 @@ setInterval(function() {
 
         updateArticles();
       }, 5000); 
+
+      $(".delete_icon").on("click", function(e) {
+        $(e.target).closest("li").remove();
+        $("#feeds-menu").addClass("show");
+      });
+
+
 });
 
 

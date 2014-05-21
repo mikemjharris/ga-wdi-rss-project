@@ -1,10 +1,8 @@
-var articleHtml =  '<li><%= link_to @feed.title, feed_path(@feed), remote: true  %></li> '
+var articleHtml =   "<%= escape_javascript(render partial: '/users/feeds_menu' ) %>"
 
-$('#feeds-menu').append(articleHtml)
+$('#feeds-menu').html(articleHtml)
 
 var articleHtml =  "<%= escape_javascript(render partial: '/feeds/feed_url' ) %>"
 var articleHtml = articleHtml + "<%= escape_javascript(render partial: '/feeds/feeds' ) %>"
-
-
 
 $('#middle-menu').html(articleHtml)

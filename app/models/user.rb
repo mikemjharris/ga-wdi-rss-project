@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
-
     acts_as_marker
-
     devise :omniauthable
 
   # Include default devise modules. Others available are:
@@ -9,8 +7,11 @@ class User < ActiveRecord::Base
 devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, omniauth_providers: [:twitter, :google_oauth2, :facebook]
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :first_name, :last_name, :profile_image
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :first_name, :last_name, :profile_image, :bio, :profile_picture
   # attr_accessible :title, :body
+
+  mount_uploader :profile_picture, ProfilePictureUploader
+
 
     def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
@@ -35,6 +36,7 @@ devise :database_authenticatable, :registerable,
 
     end
   end
+
 
   def self.from_omniauth(auth)
     if user = User.find_by_email(auth.info.email)
@@ -122,4 +124,41 @@ devise :database_authenticatable, :registerable,
         
 
   }()); "
+
+
+  # def self.from_omniauth(auth)
+  #   twitter_email = if auth.info.nickname then auth.info.nickname.downcase + "@twitter.com" end
+     
+  #   if user = User.find_by_email(auth.info.email) || user = User.find_by_email(twitter_email) 
+  #     user.provider = auth.provider
+  #     user.uid = auth.uid
+  #     user.profile_image = auth.info.image
+  #     user
+  #   else
+  #     if auth.provider == "twitter"
+  #       user = User.create({
+  #             :provider => auth.provider,
+  #             :uid => auth.uid,
+  #             :email => auth.info.nickname.downcase + "@twitter.com",
+  #             :first_name =>  auth.info.name.split(" ")[0],
+  #             :last_name =>  auth.info.name.split(" ")[1],
+  #             :bio => auth.info.description,
+  #             :profile_image => auth.info.image,
+  #             :password => Devise.friendly_token[0,20]
+  #         })
+          
+  #     else
+        
+  #       where(auth.slice(:provider, :uid)).first_or_create do |user|
+  #           user.provider = auth.provider
+  #           user.uid = auth.uid
+  #           user.email = auth.info.email
+  #           user.first_name = auth.info.first_name
+  #           user.last_name = auth.info.last_name
+  #           user.image = auth.info.image
+  #           user.password = Devise.friendly_token[0,20]
+  #       end
+  #     end 
+  #   end
+  # end
 end

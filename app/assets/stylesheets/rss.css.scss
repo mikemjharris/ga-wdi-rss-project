@@ -12,24 +12,15 @@
   transition: background 1s;
 }
 
-.twitter_share {
-   content:url(/twitter_share.png);
-   width: 73px !important;
-   margin-top: -78px;
-   margin-left: 70px;
+.manage_account {
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 5px;
+  width: 170px;
+  background-color: red;
 }
 
-.facebook_share {
-  content:url(/facebook_share.png);
-  width: 73px !important;
-  height:  28px;
-  margin-left: 140px;
-  margin-top: -34px;
-}
 
-.g-plus {
-  width: 100px;
-}
 
 
 .signinbutton {
@@ -59,14 +50,8 @@
 
 .settings {
    content:url(/assets/settings-3.png);
-   position: relative;
-   margin-left: 78.9%;
-   top: 0;
-   border: 2px solid white;
-   border-radius: 10%;
-   padding: 3px;
-   margin-top: -42px;
-   width: 2.4%;
+   width: 15px;
+   display: inline-block;
    height: auto;
 }
 
@@ -96,25 +81,35 @@ header {
       color: $site-color;
       background: white;
     }
+    &:first-child{
+      margin-left: 40px;
+    }
+  }
+  img {
+    border: 2px solid white;
+    position: relative;
+    top: -7px;
+    vertical-align: middle;
   }
 }
 
 #login-right{
   right: 15px;
+  top:  23px;
 }
 
-#feeds-menu #delete_icon {
+#feeds-menu a.delete_icon {
   opacity: 0;
   z-index: -1000;
   transition: opacity 0.3s;
 }
 
-#feeds-menu.show #delete_icon {
+#feeds-menu.show .delete_icon {
   opacity: 1;
   z-index: +1000;
   }
 
-a#delete_icon { 
+#left-menu a.delete_icon { 
   width: 30px;
   height: 20px;
   display: inline-block;
@@ -124,9 +119,13 @@ a#delete_icon {
   z-index: 1000;
   display:inline-block;
   position: absolute;
+    background: none;
   img {
     width: 15px;
     margin: 0 auto;
+  }
+  &:hover{
+    background: none;
   }
 }
 

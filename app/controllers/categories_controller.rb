@@ -15,10 +15,14 @@ class CategoriesController < ApplicationController
 	end
 
 
-	def destroy
-			Subscription.find(params[:id]).destroy
 
-			redirect_to :root
+
+	def destroy
+      @subscriptions = Subscription.where(category_id: params[:id])
+      @subscriptions.each{ |s| s.category_id = nil; s.save}
+			
+      Category.find(params[:id]).destroy
+			# redirect_to :root
 
 	end
 

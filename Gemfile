@@ -11,6 +11,9 @@ gem 'feedjira'
 gem 'markable'
 gem 'ransack'
 gem 'public_activity'
+gem 'carrierwave'
+gem 'rmagick'
+
 
 gem 'omniauth'
 gem 'omniauth-twitter' 

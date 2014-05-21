@@ -13,8 +13,9 @@ class Article < ActiveRecord::Base
   private
 
   def self.create_from_feed_data(feed_data, feed_id)
-  	feed_data.entries.each do |article|
-  	 create_article(article, feed_id)
+  	
+    feed_data.entries.reverse.each do |article|
+  	  create_article(article, feed_id)
   	end
   end
 
@@ -22,7 +23,7 @@ class Article < ActiveRecord::Base
 
     feed_urls.each do |feed_url|
       feed_data = feeds_data[feed_url]
-      feed_data.entries.each do |article|
+      feed_data.entries.reverse.each do |article|
         feed_id = Feed.where(url: feed_url).first.id
         if Article.where(guid: article.entry_id).empty?
           create_article(article, feed_id)

@@ -22,7 +22,7 @@
 
 <header>
   <div class="login">
-    <div class="profile_picture"> <img src ="<%= @user.profile_image %>"> </div>
+    <img src ="<%= current_user.profile_image %>" > 
     <% if user_signed_in? %>
       Hello <%= current_user.first_name %>. 
 
@@ -38,11 +38,18 @@
       <%= link_to "Update articles", feeds_update_articles_path %>
       <!-- link_to "update articles ajax", feeds_update_articles_path, remote: true  -->
       <a href="<%= $bookmarklet %>">Find Feeds</a>
+
+      <%= link_to edit_user_path(current_user) do %>
+      <div class="settings"> </div>
+      <% end %>
+
+
+
   </div>
     
    <div class="small_logo"> </div>
 
-  <div class="settings"> </div>
+  
 
   <p class="alert"><%= alert %></p>
 
