@@ -49,12 +49,17 @@ $( window ).load(function() {
         }  ,200)
     });
 
-    var $following = $('#following-list li');
+    $("#following-list-search").hide();
+    $(".follower-search-button").click(function(){
+        $("#following-list-search").slideDown();
+    });
+
+    var $following = $('#following li').hide();
       $('#filter').keyup(function() {
       var re = new RegExp($(this).val(), "i"); // "i" means it's case-insensitive
       $following.show().filter(function() {
-      return !re.test($(this).text());
-          }).hide();
+        return !re.test($(this).text());
+            }).hide();
       });
 
 });
