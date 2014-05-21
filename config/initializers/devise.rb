@@ -22,9 +22,9 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
 
   config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET"]
-  config.omniauth :google_oauth2,'798003971619-4gkc41ig4rp34vvlvg0t01n6tja8e99g.apps.googleusercontent.com', '4N8UJkhf-wV-iTVl2nR45PbB'
+  config.omniauth :google_oauth2,ENV["GOOGLE_KEY"], ENV["GOOGLE_SECRET"]
   
-  config.omniauth :facebook, "235129946681549", "ba8425f74d0234b34bea856985cfc163"
+  config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET"]
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
