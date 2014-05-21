@@ -80,12 +80,19 @@ a {
 	overflow: scroll;
 }
 
-.menu-title{
+.menu-title, .menu-title > a{
 	text-align: center;
 	background: $site-color;
-	padding: 2px;
+	padding: 5px 2px;
 	color: white;
+	font-size: 1.2em;
+}
 
+.menu-small-title, .menu-small-title > a{
+	text-align: center;
+	background: lighten($site-color,20%);
+	padding:  2px;
+	color: white;
 }
 
 #feeds-menu li {

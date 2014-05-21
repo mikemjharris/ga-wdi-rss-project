@@ -10,13 +10,14 @@
   <ul>
     
       <li>
-           <!-- link_to 'Manage Feeds', feeds_path, remote: true, id: "manage_feeds" -->
+           
     </li>
  
   
 	 
    <div class="menu-section">
-      <div class="menu-title">Your Feeds</div>
+      <div class="menu-title"><%= link_to 'Your Feeds', feeds_path, remote: true, id: "manage_feeds"  %>
+      </div>
       <ul id="feeds-menu">
         
    
@@ -38,8 +39,8 @@
       <% end %>
 
       <% @user.categories.each do |category| %>
-        <li class="menu-title" id="feed_[category]<%= category.id %>">
-          <a href="#"><%= category.category_name %></a> </li>
+        <li class="menu-small-title" id="feed_[category]<%= category.id %>">
+          <a href="#"><%= category.category_name.capitalize %></a> </li>
           <% @user.feeds.where("subscriptions.category_id = #{category.id}").each do |feed|%>
               <li id="feed_<%= feed.id %>"><%= link_to feed.title, feed_path(feed), remote: true %>  
               <%= link_to subscription_path(find_subscription(feed,current_user)), method: :delete, id: "delete_icon" do %>
