@@ -42,6 +42,11 @@ a {
 			background: darken($menu-item-color,20%);
 		}
 	}
+	input[type="text"] {
+		width: 98%;
+		padding: 5px;
+		margin: 5px 1%;
+	}
 	}
 
 
