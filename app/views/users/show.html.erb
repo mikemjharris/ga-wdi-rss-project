@@ -35,7 +35,8 @@
 
       <% @user.categories.each do |category| %>
         <li class="menu-small-title" id="feed_[category]<%= category.id %>">
-          <a href="#"><%= category.category_name.capitalize %></a> </li>
+          <%= link_to category.category_name.capitalize, category_path(category), remote: true %>
+          </li>
           <% @user.feeds.where("subscriptions.category_id = #{category.id}").each do |feed|%>
               <li id="feed_<%= feed.id %>"><%= link_to feed.title, feed_path(feed), remote: true %>  
               <%= link_to subscription_path(find_subscription(feed,current_user)), method: :delete, id: "delete_icon" do %>

@@ -85,10 +85,11 @@ devise :database_authenticatable, :registerable,
     relationships.find_by_followed_id(other_user.id).destroy
   end
 
-  has_many :feeds, through: :subscriptions
-  has_many :feeds, :through => :subscriptions
+
   has_many :subscriptions
+  has_many :feeds, :through => :subscriptions
   has_many :categories
+  has_many :articles, :through => :feeds
 
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed

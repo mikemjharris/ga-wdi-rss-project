@@ -1,0 +1,12 @@
+
+<p>example feeds</p>
+<p>http://feeds.bbci.co.uk/news/rss.xml</p>
+<p>http://feeds.bbci.co.uk/news/politics/rss.xml</p>
+<p>http://lorem-rss.herokuapp.com/feed?unit=second&interval=30</p>
+
+<ul>
+ <%= @articles.each do |article| %>
+    <li><%= article.title %></li>
+  <% end %>
+</ul>
+
