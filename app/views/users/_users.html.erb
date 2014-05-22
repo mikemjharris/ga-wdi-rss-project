@@ -14,7 +14,11 @@
 
 <ul id='following'>
 	<% @following.each do |user| %>
+    <% if user.first_name.nil? %>
+    <li><%= link_to "#{user.email}", timeline_user_path(user), remote: true %></li>
+    <% else %>
 	 	<li><%= link_to "#{user.first_name} #{user.last_name}", timeline_user_path(user), remote: true %></li>
+    <% end %>
 	<% end %>
 </ul>
 
