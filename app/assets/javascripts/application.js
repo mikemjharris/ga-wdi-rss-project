@@ -73,10 +73,52 @@ $( window ).load(function() {
             }).hide();
       });
 
+
+      var updateArticles = function() {
+        $.ajax({
+          type: "get",
+          url: "/users/1",
+          data: $('#activity-stream').data()       
+        }).done(upDateArticlePage)
+      }
+
+      var upDateArticlePage = function(articles) {
+        // console.log("hi");
+        // console.log(articles.length);
+        for(var i = 0; i < articles.length; i++) {
+            // console.log(articles[i]);  
+            var htmlText = "<div class='wide-display' ><b>" + articles[i]["first_name"] + " " + articles[i]["last_name"] + "</b> has <b>added</b> an article to their <b>timeline</b>"
+             + "<a href='/articles/"+articles[i]["id"]+"'>"+articles[i]["title"]+"</a></div>"
+      
+           el = $(htmlText).insertAfter("#activity-stream");
+            // if (i === 0){
+              $('#activity-stream').data('since', articles[i]["created"]);
+             
+               // } 
+        
+          
+    setTimeout(function () { 
+        $(el).addClass('article_flash');
+      }, 100);
+    setTimeout(function () { 
+        $(el).removeClass('article_flash');
+      }, 1000);
+
+        }
+
+      }
+      
+      setInterval(function() {
+
+        updateArticles();
+      }, 5000); 
+
+      
       $(".delete_icon").on("click", function(e) {
         $(e.target).closest("li").remove();
         $("#feeds-menu").addClass("show");
       });
+
 
 });
 

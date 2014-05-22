@@ -1,7 +1,14 @@
-<div class="middle-title">Time-Line</div>
+<div class="middle-title">Timeline</div>
 
 <% @articles.reverse.each do |article| %>
-	<%= link_to article_path(article), remote: true do %>
-	      <%= article.title %>
-	<% end %>
+	<div class='wide-display'>
+		<%= link_to article_path(article), remote: true do %>
+		      <%= article.title %>
+		<% end %>
+		<div id='feed-source'>
+		<%= link_to feed_path(article.feed_id), remote: true do %>
+		      <%= article.feed.title %>
+		<% end %>
+		</div>
+	</div>
 <% end %>
