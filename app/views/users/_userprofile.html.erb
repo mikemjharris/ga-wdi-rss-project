@@ -3,19 +3,23 @@
 
 <%= render '/shared/stats' %>
 
-<%= image_tag @user.profile_picture.url %>
+<% if @user.profile_image %>
+	<%= image_tag @user.profile_image %>
+<% end %>
 
-<p>Bio: <%= @user.bio %></p>
+<p><%= @user.bio %></p>
 
 
 <%= render '/shared/followed' %>
 <%= render '/shared/followers' %>
 
-
+<h2>Your Categories</h2>
 <% @user.categories.each do |category| %>
-	<div class='category-box'>
-		<%= link_to category.category_name.capitalize, category_path(category), remote: true %>
-	</div>
+	
+		<%= link_to category_path(category), remote: true do %>
+		<div class='category-box'></div><%= category.category_name.capitalize %>
+		<% end %>
+
 <% end %>
 
 
