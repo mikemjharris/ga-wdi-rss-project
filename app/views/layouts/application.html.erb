@@ -22,7 +22,9 @@
 
 <header>
   <div class="login">
-    <img src ="<%= current_user.profile_image %>" > 
+    <% if @user.profile_image %>
+      <img src ="<%= current_user.profile_image %>" > 
+    <% end %>
     <% if user_signed_in? %>
       Hello <%= current_user.first_name %>. 
 
