@@ -32,35 +32,34 @@
             }
 
 function getReady() { 
-
     $("#feeds-menu").sortable({
       update: function (event, ui){ 
-      if (!$(ui.item).hasClass("menu-small-title")) {      
-        $(ui.item).removeClass($(ui.item).attr('class'));
-        $('#feeds-menu li').removeAttr("style");
-        categorySelected = $('#feeds-menu').data("category-selected")
+        if (!$(ui.item).hasClass("menu-small-title")) {      
+          $(ui.item).removeClass($(ui.item).attr('class'));
+          $('#feeds-menu li').removeAttr("style");
+          categorySelected = $('#feeds-menu').data("category-selected")
       
-      if (!($($(ui.item).prev()).data('category') == null)){
-          $(ui.item).addClass("category" + $($(ui.item).prev()).data('category'));
-          $(ui.item).data("category", $($(ui.item).prev()).data('category') ); 
-        } else {  
+          if (!($($(ui.item).prev()).data('category') == null)){
+            $(ui.item).addClass("category" + $($(ui.item).prev()).data('category'));
+            $(ui.item).data("category", $($(ui.item).prev()).data('category') ); 
+          } else {  
           // $(ui.item).removeAttr("style");
-          $(ui.item).data("category", null); 
+            $(ui.item).data("category", null); 
+          }
+          colorboxes(categorySelected);
         }
-        colorboxes(categorySelected);
-      }
 
-      $.ajax({
-        type: "POST",
-        url: "/feeds/update/sortable/",
-        beforeSend: function(jqXHR, settings) {
-        jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-          },
-        data: $("#feeds-menu").sortable('serialize'),
-        success: updatepage
+        $.ajax({
+          type: "POST",
+          url: "/feeds/update/sortable/",
+          beforeSend: function(jqXHR, settings) {
+            jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+            },
+          data: $("#feeds-menu").sortable('serialize'),
+          success: updatepage
           })
         }
-      });
+    });
 
     var updatepage = function() {
       $.ajax({
@@ -77,7 +76,11 @@ function getReady() {
       }, 200)
     });
 
+    // $('#bookmarklet').on("click", function(ev) {
+    //     ev.preventDefault();
+    //     alert("Drag the bookmarklet to your address bar then click to add a feed to Yakety.");
 
+    //   });
 
     $("#left-menu li a").on("click", function(){
         $('#feeds-menu li').removeAttr("style")
@@ -130,19 +133,16 @@ function getReady() {
              
 
           
-    setTimeout(function () { 
-        $(el).addClass('article_flash');
-      }, 100);
-    setTimeout(function () { 
-        $(el).removeClass('article_flash');
-      }, 1000);
-
+          setTimeout(function () { 
+            $(el).addClass('article_flash');
+          }, 100);
+            setTimeout(function () { 
+              $(el).removeClass('article_flash');
+            }, 1000);
         }
-
       }
       
       setInterval(function() {
-
         updateArticles();
       }, 5000); 
 

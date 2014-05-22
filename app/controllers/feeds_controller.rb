@@ -5,14 +5,12 @@ class FeedsController < ApplicationController
 
   def create_external
 
-      
-
       @feed = Feed.find_by_url(params[:url])
 
       feed_data = Feedjira::Feed.fetch_and_parse("#{params[:url]}")
       
       if feed_data != 0 && feed_data != 200
-        @feed = Feed.new(url: params[:feed_url])
+        @feed = Feed.new(url: params[:url])
         @feed.title = feed_data.title
         @feed.description = feed_data.description
         @feed.save
