@@ -7,11 +7,17 @@ Yakety or add your own. Add catgories to help keepy your feeds organised.
   <%= text_field_tag(:feed_url) %>
   <%= submit_tag("Add") %>
   <% end %>
-<div>
+
+     <% if flash[:nofeed] %>
+          <div id="NoFeedAlert"><%= flash[:nofeed] %> </div>
+     <% end %>
+
 <div class="middle-small-title">Add a Category</div>
  <%= form_tag("/categories", method: "post", remote: true) do %>
        <!-- label_tag(:category_name) %> -->
       <%= text_field_tag :category_name,params[:category_name], id: "category_input"  %>
       <%= submit_tag("Add") %>
     <% end %>
+  </div>
+
 

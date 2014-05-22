@@ -27,7 +27,7 @@ class SubscriptionsController < ApplicationController
 				@subscription.save
 				Article.create_from_feed_data(feed_data, @feed.id)
 			else 
-				flash[:alert] = "Not a valid rss feed"
+				flash[:nofeed] = "Not a valid rss feed"
 			end
 		end
 

@@ -5,6 +5,12 @@
   display: none;
 }
 
+#NoFeedAlert {
+  display: block;
+  color: white;
+  padding: 5px;
+  background: $site-color;
+}
 .article_flash{
   background: $warning-color;
 }

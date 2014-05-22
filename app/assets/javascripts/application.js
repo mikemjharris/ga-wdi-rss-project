@@ -20,7 +20,11 @@
           $('#feeds-menu li').removeAttr("style")
           var feeds_in_category = $('.category' + category_id)
             for (var i = 0 ; i < feeds_in_category.length; i++){
-                var color = "hsl(" + i*60 + ",100%,50%)";
+                if (i < 9) {
+                    var color = "hsl(" + i*40 + ",100%,50%)";
+                  } else {
+                     var color = "hsl(" + i*40 + ",50%,50%)";
+                  }
                 $(feeds_in_category[i]).css("border-right", "5px solid " + color);
                 $(feeds_in_category[i]).data("color", color);
 
