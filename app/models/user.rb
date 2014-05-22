@@ -6,72 +6,72 @@ acts_as_marker
 devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable, omniauth_providers: [:twitter, :google_oauth2, :facebook]
 
-attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :first_name, :last_name, :bio, :profile_picture_image
+attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :first_name, :last_name, :bio, :profile_picture_image, :profile_image
 
 mount_uploader :profile_picture_image, ProfilePictureImageUploader
 
 
 
-    def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    if user
-      return user
-    else
-      registered_user = User.where(:email => auth.info.nickname.downcase + "@twitter.com").first
-      if registered_user
-        return registered_user
+  #   def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
+  #   user = User.where(:provider => auth.provider, :uid => auth.uid).first
+  #   if user
+  #     return user
+  #   else
+  #     registered_user = User.where(:email => auth.info.nickname.downcase + "@twitter.com").first
+  #     if registered_user
+  #       return registered_user
 
-      else
+  #     else
         
-        user = User.create(
-                            provider:auth.provider,
-                            uid:auth.uid,
-                            email:auth.info.nickname.downcase + "@twitter.com",
-                            profile_image: auth.info.image,
-                            first_name: auth.info.name.split[0],
-                          )
-      end
+  #       user = User.create(
+  #                           provider:auth.provider,
+  #                           uid:auth.uid,
+  #                           email:auth.info.nickname.downcase + "@twitter.com",
+  #                           profile_image: auth.info.image,
+  #                           first_name: auth.info.name.split[0],
+  #                         )
+  #     end
 
 
-    end
-  end
+  #   end
+  # end
 
 
-  def self.from_omniauth(auth)
-    if user = User.find_by_email(auth.info.email)
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user
-    else
-      where(auth.slice(:provider, :uid)).first_or_create do |user|
-        user.provider = auth.provider
-        user.uid = auth.uid
-        user.email = auth.info.email
-        user.password = Devise.friendly_token[0,20]
-      end
-    end
+  # def self.from_omniauth(auth)
+  #   if user = User.find_by_email(auth.info.email)
+  #     user.provider = auth.provider
+  #     user.uid = auth.uid
+  #     user
+  #   else
+  #     where(auth.slice(:provider, :uid)).first_or_create do |user|
+  #       user.provider = auth.provider
+  #       user.uid = auth.uid
+  #       user.email = auth.info.email
+  #       user.password = Devise.friendly_token[0,20]
+  #     end
+  #   end
     
-  end
+  # end
 
-  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-      user = User.where(:provider => auth.provider, :uid => auth.uid).first
-      if user
-        return user
-      else
-        registered_user = User.where(:email => auth.info.email).first
-        if registered_user
-          return registered_user
-        else
-          user = User.create(name:auth.extra.raw_info.name,
-                              provider:auth.provider,
-                              uid:auth.uid,
-                              email:auth.info.email,
-                              :profile_image => auth.info.image,
-                              password:Devise.friendly_token[0,20],
-                            )
-        end   
-      end
-    end
+  # def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+  #     user = User.where(:provider => auth.provider, :uid => auth.uid).first
+  #     if user
+  #       return user
+  #     else
+  #       registered_user = User.where(:email => auth.info.email).first
+  #       if registered_user
+  #         return registered_user
+  #       else
+  #         user = User.create(name:auth.extra.raw_info.name,
+  #                             provider:auth.provider,
+  #                             uid:auth.uid,
+  #                             email:auth.info.email,
+  #                             :profile_image => auth.info.image,
+  #                             password:Devise.friendly_token[0,20],
+  #                           )
+  #       end   
+  #     end
+  #   end
 
 
   
@@ -125,39 +125,39 @@ mount_uploader :profile_picture_image, ProfilePictureImageUploader
   }()); "
 
 
-  # def self.from_omniauth(auth)
-  #   twitter_email = if auth.info.nickname then auth.info.nickname.downcase + "@twitter.com" end
+  def self.from_omniauth(auth)
+    twitter_email = if auth.info.nickname then auth.info.nickname.downcase + "@twitter.com" end
      
-  #   if user = User.find_by_email(auth.info.email) || user = User.find_by_email(twitter_email) 
-  #     user.provider = auth.provider
-  #     user.uid = auth.uid
-  #     # user.profile_image = auth.info.image
-  #     user
-  #   else
-  #     if auth.provider == "twitter"
-  #       user = User.create({
-  #             :provider => auth.provider,
-  #             :uid => auth.uid,
-  #             :email => auth.info.nickname.downcase + "@twitter.com",
-  #             :first_name =>  auth.info.name.split(" ")[0],
-  #             :last_name =>  auth.info.name.split(" ")[1],
-  #             :bio => auth.info.description,
-  #             :profile_image => auth.info.image,
-  #             :password => Devise.friendly_token[0,20]
-  #         })
+    if user = User.find_by_email(auth.info.email) || user = User.find_by_email(twitter_email) 
+      user.provider = auth.provider
+      user.uid = auth.uid
+      # user.profile_image = auth.info.image
+      user
+    else
+      if auth.provider == "twitter"
+        user = User.create({
+              :provider => auth.provider,
+              :uid => auth.uid,
+              :email => auth.info.nickname.downcase + "@twitter.com",
+              :first_name =>  auth.info.name.split(" ")[0],
+              :last_name =>  auth.info.name.split(" ")[1],
+              :bio => auth.info.description,
+              :profile_image => auth.info.image,
+              :password => Devise.friendly_token[0,20]
+          })
           
-  #     else
+      else
         
-  #       where(auth.slice(:provider, :uid)).first_or_create do |user|
-  #           user.provider = auth.provider
-  #           user.uid = auth.uid
-  #           user.email = auth.info.email
-  #           user.first_name = auth.info.first_name
-  #           user.last_name = auth.info.last_name
-  #           user.profile_image = auth.info.image
-  #           user.password = Devise.friendly_token[0,20]
-  #       end
-  #     end 
-  #   end
-  # end
+        where(auth.slice(:provider, :uid)).first_or_create do |user|
+            user.provider = auth.provider
+            user.uid = auth.uid
+            user.email = auth.info.email
+            user.first_name = auth.info.first_name
+            user.last_name = auth.info.last_name
+            user.profile_image = auth.info.image
+            user.password = Devise.friendly_token[0,20]
+        end
+      end 
+    end
+  end
 end
