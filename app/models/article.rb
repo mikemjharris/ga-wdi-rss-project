@@ -40,8 +40,13 @@ class Article < ActiveRecord::Base
     
     @article = Article.create(title: article.title,
       summary: article.summary, content: article.content,
-      author: article.author, image: article.image, published: article.published,
+      author: article.author, published: article.published,
       url: article.url, guid: article.entry_id, feed_id: feed_id)
+    begin
+      @article.image = article.image
+    rescue
+
+    end
     @article.save
 
   end

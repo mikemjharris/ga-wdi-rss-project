@@ -19,20 +19,25 @@ javascript: (
             var listitem_text = document.createTextNode(myElements[i].text + ": " );
             var itemurl = document.createElement('a');
             var itemurl_text = document.createTextNode(myElements[i].href);
+            
+            
             itemurl.appendChild(itemurl_text);
-            itemurl.href= myElements[i].href
+            itemurl.href= myElements[i].href;
+            
+            
             listitem.appendChild(listitem_text);
             listitem.appendChild(itemurl);
+            
 
             var postit = document.createElement('a');
             var postit_text = document.createTextNode("Add to Yakety");
             postit.appendChild(postit_text);
-            postit.href = "http://localhost/3000/subscriptions/new?"
-
+            postit.href = "http://localhost:3000/feeds/update/addexternal?url=" + myElements[i].href;
+            listitem.appendChild(postit);  
 
             node.appendChild(listitem);
 
-
+              
 
 
           };
