@@ -91,7 +91,8 @@ class FeedsController < ApplicationController
   def sortable
     @user = current_user
     @new_order = params["feed"]
-    a = current_user
+    a = []
+    b = []
     c = ""
     category_id = nil
     @new_order.each.with_index do |feed_id, i|
@@ -100,13 +101,15 @@ class FeedsController < ApplicationController
             c.sort_order = i
             c.category_id = category_id
             c.save
+            a << c
         else
             category_id = feed_id[10..-1].to_i
+            b << category_id
         end
     end  
 
     respond_to do |format|
-      format.json  { render json: current_user}
+      format.json  { render json: [a,b]}
     end
   end
 

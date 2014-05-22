@@ -16,7 +16,7 @@
               <% end %>
 
           </li>
-          <% @user.feeds.where("subscriptions.category_id = #{category.id}").each do |feed|%>
+          <% @user.feeds.where("subscriptions.category_id = #{category.id}").order("subscriptions.sort_order").each do |feed|%>
               <li id="feed_<%= feed.id %>" class="category<%= category.id %>" data-category="<%= category.id %>"><%= link_to feed.title, feed_path(feed), remote: true, data: { color: i, feedId: feed.id } %>  
               <%= link_to subscription_path(find_subscription(feed,current_user)), method: :delete, class: "delete_icon", remote: :true do %>
                 <img src="/assets/delete.png" >

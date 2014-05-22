@@ -110,15 +110,23 @@ mount_uploader :profile_picture_image, ProfilePictureImageUploader
       var title_text = document.createTextNode('Rss feeds on this page - add to Yakety!');
       title.appendChild(title_text);
       node.appendChild(title);
-
+      var close = document.createElement('a');
+      var closetest = document.createTextNode('CLick to close');
+      close.appendChild(closetest);
+      close.href = 'javascript:history.go(0)';
+      close.setAttribute('style','color: white; width: 200px; display: inline-block; float:right');        
+      node.appendChild(close);
+      
+      var j = 0;
+        
       for (var i = 0; i < myElements.length; i++) {
         if (myElements[i].href.indexOf('.xml') > -1) {
             var list = document.createElement('li');
-
+            j = i;  
             var listitem =  document.createElement('span');
             var listitem_text = document.createTextNode(myElements[i].text + ': ' );
             listitem.appendChild(listitem_text);
-            listitem.setAttribute('style','color: white; margin-left: 50px; width: 200px; display: inline-block; overflow:hidden');        
+            listitem.setAttribute('style','color: white; width: 200px; display: inline-block; overflow:hidden');        
             list.appendChild(listitem);
 
             var itemurl = document.createElement('a');
@@ -135,10 +143,22 @@ mount_uploader :profile_picture_image, ProfilePictureImageUploader
             postit.setAttribute('style','color: white; margin-right: 100px; font-weight: bold; display: inline-block; margin-left: 100px');
             list.appendChild(postit);  
           
-            node.appendChild(list);
+            
           };
         }; 
-        node.setAttribute('style','position: fixed; top: 10px; background-color: #ca2024; z-index: 100000000000000; color: white; list-style: none; height: 500px; overflow: scroll; border: 10px solid white');
+      
+      if ( j === 0 ) {
+        var list = document.createElement('li');
+        var listitem =  document.createElement('span');
+        var listitem_text = document.createTextNode('Sorry - we couldn't find any links on this page.');
+        listitem.appendChild(listitem_text);
+        listitem.setAttribute('style','color: white; width: 200px; display: inline-block; overflow:hidden');        
+        list.appendChild(listitem);
+        
+      }
+        alert(j);
+        node.appendChild(list);
+        node.setAttribute('style','position: fixed; top: 10px; background-color: #ca2024; z-index: 100000000000000; color: white; list-style: none; height: 500px; overflow: scroll; border: 10px solid white; left: 15%; padding: 10px');
         document.getElementsByTagName('body')[0].appendChild(node);
       }());"
   
