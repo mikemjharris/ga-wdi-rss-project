@@ -132,7 +132,7 @@ devise :database_authenticatable, :registerable,
   #   if user = User.find_by_email(auth.info.email) || user = User.find_by_email(twitter_email) 
   #     user.provider = auth.provider
   #     user.uid = auth.uid
-  #     user.profile_image = auth.info.image
+  #     # user.profile_image = auth.info.image
   #     user
   #   else
   #     if auth.provider == "twitter"
@@ -155,7 +155,7 @@ devise :database_authenticatable, :registerable,
   #           user.email = auth.info.email
   #           user.first_name = auth.info.first_name
   #           user.last_name = auth.info.last_name
-  #           user.image = auth.info.image
+  #           user.profile_image = auth.info.image
   #           user.password = Devise.friendly_token[0,20]
   #       end
   #     end 

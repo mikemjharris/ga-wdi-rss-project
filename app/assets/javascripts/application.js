@@ -32,12 +32,9 @@ $( window ).load(function() {
       });
 
     var updatepage = function() {
-      console.log("hiho")
       $.ajax({
         type: "get",
         url: "/categories/" + $('#middle-menu').data('partial')
-      
-  
         })
     }
 
@@ -116,8 +113,6 @@ setInterval(function() {
 
 
 $(document).ready(function(){
-            
-  
 
    var update_articles = function () {
         var ajaxOptions = {
