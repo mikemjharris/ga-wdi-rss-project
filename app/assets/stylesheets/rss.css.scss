@@ -42,8 +42,10 @@
 .profile_image {
   display: inline-block;
   clear: both;
-  margin-left: 40%;
-  margin-top: 20px;
+  margin-left: 80%;
+  margin-top: -70px;
+  max-width: 80px;
+  height:auto;
 }
 
 .form_submit {
@@ -58,11 +60,12 @@ textarea {
 }
 
 .manage_your_account {
-  border: 2px solid #ca2024;
+  border: 3px solid #ca2024;
   border-radius: 10px;
-  padding: 10px;
+  padding: 5px;
   display: inline-block;
   width: auto;
+  margin-left: 500px;
 }
 
 .signinbutton {

@@ -6,7 +6,7 @@ acts_as_marker
 devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable, omniauth_providers: [:twitter, :google_oauth2, :facebook]
 
-attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :first_name, :last_name, :bio, :profile_picture_image
+attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :first_name, :last_name, :bio, :profile_picture_image, :profile_image
 
 mount_uploader :profile_picture_image, ProfilePictureImageUploader
 
