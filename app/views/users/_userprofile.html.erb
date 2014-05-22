@@ -1,34 +1,32 @@
 <div class='middle-title' id='profile'>
-<%= @user.first_name %> <%= @user.last_name %></div>
+  <%= @user.first_name %> <%= @user.last_name %></div>
 
-<%= render '/shared/stats' %>
+  <%= render '/shared/stats' %>
 
-<% if @user.profile_image %>
-	<%= image_tag @user.profile_image %>
-<% end %>
+  <% if @user.profile_image %>
+  	<%= image_tag @user.profile_image %>
+  <% end %>
 
-<p><%= @user.bio %></p>
-
-
-<%= render '/shared/followed' %>
-<%= render '/shared/followers' %>
-
-<h2>Your Categories</h2>
-<% @user.categories.each do |category| %>
-	
-		<%= link_to category_path(category), remote: true do %>
-		<div class='category-box'></div><%= category.category_name.capitalize %>
-		<% end %>
-
-<% end %>
+  <p><%= @user.bio %></p>
 
 
+  <%= render '/shared/followed' %>
+  <%= render '/shared/followers' %>
 
+  <h2>Your Categories</h2>
+  <% @user.categories.each do |category| %>
 
+  	<% if category.cover_image %>	
+  			<%= link_to category_path(category), remote: true do %>
+            <img class='category-box' src="<%= category.cover_image %>" >
+        <%= category.category_name.capitalize %>
+  			<% end %>
+  	<% else %>	
+  			<%= link_to category_path(category), remote: true do %>
+  			<div class='category-box category-box-background'></div><%= category.category_name.capitalize %>
+  			<% end %>
+  		<% end %>
 
-
-
-
-
+  <% end %>
 </div>
 

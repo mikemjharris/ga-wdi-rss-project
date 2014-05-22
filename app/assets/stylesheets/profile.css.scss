@@ -26,12 +26,15 @@
 }
 
 .category-box {
-	background-color: green;
 	width: 100px;
 	height: 100px;
 	display: inline-block;
 	margin: 5px;
 	vertical-align: middle;
+}
+
+.category-box-background {
+  content: url(/assets/mega-phone-white.png);
 }
 
 .follows-button {

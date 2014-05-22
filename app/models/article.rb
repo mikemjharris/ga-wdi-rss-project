@@ -7,8 +7,9 @@ class Article < ActiveRecord::Base
 
 
   scope :most_recent, order("created_at desc")
+  scope :by_category, ->(category) { Article.joins(feed: {subscriptions: :category}).where(categories: {id: category.id})}
 
-   markable_as :favorite, :timeline
+  markable_as :favorite, :timeline
 
   private
 
