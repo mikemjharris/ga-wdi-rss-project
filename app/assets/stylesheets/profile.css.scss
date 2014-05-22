@@ -26,12 +26,15 @@
 }
 
 .category-box {
-	background-color: green;
 	width: 100px;
 	height: 100px;
 	display: inline-block;
 	margin: 5px;
 	vertical-align: middle;
+}
+
+.category-box-background {
+  content: url(/assets/mega-phone-white.png);
 }
 
 .follows-button {
@@ -58,4 +61,24 @@
 	color: white;
 	line-height: 30px;
 	padding-left: 10px;
+}
+
+.profile-picture {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.profile-picture img {
+  border-radius: 50%;
+  width: 150px;
+}
+
+.bio {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.stats {
+  margin-bottom: 15px;
 }

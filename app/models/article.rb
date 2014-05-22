@@ -5,10 +5,11 @@ class Article < ActiveRecord::Base
 
   belongs_to :feed
 
-
+  scope :by_category, ->(category) { Article.joins(feed: {subscriptions: :category}).where(categories: {id: category.id})}
   scope :most_recent, order("published desc")
 
-   markable_as :favorite, :timeline
+
+  markable_as :favorite, :timeline
 
   private
 
