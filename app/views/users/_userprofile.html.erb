@@ -1,17 +1,14 @@
 <div class='middle-title' id='profile'>
 <%= @user.first_name %> <%= @user.last_name %></div>
 
-<<<<<<< HEAD
 
 
 
 <p>Email: <%= @user.email %></p>
-=======
 <%= render '/shared/stats' %>
 
-<% if @user.profile_image %>
-	<%= image_tag @user.profile_image %>
-<% end %>
+  <div class="profile_image">  <%= image_tag @user.profile_picture_image.url %> </div>
+
 
 <p><%= @user.bio %></p>
 
@@ -28,16 +25,6 @@
 
 <% end %>
 
-
-
-
->>>>>>> 9261d4f58118634b61eaa8ea370b8f74472c522b
-
-
-<<<<<<< HEAD
-  <p>  <%= image_tag @user.profile_picture_image.url %> </p>
-=======
->>>>>>> 9261d4f58118634b61eaa8ea370b8f74472c522b
 
 
 

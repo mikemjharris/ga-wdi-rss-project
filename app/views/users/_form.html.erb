@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-=======
+
 <div class='middle-title' id='profile'>
 <%= @user.first_name %> <%= @user.last_name %></div>
->>>>>>> 9261d4f58118634b61eaa8ea370b8f74472c522b
 
 <p><div class="manage_account"><%= link_to "Manage your account", edit_user_registration_path %></div></p>
 
@@ -19,7 +17,6 @@
       </div>
   <% end %>
 
-  <%= form_for(@user) do |f| %>
     
     <p> <%= f.label :first_name %>   
    <%= f.text_field :first_name, :placeholder => "First Name" %></p>
@@ -33,9 +30,7 @@
     <%= f.file_field :profile_picture_image %>
 
       
-      <%= f.submit %>
-    </div>
-  <% end %>
+     <div class="form_submit"> <%= f.submit %> </div>
 
 
 <% end %>
