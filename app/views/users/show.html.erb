@@ -1,9 +1,9 @@
 <div id='left-menu' >
   <div class="menu-section">
   <ul>
-   <li><%= link_to "Home", user_path(@user) %></li>	
-	 <li><%= link_to "Your Timeline", timeline_user_path(@user), remote: true %></li>
-	 <li><%= link_to "Your Favourites", favorites_user_path(@user), remote: true %></li>
+   <li><%= link_to "Home", user_path(current_user) %></li>	
+	 <li><%= link_to "Your Timeline", timeline_user_path(current_user), remote: true %></li>
+	 <li><%= link_to "Your Favourites", favorites_user_path(current_user), remote: true %></li>
   </ul>
 	 </div>
   <ul>

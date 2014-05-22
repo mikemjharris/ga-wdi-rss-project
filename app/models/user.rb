@@ -102,28 +102,46 @@ mount_uploader :profile_picture_image, ProfilePictureImageUploader
 
 
   $bookmarklet = "
-  javascript: (
-  function () { 
-      var myElements = document.getElementsByTagName('a');
+      javascript: (
+      function () { 
+            var myElements = document.getElementsByTagName('a');
       var node=document.createElement('ul');
-      var title = document.createTextNode('Rss feeds on this page');
+      var title = document.createElement('h2');
+      var title_text = document.createTextNode('Rss feeds on this page - add to Yakety!');
+      title.appendChild(title_text);
       node.appendChild(title);
 
       for (var i = 0; i < myElements.length; i++) {
         if (myElements[i].href.indexOf('.xml') > -1) {
-            var listitem = document.createElement('li'); 
-            var itemtext = document.createTextNode(myElements[i].text + myElements[i].href );
-            listitem.appendChild(itemtext);
-            node.appendChild(listitem);
+            var list = document.createElement('li');
+
+            var listitem =  document.createElement('span');
+            var listitem_text = document.createTextNode(myElements[i].text + ': ' );
+            listitem.appendChild(listitem_text);
+            listitem.setAttribute('style','color: white; margin-left: 50px; width: 200px; display: inline-block; overflow:hidden');        
+            list.appendChild(listitem);
+
+            var itemurl = document.createElement('a');
+            var itemurl_text = document.createTextNode(myElements[i].href);
+            itemurl.appendChild(itemurl_text);
+            itemurl.href= myElements[i].href;
+            itemurl.setAttribute('style','color: white; margin-left: 50px; width: 200px; display: inline-block; overflow:hidden');        
+            list.appendChild(itemurl);
+            
+            var postit = document.createElement('a');
+            var postit_text = document.createTextNode('Add to Yakety');
+            postit.appendChild(postit_text);
+            postit.href = 'http://localhost:3000/feeds/update/addexternal?url=' + myElements[i].href;
+            postit.setAttribute('style','color: white; margin-right: 100px; font-weight: bold; display: inline-block; margin-left: 100px');
+            list.appendChild(postit);  
+          
+            node.appendChild(list);
           };
-
         }; 
-        node.setAttribute('style','position: fixed; top: 10px; background-color: yellow; z-index: 100000000000000');
+        node.setAttribute('style','position: fixed; top: 10px; background-color: #ca2024; z-index: 100000000000000; color: white; list-style: none; height: 500px; overflow: scroll; border: 10px solid white');
         document.getElementsByTagName('body')[0].appendChild(node);
-        
-
-  }()); "
-
+      }());"
+  
 
   def self.from_omniauth(auth)
     twitter_email = if auth.info.nickname then auth.info.nickname.downcase + "@twitter.com" end

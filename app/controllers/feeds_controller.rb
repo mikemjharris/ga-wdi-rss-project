@@ -11,7 +11,7 @@ class FeedsController < ApplicationController
 
       feed_data = Feedjira::Feed.fetch_and_parse("#{params[:url]}")
       
-      if feed_data != 0 
+      if feed_data != 0 && feed_data != 200
         @feed = Feed.new(url: params[:feed_url])
         @feed.title = feed_data.title
         @feed.description = feed_data.description
@@ -20,10 +20,14 @@ class FeedsController < ApplicationController
         # @subscription.user_id = current_user.id
         # @subscription.save
         Article.create_from_feed_data(feed_data, @feed.id)
+        
+      end  
+      if @feed
+        redirect_to :back
+      else
+        render json: "incorrect rss feed" 
       end
-
-      # render json: "done"
-      redirect_to :back
+      
   end  
 
   def destroy

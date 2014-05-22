@@ -27,17 +27,15 @@ javascript: (
             
             listitem.appendChild(listitem_text);
             listitem.appendChild(itemurl);
-            
-
             var postit = document.createElement('a');
-            var postit_text = document.createTextNode("Add to Yakety");
+            var postit_text = document.createTextNode('Add to Yakety');
             postit.appendChild(postit_text);
-            postit.href = "http://localhost:3000/feeds/update/addexternal?url=" + myElements[i].href;
+            postit.href = 'http://localhost:3000/feeds/update/addexternal?url=' + myElements[i].href;
             listitem.appendChild(postit);  
 
             node.appendChild(listitem);
 
-              
+
 
 
           };
