@@ -45,7 +45,7 @@ class SubscriptionsController < ApplicationController
 		Subscription.find(params[:id]).destroy
 
 		respond_to do |format|
-      format.js  {render json: "destroyed"}
+      format.js  {render "destroyed.js.erb"}
       format.html {redirect_to :root}
     end
 		
