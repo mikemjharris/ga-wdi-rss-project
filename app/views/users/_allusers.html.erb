@@ -2,13 +2,14 @@
 
 	<% @users.each do |user| %>
 		<div class='user-search'>
+				<% unless user.id == current_user.id %>	
 				<% if user.first_name.nil? %>
 					<p> <%= user.email %> </p>
 				<% else %>
 					<p><%= user.first_name %> <%= user.last_name %></p>
-			<% end %>
+				<% end %>
+
 			
-			<% unless user.id == current_user.id %>	
 				<% if current_user.following?(user) %>
 					<%= link_to relationship_path(:id => user.id), method: :delete, remote: true do %>	
 						<div class='unfollow-button'></div>
