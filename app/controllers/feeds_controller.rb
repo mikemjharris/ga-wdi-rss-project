@@ -4,24 +4,26 @@ class FeedsController < ApplicationController
 	end
 
   def create_external
+
       
-      raise
 
-      # @feed = Feed.find_by_url(params[:feed_url])
+      @feed = Feed.find_by_url(params[:url])
 
-      # feed_data = Feedjira::Feed.fetch_and_parse("#{params[:feed_url]}")
-      # if feed_data != 0 
-      #   @feed = Feed.new(url: params[:feed_url])
-      #   @feed.title = feed_data.title
-      #   @feed.description = feed_data.description
-      #   @feed.save
-      #   # @subscription.feed_id = @feed.id
-      #   # @subscription.user_id = current_user.id
-      #   # @subscription.save
-      #   Article.create_from_feed_data(feed_data, @feed.id)
-      # end
+      feed_data = Feedjira::Feed.fetch_and_parse("#{params[:url]}")
+      
+      if feed_data != 0 
+        @feed = Feed.new(url: params[:feed_url])
+        @feed.title = feed_data.title
+        @feed.description = feed_data.description
+        @feed.save
+        # @subscription.feed_id = @feed.id
+        # @subscription.user_id = current_user.id
+        # @subscription.save
+        Article.create_from_feed_data(feed_data, @feed.id)
+      end
 
-
+      # render json: "done"
+      redirect_to :back
   end  
 
   def destroy
@@ -38,6 +40,7 @@ class FeedsController < ApplicationController
     end
 
     feed_urls = Feed.all.map{|feed| feed.url}
+    feed_urls = feed_urls.select{|f| !f.nil?}
     feed_data = Feedjira::Feed.fetch_and_parse(feed_urls)
     
     if feed_data != 0
