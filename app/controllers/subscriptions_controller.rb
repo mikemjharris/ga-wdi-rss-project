@@ -1,5 +1,8 @@
 class SubscriptionsController < ApplicationController
 
+	
+
+
 	def create
 		@user = current_user
 		@subscription = Subscription.new()
@@ -13,7 +16,7 @@ class SubscriptionsController < ApplicationController
 				@subscription.user_id = current_user.id
 				@subscription.save
 			else 
-				flash[:alert] = "Already subscribed to that feed"
+				flash[:nofeed] = "Already subscribed to that feed"
 			end
 		else
 			feed_data = Feedjira::Feed.fetch_and_parse("#{params[:feed_url]}")
@@ -27,7 +30,7 @@ class SubscriptionsController < ApplicationController
 				@subscription.save
 				Article.create_from_feed_data(feed_data, @feed.id)
 			else 
-				flash[:alert] = "Not a valid rss feed"
+				flash[:nofeed] = "Not a valid rss feed"
 			end
 		end
 

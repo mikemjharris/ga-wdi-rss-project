@@ -5,6 +5,12 @@
   display: none;
 }
 
+#NoFeedAlert {
+  display: block;
+  color: white;
+  padding: 5px;
+  background: $site-color;
+}
 .article_flash{
   background: $warning-color;
 }
@@ -444,7 +450,7 @@ div.light:target .popup {
     text-decoration:none;
     color:#fff;
     position:relative;
-    margin-top:60px;
+    
     padding-bottom:10px;
     padding-top:10px;
     background-image: linear-gradient(bottom, rgb(168,48,232) 100%, rgb(141,32,196) 0%);

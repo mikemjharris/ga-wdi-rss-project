@@ -7,9 +7,11 @@ var articleHtml = articleHtml + "<%= escape_javascript(render partial: '/feeds/f
 
 $('#middle-menu').html(articleHtml)
 
-setTimeout(function() {
-      $(".delete_icon").on("click", function(e) {
-        $(e.target).closest("li").remove();
-        $("#feeds-menu").addClass("show");
-      });
-     }, 500 ); 
+// setTimeout(function() {
+//       $(".delete_icon").on("click", function(e) {
+//         $(e.target).closest("li").remove();
+//         $("#feeds-menu").addClass("show");
+//       });
+//      }, 500 ); 
+
+    getReady()
