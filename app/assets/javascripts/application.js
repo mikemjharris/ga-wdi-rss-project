@@ -18,7 +18,9 @@
 
 $( window ).load(function() {
     $("#feeds-menu").sortable({
-      update: function (){ 
+      update: function (event, ui){ 
+      console.log($(event));
+      console.log($($(ui.item).prev()).attr("class"));
       $.ajax({
         type: "POST",
         url: "/feeds/update/sortable/",
@@ -120,6 +122,21 @@ $( window ).load(function() {
         $("#feeds-menu").addClass("show");
       });
 
+
+      $('.categoryheader').on("click", function(e){
+        var category_id = $($(e.target).parent().get(0)).data('category');
+        var feeds_in_category = $('.category' + category_id)
+        for (var i = 0 ; i < feeds_in_category.length; i++){
+          
+          // var color = 'rgb(' + (0 + i * 100) + ',' + (245 - i * 50 ) + ',' + (245 - i * 50) + ')'
+          var color = "hsl(" + i*60 + ",100%,50%)";
+          $(feeds_in_category[i]).css("border-right", "5px solid " + color);
+          $(feeds_in_category[i]).data("color", color);
+          
+        }   
+
+        
+      })
 
 });
 

@@ -1,9 +1,9 @@
 
 <div class="middle-title"><%= @category.category_name.capitalize %></div>
-<ul>
+<ul id="showcategory" data-category="<%= @category.id %>">
   <% @articles.each do | article | %>
 
-  <li>
+  <li class = "feed_<%= article.feed_id %>">
 	<%= link_to article_path(article), remote: true do %>
 	    <div class="article" data-last_updated="<%= article.created_at.to_i %>">
 	      <%= article.title %>

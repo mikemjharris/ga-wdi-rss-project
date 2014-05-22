@@ -3,3 +3,17 @@ var articleHtml =  "<%= escape_javascript(render partial: '/feeds/feedarticlesca
 $('#middle-menu').html(articleHtml)
 
 $('#middle-menu').data("partial", "<%= @category.id %>");
+
+setTimeout(function() {
+  var category = $('#showcategory').data("category")
+  var categories = $('#feeds-menu .category' + category)
+  for(var i = 0 ; i < categories.length; i++) {
+      feed_id = $(categories[i]).attr('id')
+      color = $(categories[i]).data('color')
+      $('#showcategory .' + feed_id).css("border-right", "5px solid " + color )
+
+      console.log(feed_id + color)
+  }
+
+  console.log($('#feeds-menu .category' + category));
+}, 100)
