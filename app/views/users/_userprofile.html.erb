@@ -20,8 +20,10 @@
 <% @user.categories.each do |category| %>
 	
 		<%= link_to category_path(category), remote: true do %>
-		<div class='category-box'></div><%= category.category_name.capitalize %>
-		<% end %>
+		
+    <div class='category-box'></div>
+    <%= category.category_name.capitalize %>
+	<% end %>
 
 <% end %>
 
