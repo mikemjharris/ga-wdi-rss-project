@@ -11,7 +11,7 @@ gem 'feedjira'
 gem 'markable'
 gem 'ransack'
 gem 'public_activity'
-gem 'carrierwave'
+gem 'carrierwave', '= 0.9.0'
 gem 'rmagick'
 
 

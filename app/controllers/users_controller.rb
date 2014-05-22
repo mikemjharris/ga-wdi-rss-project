@@ -52,6 +52,7 @@ before_filter :authenticate_user!
 
   def update
     @user = User.find(params[:id])
+    # raise
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }

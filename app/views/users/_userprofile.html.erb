@@ -1,11 +1,14 @@
 <div class='middle-title' id='profile'>
 <%= @user.first_name %> <%= @user.last_name %></div>
 
+
+
+
+<p>Email: <%= @user.email %></p>
 <%= render '/shared/stats' %>
 
-<% if @user.profile_image %>
-	<%= image_tag @user.profile_image %>
-<% end %>
+  <div class="profile_image">  <%= image_tag @user.profile_picture_image.url %> </div>
+
 
 <p><%= @user.bio %></p>
 
@@ -21,11 +24,6 @@
 		<% end %>
 
 <% end %>
-
-
-
-
-
 
 
 

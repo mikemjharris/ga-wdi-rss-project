@@ -19,15 +19,51 @@
 }
 
 .manage_account {
-  border: 2px solid white;
+  border: 2px solid #ca2024;
   border-radius: 10px;
   padding: 5px;
-  width: 170px;
-  background-color: red;
+  width: 190px;
+  text-align: center;
+}
+
+.update_profile {
+  width: 800px !important;
+  margin-top: 20px;
+}
+
+.update_profile_back {
+  border: 2px solid #ca2024;
+  width: 50px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.profile_image {
+  display: inline-block;
+  clear: both;
+  margin-left: 40%;
+  margin-top: 20px;
+}
+
+.form_submit {
+  width: 1000px;
 }
 
 
 
+
+textarea {
+    resize: none;
+}
+
+.manage_your_account {
+  border: 2px solid #ca2024;
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
+  width: auto;
+}
 
 .signinbutton {
   float: right;
@@ -36,7 +72,7 @@
 }
 
 .logo {
- content:url(/banner.png);
+ content:url(/banner_update.png);
  margin-left: auto;
  margin-right: auto;
  clear: both;
