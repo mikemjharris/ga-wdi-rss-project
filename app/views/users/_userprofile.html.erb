@@ -3,7 +3,7 @@
 <%= @user.first_name %> <%= @user.last_name %></div>
 
 <% if @user.profile_image %>
-    <%= image_tag @user.profile_image %>
+    <div class='twitter-picture'><%= image_tag @user.profile_image %></div>
   <% else %>
     <div class='profile-picture'><%= image_tag @user.profile_picture_image %></div>
   <% end %>
