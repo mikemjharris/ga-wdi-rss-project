@@ -14,11 +14,11 @@
 
 <ul>
 <% @feeds.each do |feed| %>
- 
   <% unless @subscriptions.include?(feed) %>
     <li id="feeds_feed_<%= feed.id %>">
     <%= link_to feed.title, feed_path(feed), remote: true %>
     <%= feed.description %>
+    <%= feed.url %>
     <%= link_to "Subscribe", subscriptions_path(:feed_url => feed.url), method: "post", remote: true %>
     </li>
   <% end %>

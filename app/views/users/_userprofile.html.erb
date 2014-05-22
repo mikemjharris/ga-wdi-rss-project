@@ -4,9 +4,13 @@
 
 <% if @user.profile_image %>
     <div class='profile-picture'><%= image_tag @user.profile_image %></div>
-  <% else %>
+
+  <% elsif @user.profile_picture_image.file %>
+  
     <div class='profile-picture'><%= image_tag @user.profile_picture_image %></div>
-  <% end %>
+  <% else %>
+      <div class='profile-picture category-box category-box-background'></div>
+  <% end %> 
 
   <div class='bio'><%= @user.bio %></div>
 
