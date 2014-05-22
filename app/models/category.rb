@@ -4,7 +4,6 @@ class Category < ActiveRecord::Base
   belongs_to :user
   has_many :subscriptions
   has_many :feeds
-  # has_many :articles, :through => :subscriptions, :through => :feeds
 
   def cover_image
     article = Article.by_category(self) 

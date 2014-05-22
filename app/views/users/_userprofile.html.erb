@@ -2,15 +2,15 @@
 
 <%= @user.first_name %> <%= @user.last_name %></div>
 
-
-  <%= render '/shared/stats' %>
-
-  <% if @user.profile_image %>
-  	<%= image_tag @user.profile_image %>
+<% if @user.profile_image %>
+    <%= image_tag @user.profile_image %>
+  <% else %>
+    <div class='profile-picture'><%= image_tag @user.profile_picture_image %></div>
   <% end %>
 
-  <p><%= @user.bio %></p>
+  <div class='bio'><%= @user.bio %></div>
 
+  <div class='stats'><%= render '/shared/stats' %></div>
 
   <%= render '/shared/followed' %>
   <%= render '/shared/followers' %>
