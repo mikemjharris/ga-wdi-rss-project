@@ -62,10 +62,11 @@ $( window ).load(function() {
 
     $("#following-list-search").hide();
     $(".follower-search-button").click(function(){
-        $("#following-list-search, #following li").toggle();
+        $("#following-list-search").slideToggle();
+        // $("#following-list-search, #following li").toggle();
     });
 
-    var $following = $('#following li').hide();
+    var $following = $('#following li');
       $('#filter').keyup(function() {
       var re = new RegExp($(this).val(), "i"); // "i" means it's case-insensitive
       $following.show().filter(function() {
