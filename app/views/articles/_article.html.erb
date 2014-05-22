@@ -49,19 +49,13 @@
 </div>
 
 <div class="google_plus">
-  <div class="g-plus" data-action="share" data-annotation="none" data-href=" <%=  @article.url %>" data-height="55"></div>
+  <!-- <div class="g-plus" data-action="share" data-annotation="none" data-href=" <%#=  @article.url %>" data-height="55"></div> -->
+
 </div>
  
-<script type="text/javascript">
-  window.___gcfg = {lang: 'en-GB'};
+<a href="https://www.goolr.com/" target="_blank"id="google_share" >
 
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/platform.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-  </script>
-
+  </a> 
 
 <a href="https://www.facebook.com/sharer/sharer.php?app_id=235129946681549&sdk=joey&u=<%= @article.url %>%26ns_source%3DPublicRSS20-sa&display=popup" target="_blank"id="facebook_share" >
   </a> 
