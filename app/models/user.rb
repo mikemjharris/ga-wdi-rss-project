@@ -1,16 +1,15 @@
 class User < ActiveRecord::Base
-    acts_as_marker
-    devise :omniauthable
+acts_as_marker
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-devise :database_authenticatable, :registerable,
+devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable, omniauth_providers: [:twitter, :google_oauth2, :facebook]
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :first_name, :last_name, :profile_image, :bio, :profile_picture
-  # attr_accessible :title, :body
 
-  mount_uploader :profile_picture, ProfilePictureUploader
+attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :first_name, :last_name, :bio, :profile_picture_image
+
+mount_uploader :profile_picture_image, ProfilePictureImageUploader
+
 
 
     def self.find_for_twitter_oauth(auth, signed_in_resource=nil)

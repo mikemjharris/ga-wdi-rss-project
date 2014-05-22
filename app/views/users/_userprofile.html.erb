@@ -1,12 +1,14 @@
 <div class='middle-title' id='profile'>
 <%= @user.first_name %> <%= @user.last_name %></div>
 
+
+
+
 <p>Email: <%= @user.email %></p>
 
 <p>Bio: <%= @user.bio %></p>
 
-    <%= image_tag @user.profile_picture %>
-    <%= @user.first_name %>
+  <p>  <%= image_tag @user.profile_picture_image.url %> </p>
 
 
 

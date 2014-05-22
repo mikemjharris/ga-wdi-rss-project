@@ -13,15 +13,29 @@
 }
 
 .manage_account {
-  border: 2px solid white;
+  border: 2px solid #ca2024;
   border-radius: 10px;
   padding: 5px;
-  width: 170px;
-  background-color: red;
+  width: 190px;
+  text-align: center;
 }
 
+.update_profile {
+  width: 800px !important;
+  margin-top: 20px;
+}
 
+textarea {
+    resize: none;
+}
 
+.manage_your_account {
+  border: 2px solid #ca2024;
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
+
+}
 
 .signinbutton {
   float: right;
