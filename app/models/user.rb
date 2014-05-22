@@ -10,7 +10,7 @@ devise :database_authenticatable, :registerable,
   attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :first_name, :last_name, :profile_image, :bio, :profile_picture
   # attr_accessible :title, :body
 
-  # mount_uploader :profile_picture, ProfilePictureUploader
+  mount_uploader :profile_picture, ProfilePictureUploader
 
 
     def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
