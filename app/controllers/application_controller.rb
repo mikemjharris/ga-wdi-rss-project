@@ -5,12 +5,17 @@ class ApplicationController < ActionController::Base
   layout :layout
 
   private
-  def layout
-    # only turn it off for login pages:
-    is_a?(Devise::SessionsController) ? "login" : "application"
-    # or turn layout off for every devise controller:
-    #devise_controller? && "application"
-  end
 
+  def layout
+    if controller_name == 'registrations' && action_name == 'new'
+      'login'
+    elsif controller_name == 'registrations' && action_name == 'create'
+      'login'
+    elsif controller_name == 'sessions' && action_name == 'new'
+      'login'
+    else
+      'application'
+    end
+  end
 
 end
