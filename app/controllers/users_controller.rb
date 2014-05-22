@@ -44,6 +44,10 @@ before_filter :authenticate_user!
 
   def edit
     @user = User.find(params[:id])
+    respond_to do |format|
+        format.html {render '/users/edit.html.erb'}
+        format.js {render '/users/edit.js.erb'}
+    end
   end
 
   def update

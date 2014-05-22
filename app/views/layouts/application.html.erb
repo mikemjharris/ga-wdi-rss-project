@@ -39,7 +39,7 @@
       <!-- link_to "update articles ajax", feeds_update_articles_path, remote: true  -->
       <a href="<%= $bookmarklet %>">Find Feeds</a>
 
-      <%= link_to edit_user_path(current_user) do %>
+      <%= link_to edit_user_path(current_user), remote: true do %>
       <div class="settings"> </div>
       <% end %>
 
