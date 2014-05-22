@@ -6,7 +6,7 @@ class Article < ActiveRecord::Base
   belongs_to :feed
 
 
-  scope :most_recent, order("created_at desc")
+  scope :most_recent, order("published desc")
 
    markable_as :favorite, :timeline
 

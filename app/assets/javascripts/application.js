@@ -27,13 +27,14 @@
                   };
             }
 
-$( window ).load(function() {
+function getReady() { 
+
     $("#feeds-menu").sortable({
       update: function (event, ui){ 
-      console.log($(event));
-      $(ui.item).removeClass($(ui.item).attr('class'));
-      $('#feeds-menu li').removeAttr("style");
-      categorySelected = $('#feeds-menu').data("category-selected")
+      if (!$(ui.item).hasClass("menu-small-title")) {      
+        $(ui.item).removeClass($(ui.item).attr('class'));
+        $('#feeds-menu li').removeAttr("style");
+        categorySelected = $('#feeds-menu').data("category-selected")
       
       if (!($($(ui.item).prev()).data('category') == null)){
           $(ui.item).addClass("category" + $($(ui.item).prev()).data('category'));
@@ -43,6 +44,8 @@ $( window ).load(function() {
           $(ui.item).data("category", null); 
         }
         colorboxes(categorySelected);
+      }
+
       $.ajax({
         type: "POST",
         url: "/feeds/update/sortable/",
@@ -73,9 +76,12 @@ $( window ).load(function() {
 
 
     $("#left-menu li a").on("click", function(){
+        $('#feeds-menu li').removeAttr("style")
         $("#left-menu .active").removeClass("active")
-        $(this).addClass("active")
-        $("#feeds-menu").removeClass("show")
+        $(this).closest('li').addClass("active")
+        $(".show").removeClass("show")
+        $('#feeds-menu').data("category-selected", null)
+        
         setTimeout(function() {
           $("#middle-menu li a").on("click", function(){
             $("#middle-menu .active").removeClass("active")
@@ -176,6 +182,9 @@ $( window ).load(function() {
           
         })
 
+}
+$( window ).load(function() {
+    getReady();
 
 });
 
