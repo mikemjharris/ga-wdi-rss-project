@@ -24,7 +24,6 @@ before_filter :authenticate_user!
 
       b = []
       @activities.each do |activity|
-
           if activity.created_at.to_i > params[:since].to_i
               a = {}
               a["first_name"] = activity.owner.first_name 
