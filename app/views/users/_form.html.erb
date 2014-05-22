@@ -1,6 +1,6 @@
 <h1> TEST </h1>
 
-<p><div class="manage_account"><%= link_to "Manage your account", edit_user_registration_path %></div></p>
+<p><div class="manage_account"><%= link_to "Manage your account", edit_user_registration_path, remote: true %></div></p>
 
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
