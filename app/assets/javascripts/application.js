@@ -119,6 +119,20 @@ $( window ).load(function() {
         $("#feeds-menu").addClass("show");
       });
 
+      $(".followed-users").hide() 
+      $(".followed-count").on("click", function() {
+          $(".followers-users").slideUp()
+          $(".followed-users").slideToggle()
+          
+      })
+
+      $(".followers-users").hide() 
+      $(".follower-count").on("click", function() {
+          $(".followed-users").slideUp()
+          $(".followers-users").slideToggle()
+          
+      })
+
 
 });
 
