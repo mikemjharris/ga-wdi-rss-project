@@ -1,5 +1,7 @@
 
-<div class='middle-title' id='activity-stream' data-since="@activities.first.created_at.to_i">Recent Activity</div>
+<% if @activities.length > 0 %>
+  <div class='middle-title' id='activity-stream' data-since="<%= @activities.first.created_at.to_i %>">Recent Activity</div>
+<% end %>
 
 <% @activities.each do |activity| %>
 <div class='wide-display'>
