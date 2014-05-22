@@ -1,12 +1,28 @@
 <div class='middle-title' id='profile'>
 <%= @user.first_name %> <%= @user.last_name %></div>
 
-<p>Email: <%= @user.email %></p>
+<%= render '/shared/stats' %>
+
+<%= image_tag @user.profile_picture.url %>
 
 <p>Bio: <%= @user.bio %></p>
 
-    <%= image_tag @user.profile_picture %>
-    <%= @user.first_name %>
+
+<%= render '/shared/followed' %>
+<%= render '/shared/followers' %>
+
+
+<% @user.categories.each do |category| %>
+	<div class='category-box'>
+		<%= link_to category.category_name.capitalize, category_path(category), remote: true %>
+	</div>
+<% end %>
+
+
+
+
+
+
 
 
 

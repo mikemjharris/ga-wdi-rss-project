@@ -11,8 +11,37 @@
   transition: all 1s;
 }
 
+.wide-display-alert {
+	min-height: 80px;
+	border-bottom: 3px solid #ca2024;
+	margin-top: 10px;
+	line-height: 2;
+	background-color: blue;
+}
+
 #feed-source {
 	text-align: right;
 	margin-right: 5px;
 	font-size: 13px;
+}
+
+.category-box {
+	background-color: green;
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+	margin: 5px;
+}
+
+.follows-button {
+  display: inline-block;
+  width: 115px;
+  height: 30px;
+  background: $site-color;
+  padding: 5px;
+  text-align: center;
+  border: 3px solid #333333;
+  border-radius: 5px;
+  color: white;
+  margin-left: 5px;
 }

@@ -97,8 +97,7 @@ $( window ).load(function() {
             // if (i === 0){
               $('#activity-stream').data('since', articles[i]["created"]);
              
-               // } 
-        
+               // }         
           
     setTimeout(function () { 
         $(el).addClass('article_flash');
@@ -121,6 +120,20 @@ $( window ).load(function() {
         $(e.target).closest("li").remove();
         $("#feeds-menu").addClass("show");
       });
+
+      $(".followed-users").hide() 
+      $(".followed-count").on("click", function() {
+          $(".followers-users").slideUp()
+          $(".followed-users").slideToggle()
+          
+      })
+
+      $(".followers-users").hide() 
+      $(".follower-count").on("click", function() {
+          $(".followed-users").slideUp()
+          $(".followers-users").slideToggle()
+          
+      })
 
 
       $('.categoryheader').on("click", function(e){

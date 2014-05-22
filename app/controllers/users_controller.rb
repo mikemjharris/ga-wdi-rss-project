@@ -44,12 +44,16 @@ before_filter :authenticate_user!
 
   def edit
     @user = User.find(params[:id])
+    respond_to do |format|
+        format.html {render '/users/edit.html.erb'}
+        format.js {render '/users/edit.js.erb'}
+    end
   end
 
   def update
     @user = User.find(params[:id])
     respond_to do |format|
-      if @user.update_attributes(params[:artist])
+      if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else

@@ -1,8 +1,14 @@
 <div class='article-header'>
 
+<div id='published'>
+  <%= @article.published %>
+</div>
+
   <div id='fav-button'>
     <%= render 'favorite_form' %>
   </div>
+
+
 
   <div id='timeline-button'>
     <%= render 'timeline_form' %>
@@ -21,20 +27,24 @@
 
   <p class="audio_title"><%= raw @article.title %></p>
 
+<% if @article.content && @article.content.end_with?(".mp3") %>
 
   <audio controls>
-    <source src="<%= raw @article.image %>" type="audio/mpeg">
-    <source src="<%= raw @article.image %>" type="audio/ogg">
+    <source src="<%= raw @article.content %>" type="audio/mpeg">
+    <source src="<%= raw @article.content %>" type="audio/ogg">
     Your browser does not support the audio element.
   </audio>
 
+<% end %>
   
-    <video width="320" height="240" controls>
+
+  <video width="320" height="240" controls>
     <source src="<%= raw @article.image %>" type="video/mp4">
     <source src="<%= raw @article.image %>" type="video/ogg">
       Your browser does not support the video tag.
-    </video>
+  </video>
   
+
 
 </div>
 
