@@ -38,7 +38,7 @@ before_filter :authenticate_user!
       end 
       
       respond_to do |format| 
-        format.json {render json: b}
+        format.json {render json: b.reverse}
         format.html
       end
 	end

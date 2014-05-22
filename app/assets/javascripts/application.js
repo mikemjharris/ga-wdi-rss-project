@@ -90,12 +90,12 @@ $( window ).load(function() {
         // console.log(articles.length);
         for(var i = 0; i < articles.length; i++) {
             // console.log(articles[i]);  
-            var htmlText = "<div class='wide-display'><b>" + articles[i]["first_name"] + " " + articles[i]["last_name"] + "</b> has <b>added</b> an article to their <b>timeline</b>"
+            var htmlText = "<div class='wide-display' ><b>" + articles[i]["first_name"] + " " + articles[i]["last_name"] + "</b> has <b>added</b> an article to their <b>timeline</b>"
              + "<a href='/articles/"+articles[i]["id"]+"'>"+articles[i]["title"]+"</a></div>"
       
             $(htmlText).insertAfter("#activity-stream");
             
-            $('#activity-stream').setAttribute('data-since', Date.now());
+            $('#activity-stream').data('since', articles[i]["created_at"]);
         }
         
       }
