@@ -21,6 +21,7 @@ Rss::Application.routes.draw do
   get 'feeds/update/articles', to:  'feeds#update_articles', as: 'feeds_update_articles'
   post 'feeds/update/sortable', to:  'feeds#sortable', as: 'feeds_sortable'
   post 'feeds/update/middle', to:  'feeds#middle', as: 'feeds_update_middle'
+  get 'feeds/update/addexternal', to:  'feeds#create_external', as: 'feeds_update_external'
   root to: 'users#show'
   
 end
