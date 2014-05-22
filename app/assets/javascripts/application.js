@@ -91,7 +91,7 @@ $( window ).load(function() {
              + "<a href='/articles/"+articles[i]["id"]+"'>"+articles[i]["title"]+"</a></div>"
       
             $(htmlText).insertAfter("#activity-stream");
-            
+
             $('#activity-stream').data('since', articles[i]["created_at"]);
         }
         

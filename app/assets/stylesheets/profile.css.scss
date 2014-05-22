@@ -10,6 +10,14 @@
 	line-height: 2;
 }
 
+.wide-display-alert {
+	min-height: 80px;
+	border-bottom: 3px solid #ca2024;
+	margin-top: 10px;
+	line-height: 2;
+	background-color: blue;
+}
+
 #feed-source {
 	text-align: right;
 	margin-right: 5px;
