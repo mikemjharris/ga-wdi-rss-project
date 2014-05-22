@@ -16,9 +16,33 @@
 //= require underscore
 //= require_tree .
 
+  function colorboxes(category_id) {
+          $('#feeds-menu li').removeAttr("style")
+          var feeds_in_category = $('.category' + category_id)
+            for (var i = 0 ; i < feeds_in_category.length; i++){
+                var color = "hsl(" + i*60 + ",100%,50%)";
+                $(feeds_in_category[i]).css("border-right", "5px solid " + color);
+                $(feeds_in_category[i]).data("color", color);
+
+                  };
+            }
+
 $( window ).load(function() {
     $("#feeds-menu").sortable({
-      update: function (){ 
+      update: function (event, ui){ 
+      console.log($(event));
+      $(ui.item).removeClass($(ui.item).attr('class'));
+      $('#feeds-menu li').removeAttr("style");
+      categorySelected = $('#feeds-menu').data("category-selected")
+      
+      if (!($($(ui.item).prev()).data('category') == null)){
+          $(ui.item).addClass("category" + $($(ui.item).prev()).data('category'));
+          $(ui.item).data("category", $($(ui.item).prev()).data('category') ); 
+        } else {  
+          // $(ui.item).removeAttr("style");
+          $(ui.item).data("category", null); 
+        }
+        colorboxes(categorySelected);
       $.ajax({
         type: "POST",
         url: "/feeds/update/sortable/",
@@ -84,18 +108,17 @@ $( window ).load(function() {
       }
 
       var upDateArticlePage = function(articles) {
-        // console.log("hi");
-        // console.log(articles.length);
+        
         for(var i = 0; i < articles.length; i++) {
-            // console.log(articles[i]);  
+              
             var htmlText = "<div class='wide-display' ><b>" + articles[i]["first_name"] + " " + articles[i]["last_name"] + "</b> has <b>added</b> an article to their <b>timeline</b>"
              + "<a href='/articles/"+articles[i]["id"]+"'>"+articles[i]["title"]+"</a></div>"
       
            el = $(htmlText).insertAfter("#activity-stream");
-            // if (i === 0){
+
               $('#activity-stream').data('since', articles[i]["created"]);
              
-               // }         
+
           
     setTimeout(function () { 
         $(el).addClass('article_flash');
@@ -118,6 +141,40 @@ $( window ).load(function() {
         $(e.target).closest("li").remove();
         $("#feeds-menu").addClass("show");
       });
+
+      $(".followed-users").hide() 
+      $(".followed-count").on("click", function() {
+          $(".followers-users").slideUp()
+          $(".followed-users").slideToggle()
+          
+      })
+
+      $(".followers-users").hide() 
+      $(".follower-count").on("click", function() {
+          $(".followed-users").slideUp()
+          $(".followers-users").slideToggle()
+          
+      })
+
+
+       
+
+        $('.categoryheader').on("click", function(e){
+          
+
+          // $('#feeds-menu li').css("border-left", "5px solid white")
+            var category_id = $($(e.target).parent().get(0)).data('category');
+            $('#feeds-menu').data("category-selected", category_id)
+            colorboxes(category_id);
+          //   var feeds_in_category = $('.category' + category_id)
+          //   for (var i = 0 ; i < feeds_in_category.length; i++){
+          
+          // // var color = 'rgb(' + (0 + i * 100) + ',' + (245 - i * 50 ) + ',' + (245 - i * 50) + ')'
+          // var color = "hsl(" + i*60 + ",100%,50%)";
+          // $(feeds_in_category[i]).css("border-right", "5px solid " + color);
+          // $(feeds_in_category[i]).data("color", color);
+          
+        })
 
 
 });

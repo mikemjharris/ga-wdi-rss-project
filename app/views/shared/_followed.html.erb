@@ -1,0 +1,6 @@
+<div class='followed-users'>
+	<div class='follow-title'>Following</div>
+<% @user.followed_users.each do |followed| %>
+	<div class='article'><%= link_to "#{followed.first_name} #{followed.last_name}", timeline_user_path(followed), remote: true %></div>
+<% end %>
+</div>

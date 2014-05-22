@@ -24,3 +24,38 @@
 	margin-right: 5px;
 	font-size: 13px;
 }
+
+.category-box {
+	background-color: green;
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+	margin: 5px;
+	vertical-align: middle;
+}
+
+.follows-button {
+  display: inline-block;
+  width: 115px;
+  height: 30px;
+  background: $site-color;
+  padding: 5px;
+  text-align: center;
+  border: 3px solid #333333;
+  border-radius: 5px;
+  color: white;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+#follows-button {
+	margin-top: 10px;
+	text-align: center;
+}
+
+.follow-title {
+	background-color: $site-color;
+	color: white;
+	line-height: 30px;
+	padding-left: 10px;
+}
