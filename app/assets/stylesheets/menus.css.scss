@@ -4,8 +4,9 @@
  	
 }
 
+
 .active {
-  background:#D170A9;
+  background: $active; 
 }
 
 a {
@@ -47,7 +48,9 @@ a {
 		padding: 5px;
 		margin: 5px 1%;
 	}
+	
 	}
+
 
 
 #middle-menu{
@@ -56,7 +59,7 @@ a {
 	a {
 		padding: 3px 3px;
 		display: block;
-		transition: background 0.2s;
+		transition: all 0.2s;
 		&:hover {
 		background: darken($menu-item-color,20%);
 		color: black;
@@ -88,7 +91,11 @@ a {
 	}
 }
 
-
+#feeds-menu {
+	li:hover {
+		border-right: 5px solid darken($menu-item-color,20%);
+	}
+}
 #right-menu{
 	@extend #middle-menu;
 	
@@ -119,6 +126,16 @@ a {
 
 #feeds-menu li {
 	position: relative;
+	border-right: 5px solid white;
+	&.active {
+		border-right: 5px solid $active;
+	}
+	/*border-left: 5px solid white;*/
+
+	&.categoryheader{
+		border: none;
+		border-right: 5px solid lighten($site-color,20%);
+	}
 }
 
 .middle-title{
