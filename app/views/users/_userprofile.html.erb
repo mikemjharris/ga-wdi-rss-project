@@ -1,6 +1,6 @@
 <div class='middle-title' id='profile'>
   
-<% if @user.first_name == "" %>
+<% if @user.first_name == "" || @user.first_name.nil? %>
   
   User
 
