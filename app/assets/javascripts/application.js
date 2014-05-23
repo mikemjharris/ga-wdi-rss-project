@@ -125,7 +125,7 @@ function getReady() {
         for(var i = 0; i < articles.length; i++) {
               
             var htmlText = "<div class='wide-display' ><b>" + articles[i]["first_name"] + " " + articles[i]["last_name"] + "</b> has <b>added</b> an article to their <b>timeline</b>"
-             + "<a href='/articles/"+articles[i]["id"]+"'>"+articles[i]["title"]+"</a></div>"
+             + "<a href='/articles/"+articles[i]["id"]+"' data-remote='true'>"+articles[i]["title"]+"</a></div>"
       
            el = $(htmlText).insertAfter("#activity-stream");
 
