@@ -3,6 +3,18 @@
 	<% @users.each do |user| %>
 		<div class='user-search'>
 				<% unless user.id == current_user.id %>	
+
+					<div class="userimage_all">
+						<% if user.profile_picture_image.file %>
+      				<%= image_tag user.profile_picture_image %>
+    				<% elsif user.profile_image %>
+      				<%= image_tag user.profile_image %>
+    				<% else %>
+      				<img src="/assets/mega-phone-white.png" >
+    				<% end %> 
+    			</div>
+
+
 				<% if user.first_name.nil? || user.first_name == "" %>
 					<p> <%= user.email %> </p>
 				<% else %>
@@ -20,6 +32,8 @@
 					<% end %>
 				<% end %>
 			<% end %>
+
+
 		</div>
 	<% end %>
 	
