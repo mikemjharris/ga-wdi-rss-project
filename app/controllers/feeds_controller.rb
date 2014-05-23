@@ -6,8 +6,11 @@ class FeedsController < ApplicationController
   def send_xml
       user = User.find(params[:id])
       @articles = user.timeline_articles
+      respond_to do |format|
+        
+        format.html {render xml: @articles}
 
-      render xml: @articles
+      end
   end
 
   def create_external
