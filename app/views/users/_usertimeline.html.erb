@@ -1,7 +1,7 @@
 <% if @user.nil? %>
-	<a href="../feeds/update/send_xml/?id=<%= current_user.id %>"><div class="middle-title">Timeline</div></a>
+	<a href="../feeds/update/send_xml/?id=<%= current_user.id %>" target="_blank"><div class="middle-title">Timeline</div></a>
 <% else %>
-	<a href="../feeds/update/send_xml/?id=<%= @user.id %>"><div class="middle-title">Timeline</div></a>
+	<a href="../feeds/update/send_xml/?id=<%= @user.id %>" target="_blank"><div class="middle-title">Timeline</div></a>
 <% end %>
 
 
