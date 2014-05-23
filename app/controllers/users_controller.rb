@@ -42,6 +42,7 @@ before_filter :authenticate_user!
       
       respond_to do |format| 
         format.json {render json: b.reverse}
+
         format.html
       end
 	end
@@ -89,8 +90,8 @@ before_filter :authenticate_user!
   	end
 
   	def timeline
-  		user = User.find(params[:id])
-  		@articles = user.timeline_articles
+  		@user = User.find(params[:id])
+  		@articles = @user.timeline_articles
   		render 'timeline'
   	end
 

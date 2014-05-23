@@ -1,4 +1,9 @@
-<div class="middle-title">Timeline</div>
+<% if @user.nil? %>
+	<a href="../feeds/update/send_xml/?id=<%= current_user.id %>"><div class="middle-title">Timeline</div></a>
+<% else %>
+	<a href="../feeds/update/send_xml/?id=<%= @user.id %>"><div class="middle-title">Timeline</div></a>
+<% end %>
+
 
 <% @articles.each do |article| %>
 	<div class='wide-display'>

@@ -9,7 +9,6 @@ class TimelinesController < ApplicationController
 		respond_to do |format|
     		format.js {render '/articles/timeline.js.erb'}
     		format.html { redirect_to :back }
-
    		end	
 		
 	end

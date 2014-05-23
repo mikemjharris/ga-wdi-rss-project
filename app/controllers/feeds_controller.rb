@@ -3,6 +3,13 @@ class FeedsController < ApplicationController
 	def create
 	end
 
+  def send_xml
+      user = User.find(params[:id])
+      @articles = user.timeline_articles
+
+      render xml: @articles
+  end
+
   def create_external
 
       @feed = Feed.find_by_url(params[:url])
