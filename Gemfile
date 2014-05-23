@@ -13,6 +13,7 @@ gem 'ransack'
 gem 'public_activity'
 gem 'carrierwave', '= 0.9.0'
 gem 'rmagick'
+gem 'fog'
 
 
 gem 'omniauth'

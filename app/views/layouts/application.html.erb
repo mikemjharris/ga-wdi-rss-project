@@ -22,11 +22,15 @@
 
 <header>
   <div class="login">
-    <% if @user.profile_image %>
-      <img src ="<%= current_user.profile_image %>" >
-    <% elsif @user.profile_picture_image %>
-      <img src ="<%= current_user.profile_picture_image %>" >
-    <% end %>
+   
+
+    <% if @user.profile_picture_image.file %>
+        <%= image_tag @user.profile_picture_image %>
+    <% elsif @user.profile_image %>
+      <%= image_tag @user.profile_image %>
+    <% else %>
+      <img src="/assets/mega-phone-white.png" >
+    <% end %> 
 
     <% if user_signed_in? %>
       Hello <%= current_user.first_name %>. 
