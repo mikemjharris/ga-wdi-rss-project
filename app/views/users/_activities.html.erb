@@ -1,6 +1,6 @@
 
 <% if @activities.length > 0 %>
-  <div class='middle-title' id='activity-stream' data-since="<%= @activities.first.created_at.to_i %>">Recent Activity</div>
+  <div class='middle-title' id='activity-stream' data-since="<%= @activities.first.created_at.to_i %>" data-user="<%= current_user.id %>">Recent Activity</div>
 <% end %>
 
 <% @activities.each do |activity| %>
