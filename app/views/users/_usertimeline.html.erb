@@ -1,6 +1,6 @@
 <div class="middle-title">Timeline</div>
 
-<% @articles.reverse.each do |article| %>
+<% @articles.each do |article| %>
 	<div class='wide-display'>
 		<%= link_to article_path(article), remote: true do %>
 		      <%= article.title %>
