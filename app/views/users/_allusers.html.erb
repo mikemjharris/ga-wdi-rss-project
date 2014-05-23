@@ -21,7 +21,7 @@
 					<p><%= user.first_name %> <%= user.last_name %></p>
 				<% end %>
 
-			
+			<div id="followpicture">
 				<% if current_user.following?(user) %>
 					<%= link_to relationship_path(:id => user.id), method: :delete, remote: true do %>	
 						<div class='unfollow-button'></div>
@@ -31,6 +31,7 @@
 						<div class='follow-button'></div>
 					<% end %>
 				<% end %>
+			</div>
 			<% end %>
 
 

@@ -141,15 +141,21 @@ header {
 
 .userimage_all{
   img {
-    border: 2px solid white;
-    float: right;
-    
     vertical-align: middle;
+    width: 50px;
     height: 50px;
+    display: inline-block;
+    float: right;
   }
   }
 
-
+#followpicture{
+    display: inline-block;
+    img{
+    display: inline-block;
+    width: 45px;
+  }
+  }
 
 #login-right{
   right: 15px;
