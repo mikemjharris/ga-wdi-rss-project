@@ -1,11 +1,9 @@
 <div class="middle-small-title">Availiable Feeds</div>
 
-<div class="search">
+  <div class="search">
     <%= search_form_for @q do |f| %>
-     <!-- f.label :title_cont  -->
-    <%= f.text_field :title_cont, :placeholder => "Title contains" %>
-    
-    <%= f.submit %>
+      <%= f.text_field :title_cont, :placeholder => "Title contains" %>
+      <%= f.submit %>
     <% end %> 
   </div>
 
@@ -16,12 +14,13 @@
 <% @feeds.each do |feed| %>
   <% unless @subscriptions.include?(feed) %>
     <li id="feeds_feed_<%= feed.id %>">
-    <%= link_to feed.title, feed_path(feed), remote: true %>
-    <%= feed.description %>
-    <%= feed.url %>
-    <%= link_to "Subscribe", subscriptions_path(:feed_url => feed.url), method: "post", remote: true %>
+      <%= link_to feed.title, feed_path(feed), remote: true %>
+      <%= feed.description %>
+      <%= feed.url %>
+      <%= link_to "Subscribe", subscriptions_path(:feed_url => feed.url), method: "post", remote: true %>
     </li>
   <% end %>
 <% end %>
+</ul>
 
 

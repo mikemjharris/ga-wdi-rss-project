@@ -31,7 +31,15 @@
 
 
 </div><div id='middle-menu'>
-  <%= render 'activities' %>
+  
+  <% if @activities.length > 0 %>
+      <%= render 'activities' %>
+  <% else %> 
+      <%= render '/feeds/feed_url' %>
+      <%= render '/feeds/feeds' %>
+      
+   <% end %>  
+
 </div><div id='right-menu'>
   <%= render 'userprofile' %>
 </div>

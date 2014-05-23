@@ -22,6 +22,10 @@ before_filter :authenticate_user!
 
       @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.followed_users, owner_type: "User")
 
+      @q = Feed.search(params[:q])
+      @feeds = @q.result(:distinct => true)
+      @subscriptions = current_user.feeds
+
       b = []
       @activities.each do |activity|
           if activity.created_at.to_i > params[:since].to_i
