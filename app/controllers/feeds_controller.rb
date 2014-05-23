@@ -73,7 +73,7 @@ class FeedsController < ApplicationController
 
     # if params[:q].nil?
       @q = Feed.search(params[:q])
-      @feeds = @q.result(:distinct => true)
+      @feeds = @q.result(:distinct => true).order("created_at desc")
     # else  
       # @feeds = Feed.all
     # end

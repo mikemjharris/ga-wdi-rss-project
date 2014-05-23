@@ -13,7 +13,7 @@
 <% elsif @user.profile_image %>
     <div class='profile-picture'><%= image_tag @user.profile_image %></div>
   <% else %>
-      <div class='profile-picture category-box category-box-background'></div>
+      <div class='profile-picture'> <img src="/assets/mega-phone-white.png" ></div>
   <% end %> 
 
   <div class='bio'><%= @user.bio %></div>

@@ -137,7 +137,7 @@ mount_uploader :profile_picture_image, ProfilePictureImageUploader
             var postit = document.createElement('a');
             var postit_text = document.createTextNode('Add to Yakety');
             postit.appendChild(postit_text);
-            postit.href = 'http://localhost:3000/feeds/update/addexternal?url=' + myElements[i].href;
+            postit.href = 'http://yakety.herokuapp.com/feeds/update/addexternal?url=' + myElements[i].href;
             postit.setAttribute('style','color: white; margin-right: 100px; font-weight: bold; display: inline-block; margin-left: 100px');
             list.appendChild(postit);  
           
