@@ -115,7 +115,7 @@ function getReady() {
       var updateArticles = function() {
         $.ajax({
           type: "get",
-          url: "/users/1",
+          url: "/users/" + $('#activity-stream').data('user'),
           data: $('#activity-stream').data()       
         }).done(upDateArticlePage)
       }
