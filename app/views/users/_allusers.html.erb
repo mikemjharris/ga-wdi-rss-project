@@ -3,7 +3,7 @@
 	<% @users.each do |user| %>
 		<div class='user-search'>
 				<% unless user.id == current_user.id %>	
-				<% if user.first_name.nil? %>
+				<% if user.first_name.nil? || user.first_name == "" %>
 					<p> <%= user.email %> </p>
 				<% else %>
 					<p><%= user.first_name %> <%= user.last_name %></p>
